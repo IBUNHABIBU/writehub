@@ -203,17 +203,19 @@ This project is [MIT](LICENCE) licensed.
 
         Add the following 
 ```        
-DATABASE_URL=postgresql://postgres:PASSWORD@127.0.0.1/ukandablog
+DATABASE_URL=postgresql://postgres:Voda#0763@127.0.0.1/linodeblog
 
-RAILS_MASTER_KEY=b1be22677a49949ea995f84b8f5c233f
-SECRET_KEY_BASE=474937fc52a30cc5fbeebea8dd9ac15d8b7ee4693197c0ef921a8af57b6c17035d914f4a3e795ac22d4347e926ff5b00de54577>
+RAILS_MASTER_KEY=e62d2f3bb20107aa2a25694b3cb9307b
+SECRET_KEY_BASE=375bc87993b000ff305cdce6cf5e355d0366a7633a0c18637d41163cb8b4343d6138cad6bf078bb63f48277134e5b9423fc20145f966ca4cecc22b01a3f7d56e
+
 ```
        - See list of users
         `sudo -u postgres psql`
          `postgres=# \du`
 
         - Create database
-        `sudo -u postgres createdb linodeblog`
+          `sudo su - postgres`
+          `createdb -O postgres linodeblog`
 
         - See list of databases
           `postgres=# \l`
@@ -221,4 +223,6 @@ SECRET_KEY_BASE=474937fc52a30cc5fbeebea8dd9ac15d8b7ee4693197c0ef921a8af57b6c1703
         - Connect to database
           `sudo -u postgres psql linodeblog`
           `linodeblog=# \dt`
-          `psql -U deploy -W -h 127.0.0.1 -d linodeblog` Make sure to use 127.0.0.1
+        
+        exit the database and type the below command
+          `psql -U deploy -W -h 127.0.0.1 -d linodeblog_production` 
