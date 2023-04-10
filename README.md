@@ -211,6 +211,9 @@ SECRET_KEY_BASE=474937fc52a30cc5fbeebea8dd9ac15d8b7ee4693197c0ef921a8af57b6c1703
        - See list of users
         `sudo -u postgres psql`
          `postgres=# \du`
-         
+
         - Create database
         `sudo -u postgres createdb linodeblog`
+
+        - See list of databases
+          `postgres=# \l`
