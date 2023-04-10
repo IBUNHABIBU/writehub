@@ -151,3 +151,46 @@ This project is [MIT](LICENCE) licensed.
 [stars-url]: https://github.com/IBUNHABIBU/lifestyle_articles/stargazers
 [issues-shield]: https://img.shields.io/github/issues/IBUNHABIBU/lifestyle_articles.svg?style=flat-square
 [issues-url]: https://github.com/IBUNHABIBU/lifestyle_articles/issues
+
+
+
+## Configuration
+1. Passenger 
+    - Open passenger config file
+       `sudo nano /etc/nginx/conf.d/mod-http-passenger.conf`
+    - Add the following lines
+        `passenger_ruby /home/deploy/.rbenv/shims/ruby;`
+    - Restart nginx
+        `sudo service nginx restart`
+
+2. Nginx
+    - Open nginx config file 
+         `sudo nano /etc/nginx/sites-enabled/linodeblog`
+    - Add the following lines
+```
+      server {
+      listen 80;
+      listen [::]:80;
+
+      server_name _;
+      root /home/deployer/linodeblog/current/public;
+
+        passenger_enabled on;
+        passenger_app_env production;
+
+        location /cable {
+          passenger_app_group_name linodeblog_websocket;
+          passenger_force_max_concurrent_requests_per_process 0;
+        }
+
+        # Allow uploads up to 100MB in size
+        client_max_body_size 100m;
+
+        location ~ ^/(assets|packs) {
+          expires max;
+          gzip_static on;
+        }
+      }
+```
+    - Restart nginx
+        `sudo service nginx restart`
