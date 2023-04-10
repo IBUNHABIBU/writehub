@@ -1,12 +1,20 @@
 # config valid for current version and patch releases of Capistrano
-lock "~> 3.17.2"
+lock "~> 3.17.1"
 
-set :application, "my_app_name"
-set :repo_url, "git@example.com:me/my_repo.git"
+set :application, "linodeblog"
+set :repo_url, "git@github.com:IBUNHABIBU/linodeblog.git"
+
+set :rbenv_type, :user
+set :rbenv_ruby, '3.0.1'
+
+# Deploy to the user's home directory
+set :deploy_to, "/home/deployer/#{fetch :application}"
+
+append :linked_dirs, 'log', 'tmp/pids', 'tmp/cache', 'tmp/sockets', 'vendor/bundle', '.bundle', 'public/system', 'public/uploads'
 
 # Default branch is :master
 # ask :branch, `git rev-parse --abbrev-ref HEAD`.chomp
-
+set :branch, ENV['BRANCH'] || 'main'
 # Default deploy_to directory is /var/www/my_app_name
 # set :deploy_to, "/var/www/my_app_name"
 
@@ -33,7 +41,7 @@ set :repo_url, "git@example.com:me/my_repo.git"
 # set :local_user, -> { `git config user.name`.chomp }
 
 # Default value for keep_releases is 5
-# set :keep_releases, 5
+set :keep_releases, 5
 
 # Uncomment the following to require manually verifying the host key before first deploy.
 # set :ssh_options, verify_host_key: :secure

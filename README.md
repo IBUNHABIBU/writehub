@@ -194,3 +194,23 @@ This project is [MIT](LICENCE) licensed.
 ```
     - Restart nginx
         `sudo service nginx restart`
+
+3. Database
+     - create project directory
+        `mkdir /home/deployer/linodeblog`
+      - Add the environment variables
+        `nano /home/deployer/linodeblog/.rbenv-vars`
+
+        Add the following 
+```        
+DATABASE_URL=postgresql://postgres:PASSWORD@127.0.0.1/ukandablog
+
+RAILS_MASTER_KEY=b1be22677a49949ea995f84b8f5c233f
+SECRET_KEY_BASE=474937fc52a30cc5fbeebea8dd9ac15d8b7ee4693197c0ef921a8af57b6c17035d914f4a3e795ac22d4347e926ff5b00de54577>
+```
+       - See list of users
+        `sudo -u postgres psql`
+         `postgres=# \du`
+         
+        - Create database
+        `sudo -u postgres createdb linodeblog`
