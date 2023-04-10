@@ -217,3 +217,8 @@ SECRET_KEY_BASE=474937fc52a30cc5fbeebea8dd9ac15d8b7ee4693197c0ef921a8af57b6c1703
 
         - See list of databases
           `postgres=# \l`
+
+        - Connect to database
+          `sudo -u postgres psql linodeblog`
+          `linodeblog=# \dt`
+          `psql -U deploy -W -h 127.0.0.1 -d linodeblog` Make sure to use 127.0.0.1
