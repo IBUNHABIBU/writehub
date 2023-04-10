@@ -226,3 +226,9 @@ SECRET_KEY_BASE=375bc87993b000ff305cdce6cf5e355d0366a7633a0c18637d41163cb8b4343d
         
         exit the database and type the below command
           `psql -U deploy -W -h 127.0.0.1 -d linodeblog_production` 
+
+4. Logs 
+    # To view the Rails logs
+    less /home/deployer/linodeblog/current/log/production.log
+    # To view the NGINX and Passenger logs
+    sudo less /var/log/nginx/error.log
