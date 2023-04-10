@@ -1,0 +1,20 @@
+<div class="form form--sm">
+  <div class="form__container">
+  <h2>Create new category</h2>
+    <%= form_for(@category, data: { turbo: false }) do |f| %>
+     <%= render 'shared/errors', object: @category %>
+          <div class="input-box">
+            <%= f.text_field :name, required: "required" %>
+            <span>Category Name</span>
+            <i></i>
+          </div>
+          <div class="input-box">
+            
+            <%= f.text_field :priority,  required: "required" %>
+            <span>Priority</span>
+            <i></i>
+          </div>
+          <%= f.submit "Create category", class: "btn btn--mid" %>
+    <% end %>
+  </div>
+</div>

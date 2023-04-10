@@ -1,0 +1,35 @@
+<div class="form form--large">
+  <div class="form__container">
+  <h2>Register</h2>
+    <%= form_for(@user, data: { turbo: false }) do |f| %>
+     <%= render 'shared/errors', object: @user %>
+          <div class="input-box">
+            <%= f.text_field :name, required: "required" %>
+            <span>Username</span>
+            <i></i>
+          </div>
+          <div class="input-box">
+            
+            <%= f.email_field :email, required: "required" %>
+            <span>Email</span>
+            <i></i>
+          </div>
+          <div class="input-box">
+            <%= f.password_field :password, required: "required"  %>
+            <span>Password</span>
+            <i></i>
+          </div>
+          <div class="input-box">
+            <%= f.password_field :password_confirmation, required: "required" %>
+            <span>password Confirmation</span>
+            <i></i>
+          </div>
+  
+        <% if @user.new_record? %>
+          <%= f.submit "Create account", class: "btn btn--mid" %>
+        <% else%>
+          <%= f.submit "Update account", class: "btn" %>
+          <% end %>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,22 @@
+<div class="form">
+    <div class="form__container">
+            <h2>Sign In</h2>
+        <%= form_with url: login_path, scope: :session, data: { turbo: false } do |f| %>
+            <div class="input-box">
+                <%= f.email_field :email, required: "required" %>
+                <span>Email</span>
+                 <i></i>
+            </div>
+            <div class="input-box">
+                <%= f.password_field :password, required: "required" %>
+                <span>Password</span>
+                <i></i>
+            </div>
+            <div class="links">
+                <%= link_to "Forgot your password?", '#' %>
+                <%= link_to "Sign Up", new_user_path %>
+            </div>
+            <%= f.submit "Sign in", class: "btn" %>
+        <% end %>
+    </div>
+</div>

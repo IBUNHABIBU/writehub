@@ -1,0 +1,28 @@
+// Entry point for your Sass build
+// Mixins
+@import "mixins/media";
+@import "mixins/width_and_height";
+
+// Configuration
+@import "config/variables";
+@import "config/reset";
+
+// Components
+@import "components/button";
+@import "components/error_messages";
+@import "components/form";
+// @import "components/visually_hidden";
+// @import "components/quote";
+@import "components/logo";
+
+// Layouts
+// @import "layouts/container";
+@import "layouts/header";
+// @import "layouts/section";
+@import "layouts/home_page";
+@import "layouts/footer";
+@import "layouts/show";
+@import "layouts/category_show";
+
+// add font-awesome
+

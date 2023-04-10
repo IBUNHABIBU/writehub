@@ -1,0 +1,138 @@
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    z-index: 24;
+    background-image: linear-gradient(
+        to bottom, 
+        #fff 0%,
+        #fff 80%,
+        #fff 90%,
+        #fff 90%,
+        #836a6a 20%
+    );
+
+    &::before {
+        content: "";
+        width: 18rem;
+        height: 0.4rem;
+        background-color: red;
+        position: absolute;
+        top: 4.3rem;
+    }
+    
+    &__menu {
+        display: flex;
+        li {
+            padding-left: 1rem;
+            list-style: none;
+            &:first-child {
+                a {
+                    color:#f76107;
+                }
+            }
+        }
+
+        &__item {
+            text-align:center;
+            text-decoration:none;
+            font-size:1.2rem;
+            text-transform:uppercase;
+            color:#787980;
+
+            &:hover {
+                color: $color-text-header;
+            }
+        }
+
+        &__item {
+            &--line {
+                border-right: 4px solid #787980;
+                padding-right: 0.6rem;
+                margin-right: 2px;
+            }
+        }
+        
+    }
+
+    &__user {
+        
+        position: relative;
+        ul {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+          
+         .create {
+            a{
+                text-transform: capitalize;
+                text-decoration: wavy;
+                
+                color: $color-nav-items;
+
+                &:hover {
+                    text-decoration: wavy;
+                    color: #f9a70d;
+                    border-bottom: 4px solid #787980;
+                }
+            }
+          }
+          .dropdown {
+            position: relative;
+            display: flex;
+            flex-direction: column;
+            background-color: white;
+            width: 8rem;
+
+            &:hover {
+              .dropdown-menu {
+                opacity: 1;
+                visibility: visible;
+                top: 34px;
+                z-index: 72;
+              }
+            }
+
+            .dashboard {
+              display: flex;
+              justify-content: space-between;
+              width: 100%;
+            }
+          }
+
+          li {
+            list-style: none;
+            margin-right: 1rem;
+
+            .fa-search {
+                position: relative;
+                top: 0.2rem;
+                font-size: 1.6rem;
+                color: $color-nav-items;
+            }
+
+            .dropdown-menu {
+                display: flex;
+                flex-direction: column;
+                position: absolute;
+                width: 100%;
+                padding-left: 0.9rem;
+                top: 50px;
+                left: 0;
+                opacity: 0;
+                visibility: hidden;
+                background-color: white;
+                z-index: 12;
+
+                li {
+                    width: 100%;
+                    a {
+                        font-size: 1.2rem;
+                    }
+                }
+            }
+
+          }
+        }
+    }
+}

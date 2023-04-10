@@ -1,0 +1,82 @@
+.category-show {
+    height: 544px;
+    &__container {
+        &__flex {
+            display:flex;
+            flex-wrap:wrap;    
+            
+            .empty-message {
+                width:100%;
+                height:100%;
+                display:flex;
+                justify-content:center;
+                align-items:center;
+                font-size:1.5rem;
+                color:#756d69;
+                padding-top: 4rem;
+            }
+            .item {
+                display:flex;
+                width:667px;
+                height:268px;
+
+                img {
+                    width:300px;
+                    height:268px;
+                }
+
+                border: 0.1px dotted $color-nav-items;
+                .content {
+                    width:50%;
+                    height:300px;
+                    padding-left:1rem;
+
+                    &__category {
+                        
+                        .category--name {
+                            font-weight:bold;
+                            border-bottom:3px solid #9a9014;
+                            padding-bottom: 0.1rem;
+                            color:#9a9014;
+                            text-decoration: none;
+                            margin-bottom: 1.1rem;
+                            width:8rem;
+                            position: relative;
+                            bottom: 0; 
+                            left: 0rem; 
+                        }
+                    }
+
+                    &__title {
+                        a {
+                            color:#756d69;
+                            font-weight:bold;
+                            text-decoration:none;
+
+                            &:hover {
+                                color:#f9a623;
+                                font-weight:bold;
+                            }
+                        }
+                    }
+                    
+                    &__body {
+                        font-size: 1rem;
+                        color:#756d69;
+                        
+                    }
+                 
+               }
+               &:nth-child(3) {
+                display: flex;
+                flex-direction: row-reverse;
+              }
+
+              &:nth-child(4) {
+                display: flex;
+                flex-direction: row-reverse;
+              }
+            }
+        }
+    }
+}
