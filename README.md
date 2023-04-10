@@ -210,7 +210,7 @@ cloudinary:
   api_key: 769113622111229
   api_secret: Hn9u7sxsnGC-x0-C8uVARBZGKEE
   
-RAILS_MASTER_KEY=e62d2f3bb20107aa2a25694b3cb9307b
+RAILS_MASTER_KEY=6217fc86873ab930d784729a98241540
 SECRET_KEY_BASE=375bc87993b000ff305cdce6cf5e355d0366a7633a0c18637d41163cb8b4343d6138cad6bf078bb63f48277134e5b9423fc20145f966ca4cecc22b01a3f7d56e
 
 ```
@@ -230,7 +230,7 @@ SECRET_KEY_BASE=375bc87993b000ff305cdce6cf5e355d0366a7633a0c18637d41163cb8b4343d
           `linodeblog=# \dt`
         
         exit the database and type the below command
-          `psql -U deploy -W -h 127.0.0.1 -d linodeblog_production` 
+          `psql -U postgres -W -h 127.0.0.1 -d linodeblog_production` 
 
 4. Logs 
     # To view the Rails logs
