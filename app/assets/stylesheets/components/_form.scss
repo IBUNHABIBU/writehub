@@ -1,7 +1,9 @@
+@import '../config/variables';
+
 .form {
     position: relative;
     @include width_and_height(30%, 60vh);
-    background-color: $color-header-bg;
+    background-color: $form-color;
     overflow: hidden;
 
     &--sm {
@@ -23,7 +25,7 @@
         left: -50%;
         width: $form-width;
         height: $form-height;
-        background: linear-gradient(0deg, transparent, transparent, $color-text-section, $color-text-section);
+        background: linear-gradient(0deg, transparent, transparent, $form-color, $form-color);
         transform-origin: bottom right;
         animation: animate 6s linear infinite;
     }
@@ -35,7 +37,7 @@
         left: -50%;
         width: $form-width;
         height: $form-height;
-        background: linear-gradient(0deg, transparent, transparent, $color-text-section, $color-text-section);
+        background: linear-gradient(0deg, transparent, transparent, $form-color, $form-color);
         transform-origin: bottom right;
         animation: animate 6s linear infinite;
         animation-delay: -3s;
@@ -44,7 +46,7 @@
     &__container {
         position: absolute;
         inset: 2px;
-        background-color: $color-header-bg;
+        background-color: $color-text-header;
         border-radius: 8px;
         z-index: 10;
         padding: 40px 50px;
@@ -52,7 +54,7 @@
         flex-direction: column;
 
         h2 {
-            color: $color-text-section;
+            color: $color-primary-bg;
             font-weight: 500;
             text-align: center;
             letter-spacing: 0.1rem;
@@ -80,7 +82,7 @@
                         span {
                             transform: translateX(-10px) translateY(-34px);
                             font-size: 0.8rem;
-                            color: $color-text-section;
+                            color: $color-primary-bg;
                         }
                         i {
                             height: 90%;
@@ -95,7 +97,7 @@
                         span {
                             transform: translateX(-10px) translateY(-34px);
                             font-size: 0.8rem;
-                            color: $color-text-section;
+                            color: $color-primary-bg;
                         }
                         i {
                             height: 90%;
@@ -113,7 +115,7 @@
                 padding: 20px 10px 10px;
                 font-size: 1em;
                 pointer-events: none;
-                color: $color-text-muted;
+                color: $color-primary-bg;
                 letter-spacing: 0.05rem;
                 transition: 0.5s;
             }
@@ -135,7 +137,7 @@
                 bottom: 0;
                 width: 100%;
                 height: 2px;
-                background-color: $color-text-section;
+                background-color: $color-primary-bg;
                 border-radius: 4px;
                 transition: 0.5s;
                 pointer-events: none;

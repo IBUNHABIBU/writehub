@@ -1,8 +1,7 @@
 <div class="home">
    <div class="home__top">
       <div class="slider">
-         
-            <div class="slider__overlay"></div>
+      <div class="slider__overlay"></div>
       <% @most_rated_articles.each do |article| %>
          <% if article.image.attached? %>
             <div class="slider__bg" style="background: url(<%= cloudinary_url(article.image.key) %>);background-repeat: no-repeat; background-size: 100% 100%;">
