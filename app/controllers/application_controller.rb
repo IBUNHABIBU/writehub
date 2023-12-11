@@ -1,5 +1,20 @@
 class ApplicationController < ActionController::Base
     
+  # before_action :set_user_location
+
+  # def set_user_location
+  #   if request.location.present?
+  #     @user_latitude = request.location.latitude
+  #     @user_longitude = request.location.longitude
+  #     location_info = Geocoder.search([@user_latitude, @user_longitude])
+  #     @user_city = location_info.first.city
+
+  #   #   # Fetch city image from Unsplash
+  #     search_results = Pexels::Photo.search(@user_city, per_page: 1)
+  #     @city_image_url = search_results.photos.first&.src&.original
+  #   end
+  # end
+
     private
 
     def current_user

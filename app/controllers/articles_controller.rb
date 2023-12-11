@@ -1,14 +1,21 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy vote]
   before_action :require_signin, except: %i[index show]
+  before_action :set_coordinates, only: [:index, :update_coordinates]
   # respond_to :js, :json, :html
 
   # GET /articles
   # GET /articles.json
   def index
+    logger.debug "*********************###############**********************"
+    logger.debug "Home page"
+   
     @articles = Article.all
     @recent_articles = Article.recent
     @most_rated_articles = Article.most_rated
+
+     # Example coordinates, you can get these from the user's location
+    @weather_info = WeatherService.fetch_weather_and_image(@coordinates[0], @coordinates[1])
   end
 
   # GET /articles/1
@@ -66,7 +73,18 @@ class ArticlesController < ApplicationController
     end
   end
 
+  def update_coordinates
+    session[:coordinates] = [params[:latitude].to_f, params[:longitude].to_f]
+    respond_to do |format|
+      format.turbo_stream
+    end
+  end
+
   private
+
+  def set_coordinates
+    @coordinates = session[:coordinates] || [-6.75216, 39.23389] # Default to San Francisco coordinates
+  end
 
   # Use callbacks to share common setup or constraints between actions.
   def set_article

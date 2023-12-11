@@ -1,4 +1,4 @@
-<div class="home">
+<div class="home" data-controller="geolocation" data-action="geolocation#updateCoordinates">
    <div class="home__top">
       <div class="slider">
       <div class="slider__overlay"></div>
@@ -16,7 +16,17 @@
       <% end %>
       </div>
       <div class="weather">
-           <%= image_tag('weather.jpg', :alt => "weather pic") %>
+          <div class="weather__container">
+          <% if @weather_info[:city_image] %>
+            <%= image_tag @weather_info[:city_image], alt: 'City Image' %>
+            <% else %>
+            <p>No image available for this city.</p>
+         <% end %>
+            <h4> <%= @weather_info[:city_name] %></h4>
+            <h6><%= @weather_info[:weather_data]['main']['description'] %></h6>
+            <h2><%= @weather_info[:weather_data]['main']['temp'] %>°</h2>
+            <p><%= @weather_info[:weather_data]['main']['humidity'] %>%</p>
+          </div>
       </div>
    </div>
    <div class="home__recent">

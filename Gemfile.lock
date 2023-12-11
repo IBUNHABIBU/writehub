@@ -123,11 +123,15 @@ GEM
     ffi (1.15.5)
     font-awesome-sass (6.2.1)
       sassc (~> 2.0)
+    geocoder (1.8.2)
     globalid (1.1.0)
       activesupport (>= 5.0)
     http-accept (1.7.0)
     http-cookie (1.0.5)
       domain_name (~> 0.5)
+    httparty (0.21.0)
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
     image_processing (1.12.2)
@@ -159,6 +163,7 @@ GEM
     mini_mime (1.1.2)
     minitest (5.18.0)
     msgpack (1.7.0)
+    multi_xml (0.6.0)
     net-http (0.3.2)
       uri
     net-imap (0.3.4)
@@ -177,6 +182,12 @@ GEM
     nio4r (2.5.9)
     nokogiri (1.14.2-x86_64-linux)
       racc (~> 1.4)
+    open-uri (0.4.1)
+      stringio
+      time
+      uri
+    pexels (0.5.0)
+      requests (~> 1.0.2)
     pg (1.4.6)
     public_suffix (5.0.1)
     puma (5.6.5)
@@ -216,6 +227,7 @@ GEM
     regexp_parser (2.7.0)
     reline (0.3.3)
       io-console (~> 0.5)
+    requests (1.0.2)
     rest-client (2.1.0)
       http-accept (>= 1.7.0, < 2.0)
       http-cookie (>= 1.0.2, < 2.0)
@@ -260,7 +272,10 @@ GEM
       net-ssh (>= 2.8.0)
     stimulus-rails (1.2.1)
       railties (>= 6.0.0)
+    stringio (3.1.0)
     thor (1.2.1)
+    time (0.3.0)
+      date
     timeout (0.3.2)
     turbo-rails (1.4.0)
       actionpack (>= 6.0.0)
@@ -305,10 +320,15 @@ DEPENDENCIES
   debug
   factory_bot_rails
   font-awesome-sass (~> 6.2.1)
+  geocoder
+  httparty
   image_processing (~> 1.2)
   jbuilder
   jsbundling-rails
+  mini_magick
   net-http
+  open-uri
+  pexels
   pg (~> 1.1)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
