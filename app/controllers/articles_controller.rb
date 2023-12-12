@@ -83,7 +83,7 @@ class ArticlesController < ApplicationController
   private
 
   def set_coordinates
-    @coordinates = session[:coordinates] || [-6.75216, 39.23389] # Default to San Francisco coordinates
+    @coordinates = session[:coordinates] || [ 25.276987, 55.296249] # Default to San Francisco coordinates
   end
 
   # Use callbacks to share common setup or constraints between actions.
