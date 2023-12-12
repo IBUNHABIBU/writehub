@@ -7,9 +7,7 @@ class ArticlesController < ApplicationController
   # GET /articles
   # GET /articles.json
   def index
-    logger.debug "*********************###############**********************"
-    logger.debug "Home page"
-   
+
     @articles = Article.all
     @recent_articles = Article.recent
     @most_rated_articles = Article.most_rated
