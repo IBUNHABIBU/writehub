@@ -2,30 +2,17 @@
    <div class="home__top">
       <div class="slider">
       <div class="slider__overlay"></div>
-      <% @most_rated_articles.each do |article| %>
-         <% if article.image.attached? %>
-            <div class="slider__bg" style="background: url(<%= cloudinary_url(article.image.key) %>);background-repeat: no-repeat; background-size: 100% 100%;">
-               <div class="slider__bg__title" id="rated_title">
-                  <%=  link_to "#{article.title}", article_path(article), class:"title-link" %>
-               </div>
-               <div class="slider__bg__content">
-                     <%= truncate(article.content, length:100, separator:' ') %>
-               </div>
-            </div>
-            <% end %>   
+      <% @most_rated_articles.each do |most_rated_article| %>
+         <%= render most_rated_article, obj:@most_rated_articles %>  
       <% end %>
       </div>
-      <div class="weather">
-          <div class="weather__container">
-          <% if @weather_info[:city_image] %>
-            <%= image_tag @weather_info[:city_image], alt: 'City Image' %>
-            <% else %>
-            <p>No image available for this city.</p>
-         <% end %>
-            <h4> <%= @weather_info[:city_name] %></h4>
-            <h6><%= @weather_info[:weather_data]['main']['description'] %></h6>
-            <h2><%= @weather_info[:weather_data]['main']['temp'] %>°</h2>
-            <p><%= @weather_info[:weather_data]['main']['humidity'] %>%</p>
+          <div class="weather"
+           style="background-image: linear-gradient(to right bottom,rgba(174, 131, 81, 0.983), rgba(157, 103, 42, 0.906)) ,url(<%= @weather_info[:city_image] %>);background-repeat: no-repeat ;">
+           <div class ="weather__container">  
+               <h4> <%= @weather_info[:city_name] %></h4>
+               <h6><%= @weather_info[:weather_data]['main']['description'] %></h6>
+               <h2><%= @weather_info[:weather_data]['main']['temp'] %>°</h2>
+               <p><%= @weather_info[:weather_data]['main']['humidity'] %>%</p>
           </div>
       </div>
    </div>

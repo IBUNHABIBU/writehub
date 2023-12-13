@@ -19,6 +19,7 @@ class ArticlesController < ApplicationController
   # GET /articles/1
   # GET /articles/1.json
   def show
+    console
     @likers = @article.likers
     @current_like = current_user.likes.find_by(article_id: @article.id) if current_user
   end

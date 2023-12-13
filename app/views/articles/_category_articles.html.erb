@@ -7,7 +7,7 @@
     <% obj.each do |article| %>
         <div class="item">
             <div class="image">
-                <%= cl_image_tag(article.image.key) %>
+                <%= article.image %>
             </div>
             <div class="content">
                 <% if article.categories.any? %>

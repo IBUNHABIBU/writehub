@@ -12,16 +12,11 @@
 }
 .weather {
     width: 25%;
-    background-size: cover;
     background-position: center;
-    background-repeat: no-repeat;
-    background-color: rgb(0, 0, 0);
-
+    background-size: cover;
     &__container {
-        background-color: rgba(255, 255, 255, 0.06);
-        backdrop-filter: blur(20px);
-        border: 1px solid rgb(128, 0, 23);
-        width: 90%;
+        background-color: linear-gradient(rgba(157, 103, 42, 0.96), rgba(174, 131, 81, 0.932));
+        backdrop-filter: opacity(0.5);
 
         h4 {
             letter-spacing: 0.4rem;
