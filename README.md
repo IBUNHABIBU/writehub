@@ -172,7 +172,7 @@ This project is [MIT](LICENCE) licensed.
       listen 80;
       listen [::]:80;
 
-      server_name _;
+      server_name domainname.com www.domainname.com;
       root /home/deployer/linodeblog/current/public;
 
         passenger_enabled on;
