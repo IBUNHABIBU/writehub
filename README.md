@@ -231,3 +231,32 @@ DATABASE_URL=postgresql://postgres:fancypswd@127.0.0.1/myapp
     less /home/deployer/linodeblog/current/log/production.log
     # To view the NGINX and Passenger logs
     `sudo less /var/log/nginx/error.log` then type shift + G to go down to the very bottom of the error logs
+
+
+
+2. **Start a `screen` Session**: Start a new `screen` session by typing:
+
+    ```
+    screen -S linodeblog
+    ```
+
+3. **Start Your Rails Server**:
+
+    ```
+    sudo service nginx restart
+    ```
+
+   This command will restart Nginx, and it should pick up your linode Rails application through Passenger.
+
+4. **Detach from the `screen` Session**: To detach from the `screen` session without stopping your Rails server (which is managed by Nginx and Passenger), press `Ctrl+a` followed by `d`. You'll return to your regular shell.
+
+5. **Close your SSH session**: Now you can safely close your SSH session, and your Nginx server with Passenger should continue to serve your linode Rails application.
+
+6. **Reattach to the `screen` Session (Optional)**: If you need to reattach to your `screen` session later to check logs or manage your application, SSH back into your server and run:
+
+    ```
+    screen -r linode
+    ```
+
+
+By using `screen`, you can keep your session running and access it later if needed, although typically with Nginx and Passenger, you won't need to interact with your Rails server directly once it's configured and running properly.
