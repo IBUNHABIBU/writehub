@@ -230,4 +230,4 @@ DATABASE_URL=postgresql://postgres:fancypswd@127.0.0.1/myapp
     # To view the Rails logs
     less /home/deployer/linodeblog/current/log/production.log
     # To view the NGINX and Passenger logs
-    sudo less /var/log/nginx/error.log
+    `sudo less /var/log/nginx/error.log` then type shift + G to go down to the very bottom of the error logs
