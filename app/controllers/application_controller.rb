@@ -16,7 +16,7 @@ class ApplicationController < ActionController::Base
       # search_results = Pexels::Photo.search(@user_city, per_page: 1)
       client = Pexels::Client.new(Rails.application.credentials.pexels[:key])
       search_results = client.photos.search(@user_city, per_page: 1)
-      @city_image_url = search_results.photos.first&.src&.original
+      @city_image_url = search_results.photos.first
     end
   end
 
