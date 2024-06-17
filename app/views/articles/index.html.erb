@@ -20,3 +20,7 @@
       <%= render 'recent_article', obj:@recent_articles %>
    </div>
 </div>
+
+<div data-controller="geolocation">
+  <button data-action="click->geolocation#updateCoordinates">Update Coordinates</button>
+</div>

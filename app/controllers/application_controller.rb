@@ -7,8 +7,8 @@ class ApplicationController < ActionController::Base
       @user_latitude = request.location.latitude
       @user_longitude = request.location.longitude
       
-      @user_latitude = -6.75234
-      @user_longitude = 39.2396
+      # @user_latitude = -6.75234
+      # @user_longitude = 39.2396
       location_info = Geocoder.search([@user_latitude, @user_longitude])
       @user_city = location_info.first.city
 
