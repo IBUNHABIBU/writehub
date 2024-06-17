@@ -6,11 +6,16 @@ class ApplicationController < ActionController::Base
     if request.location.present?
       @user_latitude = request.location.latitude
       @user_longitude = request.location.longitude
+      
+      @user_latitude = -6.75234
+      @user_longitude = 39.2396
       location_info = Geocoder.search([@user_latitude, @user_longitude])
       @user_city = location_info.first.city
 
     #   # Fetch city image from Unsplash
-      search_results = Pexels::Photo.search(@user_city, per_page: 1)
+      # search_results = Pexels::Photo.search(@user_city, per_page: 1)
+      client = Pexels::Client.new(Rails.application.credentials.pexels[:key])
+      search_results = client.photos.search(@user_city, per_page: 1)
       @city_image_url = search_results.photos.first&.src&.original
     end
   end
