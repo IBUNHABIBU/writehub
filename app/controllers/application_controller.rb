@@ -3,9 +3,13 @@ class ApplicationController < ActionController::Base
   before_action :set_user_location
 
   def set_user_location
+    logger.info '***********************Rendering the applicaton controller********************'
+    logger.info 'Set locatio'
     if request.location.present?
       @user_latitude = request.location.latitude
       @user_longitude = request.location.longitude
+
+      logger.info "loging latitude #{@user_latitude}"
       
       # @user_latitude = -6.75234
       # @user_longitude = 39.2396
