@@ -20,7 +20,8 @@ module Railstarter
     # config.eager_load_paths << Rails.root.join("extras")
 
     Geocoder.configure(
-      lookup: :google,
+      timeout: 5,                 # geocoding service timeout (secs)
+      lookup: :ipinfo_io, 
       api_key: Rails.application.credentials.google_api[:key],
       use_https: true,
       units: :km
