@@ -6,11 +6,12 @@ class ApplicationController < ActionController::Base
     logger.info '***********************Rendering the applicaton controller********************'
     logger.info 'Set locatio'
     if request.location.present?
+      begin
       @user_latitude = request.location.latitude
       @user_longitude = request.location.longitude
 
       logger.info "loging latitude #{request.location}"
-      logger.info "loging longitude #{request.location.present?}"
+      logger.info "loging longitude #{request.location.latitude}"
       
       # @user_latitude = -6.75234
       # @user_longitude = 39.2396
@@ -22,7 +23,17 @@ class ApplicationController < ActionController::Base
       client = Pexels::Client.new(Rails.application.credentials.pexels[:key])
       search_results = client.photos.search(@user_city, per_page: 1)
       @city_image_url = search_results.photos.first
+
+      rescue => e
+        Rails.logger.error "Error in set_user_location: #{e.message}"
+        Rails.logger.error e.backtrace.join("\n")
+      end
     end
+
+    # rescue => e
+    #   Rails.logger.error "Error in set_user_location: #{e.message}"
+    #   Rails.logger.error e.backtrace.join("\n")
+    # end
   end
 
     private
