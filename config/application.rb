@@ -22,7 +22,7 @@ module Railstarter
     Geocoder.configure(
       timeout: 5,                 # geocoding service timeout (secs)
       lookup: :ipinfo_io, 
-      api_key: Rails.application.credentials.google_api[:key],
+      api_key: Rails.application.credentials.ipinfo[:key],
       use_https: true,
       units: :km
     )
