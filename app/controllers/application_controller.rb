@@ -25,6 +25,7 @@ class ApplicationController < ActionController::Base
       @city_image_url = search_results.photos.first
 
       rescue => e
+        Rails.logger.error "**********************************************Error********************************"
         Rails.logger.error "Error in set_user_location: #{e.message}"
         Rails.logger.error e.backtrace.join("\n")
       end
