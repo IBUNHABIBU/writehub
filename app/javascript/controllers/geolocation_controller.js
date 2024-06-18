@@ -1,10 +1,6 @@
-// app/javascript/controllers/geolocation_controller.js
-
 import { Controller } from "stimulus";
 
 export default class extends Controller {
-  static targets = ["button"];
-
   connect() {
     this.updateCoordinates();
   }
@@ -25,10 +21,6 @@ export default class extends Controller {
     const longitude = position.coords.longitude;
 
     // Send the coordinates to the server using Turbo Streams
-    this.element.outerHTML = `<div data-controller="geolocation" data-geolocation-latitude="${latitude}" data-geolocation-longitude="${longitude}">
-                                <button data-action="click->geolocation#updateCoordinates">Update Coordinates</button>
-                              </div>`;
-
     this.stimulate("geolocation#updateCoordinates", { latitude, longitude });
   }
 

@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
       # @user_latitude = -6.75234
       # @user_longitude = 39.2396
       location_info = Geocoder.search([@user_latitude, @user_longitude])
-      @user_city = location_info.first.city
+      @user_city = location_info.first&.city
 
     #   # Fetch city image from Unsplash
       # search_results = Pexels::Photo.search(@user_city, per_page: 1)
