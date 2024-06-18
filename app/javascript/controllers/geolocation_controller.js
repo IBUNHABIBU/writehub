@@ -5,6 +5,10 @@ import { Controller } from "stimulus";
 export default class extends Controller {
   static targets = ["button"];
 
+  connect() {
+    this.updateCoordinates();
+  }
+
   updateCoordinates() {
     if (navigator.geolocation) {
       navigator.geolocation.getCurrentPosition(
