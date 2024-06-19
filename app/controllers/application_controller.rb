@@ -10,7 +10,7 @@ class ApplicationController < ActionController::Base
       @user_latitude = request.location.latitude
       @user_longitude = request.location.longitude
 
-      logger.info "loging latitude #{request.location}"
+      logger.info "loging latitude #{request.location.inspect}"
       logger.info "loging lone #{request.location.loc}"
       
       # @user_latitude = -6.75234
