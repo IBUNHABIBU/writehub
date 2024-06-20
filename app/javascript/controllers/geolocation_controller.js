@@ -4,6 +4,7 @@ export default class extends Controller {
   connect() {
     console.log("Stimulus");
     this.updateCoordinates();
+    
   }
 
   updateCoordinates() {
