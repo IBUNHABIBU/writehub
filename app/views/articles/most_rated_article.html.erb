@@ -4,7 +4,7 @@
       <%=  link_to "#{article.title}", article_path(article), class:"title-link" %>
    </div>
    <div class="slider__bg__content">
-         <%= truncate(article.content, length:100, separator:' ') %> this is content
+         <%= truncate(article.content, length:100, separator:' ') %>
    </div>
 </div>
 <% end %> 
