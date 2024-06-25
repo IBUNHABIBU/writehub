@@ -4,6 +4,7 @@
         display: flex;
         flex-wrap: wrap;
 
+        border: 2px solid red;
         .slider {
             width: 63rem;
             background-color: green;
@@ -14,7 +15,6 @@
     width: 25%;
     background-position: center;
     background-size: cover;
-    border: 2px solid red;
 
     img {
         width: 100%;
