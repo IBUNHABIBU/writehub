@@ -89,3 +89,5 @@ gem 'open-uri'
 gem 'mini_magick'
 gem 'geocoder'
 gem 'pexels'
+
+gem "dartsass-rails", "~> 0.5.0"
