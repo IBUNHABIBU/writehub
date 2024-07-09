@@ -2,23 +2,44 @@
  
     &__top {
         display: flex;
-        flex-wrap: wrap;
+        height: 360px;
 
-        width: 45%;
         .slider {
-            width: 63rem;
-
-            &__overlay {
-                width:69.4%;
-                height: 22.6rem;
-                position:absolute;
-                background:#000000;
-                opacity:0.7;
-                background-size:cover;
-                background-repeat: no-repeat;
-                z-index:4;
+            width: 70%;
+    
+            &__bg {
+              width: 100%;
+              height: 100%;
+              
+              background-size: 50px 50px;
+              background-repeat: no-repeat;
+              background-position: 10px 10px;
+    
+              &__title {
+                a {
+                    color:#d15002;
+                    font-weight:bold;
+                    font-size: 2.1rem;
+                    margin-left:2rem;
+                    position:relative;
+                    top:12rem;
+                    z-index:5;
+    
+                    &:hover {
+                        color:#fe6001;
+                        text-decoration:none;
+                    }
+                }
             }
-        }
+    
+            &__content {
+                color:white;
+                font-size: 1.8rem;
+                position:relative;
+                top:13rem;
+                margin-left:2rem;
+                z-index:5;
+            }
     }
 }
 
