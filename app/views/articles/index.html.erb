@@ -2,8 +2,8 @@
    <div class="home__top">
       <div class="slider">
          <div class="slider__overlay"></div>
-         <% @most_rated_articles.each do |most_rated_article| %>
-            <%= render most_rated_article, obj:@most_rated_articles %>  
+         <% @most_rated_articles.each do |mr_article| %>
+            <%= render 'articles/most_rated_article', obj:mr_article %>  
          <% end %>
       </div>
 
