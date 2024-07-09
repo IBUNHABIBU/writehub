@@ -1,10 +1,10 @@
 <% if article.image.attached? %>
- <div class="slider__bg" <% if article.image.attached? %>style="background: url(<%= rails_blob_url(article.image) %>);background-repeat: no-repeat; background-size: 100% 100%;"<% end %>>
+      <div class="slider__bg" style="background: url(<%= article.image %>);background-repeat: no-repeat; background-size: 100% 100%;">
       <div class="slider__bg__title" id="rated_title">
-      <%=  link_to "#{article.title}", article_path(article), class:"title-link" %>
-   </div>
-   <div class="slider__bg__content">
-         <%= truncate(article.content, length:100, separator:' ') %>
-   </div>
-</div>
-<% end %> 
+            <%=  link_to "#{article.title}", article_path(article), class:"title-link" %>
+      </div>
+      <div class="slider__bg__content">
+            <%= truncate(article.content, length:100, separator:' ') %>
+      </div>
+      </div>
+  <% end %>   
