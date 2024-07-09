@@ -3,6 +3,7 @@
       <div class="slider">
          <div class="slider__overlay"></div>
          <% @most_rated_articles.each do |most_rated_article| %>
+            <%= render most_rated_article, obj:@most_rated_articles %>  
          <% end %>
       </div>
 
