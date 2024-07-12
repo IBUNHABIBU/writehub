@@ -1,15 +1,15 @@
 .slider {
     position: relative;
-    width: 800px;
-    margin: auto;
+    width: 100%;
+    overflow: hidden;
   }
   .slides {
     display: flex;
-    overflow: hidden;
+    transition: transform 0.5s ease-in-out;
   }
   .slide {
     min-width: 100%;
-    transition: transform 0.5s ease-in-out;
+    box-sizing: border-box;
   }
   .dots {
     text-align: center;
@@ -28,4 +28,5 @@
   }
   .dots span.active {
     background-color: #717171;
-}
+  }
+  
