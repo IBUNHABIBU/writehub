@@ -28,5 +28,26 @@ export default class extends Controller {
         // this.dotTargets.forEach((el, i) => {
         //     el.classList.toggle("active", index == i)
         // })
+        const slides = this.element.querySelectorAll(".slide");
+        slides.forEach((slide, i) => {
+            // slide.classList.toggle("active", index == i)
+            slide.style.transform = `translateX(${100 * (i - index)}%)`
+        });
+
+        this.dotTargets.forEach((dot, i) => {
+            dot.classList.toggle("active", index == i)
+        });
+
+        this.indexValue = index;
+    }
+
+    nextSlide() {
+        let nextIndex = (this.indexValue + 1) % this.dotTargets.length;
+        this.showSlide(nextIndex);
+    }
+
+    gotoSlide(event) {
+       const index = parseInt(event.target.dataset.index);
+       this.showSlide(index);
     }
 }
