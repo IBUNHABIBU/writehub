@@ -260,3 +260,20 @@ DATABASE_URL=postgresql://postgres:fancypswd@127.0.0.1/myapp
 
 
 By using `screen`, you can keep your session running and access it later if needed, although typically with Nginx and Passenger, you won't need to interact with your Rails server directly once it's configured and running properly.
+
+
+    <div class="slider">
+         
+      <% @most_rated_articles.each do |article| %>
+         <% if article.image.attached? %>
+            <div class="slider__bg" style="background: url(<%= cloudinary_url(article.image.key) %>);background-repeat: no-repeat; background-size: 100% 100%;">
+               <div class="slider__bg__title" id="rated_title">
+                  <%=  link_to "#{article.title}", article_path(article), class:"title-link" %>
+               </div>
+               <div class="slider__bg__content">
+                     <%= truncate(article.content, length:100, separator:' ') %>
+               </div>
+            </div>
+            <% end %>   
+      <% end %
+    </div>
