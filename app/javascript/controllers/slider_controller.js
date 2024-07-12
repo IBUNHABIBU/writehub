@@ -19,4 +19,14 @@ export default class extends Controller {
         }, 3000)
     }
 
+    stopAutoSlide() {
+        clearInterval(this.interval)
+    }
+
+    showSlide(index) {
+        // this.indexValue = index
+        // this.dotTargets.forEach((el, i) => {
+        //     el.classList.toggle("active", index == i)
+        // })
+    }
 }
