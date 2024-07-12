@@ -49,5 +49,7 @@ export default class extends Controller {
     gotoSlide(event) {
        const index = parseInt(event.target.dataset.index);
        this.showSlide(index);
+       this.stopAutoSlide();
+       this.startAutoSlide();
     }
 }
