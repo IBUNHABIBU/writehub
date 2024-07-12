@@ -1,7 +1,7 @@
 <div class="home" data-controller="geolocation" data-action="geolocation#updateCoordinates">
    <div class="home__top">
-      <div class="slider">
-         <div class="slider__overlay"></div>
+      <div class="left">
+         <div class="left__overlay"></div>
          <% @most_rated_articles.each do |mr_article| %>
             <%= render 'articles/most_rated_article', obj:mr_article %>  
          <% end %>
