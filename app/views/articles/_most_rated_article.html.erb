@@ -1,20 +1,5 @@
-<div data-controller="slider">
-  <div class="slider">
-    <div class="slides">
-      <% 6.times do |i| %>
-        <div class="slide">
-          <img src="https://via.placeholder.com/800x400?text=Slide+<%= i + 1 %>" alt="Slide <%= i + 1 %>">
-        </div>
-      <% end %>
-    </div>
-    <div class="dots">
-      <% 6.times do |i| %>
-        <span data-action="click->slider#goToSlide" data-slider-target="dot" data-index="<%= i %>"></span>
-      <% end %>
-    </div>
-  </div>
-</div>
-
+<div data-controller="slider" class="slider">
+  <div class="slides">
 
 
 <% if obj.image.attached? %>
@@ -27,3 +12,5 @@
             </div>
       </div>
 <% end %>   
+
+</div>
