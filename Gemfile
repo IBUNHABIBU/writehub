@@ -91,3 +91,6 @@ gem 'geocoder'
 gem 'pexels'
 
 gem "dartsass-rails", "~> 0.5.0"
+
+gem 'erb_lint'
+

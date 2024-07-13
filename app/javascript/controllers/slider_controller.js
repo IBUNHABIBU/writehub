@@ -7,6 +7,7 @@ export default class extends Controller {
     connect() {
         this.showSlide(0)
         this.startAutoSlide()
+        console.log("Slider connected")
     }
 
     disconnect() {
