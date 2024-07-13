@@ -16,7 +16,7 @@ export default class extends Controller {
 
     startAutoSlide() {
         this.interval = setInterval(() => {
-            this.next()
+            this.nextSlide()
         }, 3000)
     }
 
