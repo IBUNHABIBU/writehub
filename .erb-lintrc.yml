@@ -1,0 +1,17 @@
+AllCops:
+  Exclude:
+    - 'db/schema.rb'
+    - 'node_modules/**/*'
+
+Linters:
+  SpaceAroundErbTag:
+    enabled: true
+  ClosingErbTagIndentation:
+    enabled: true
+  FinalNewline:
+    enabled: true
+  Indentation:
+    enabled: true
+    IndentationWidth: 2
+  TrailingWhitespace:
+    enabled: true
