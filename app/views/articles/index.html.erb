@@ -4,7 +4,7 @@
          <div class="left__overlay"></div>
          <div data-controller="slider" class="slider">
             <div class="slides">
-              <% @most_rated_articles.each_with_index do |mr_article, index| %>
+              <% @most_rated_articles.each do |mr_article| %>
                 <%= render 'articles/most_rated_article', obj: mr_article %>
               <% end %>
             </div>
