@@ -3,18 +3,17 @@
       <div class="left">
          <div class="left__overlay"></div>
          <div data-controller="slider" class="slider">
-  <div class="slides">
-    <% @most_rated_articles.each_with_index do |mr_article, index| %>
-      <%= render 'articles/most_rated_article', obj: mr_article %>
-    <% end %>
-  </div>
-  <div class="dots">
-    <% @most_rated_articles.each_with_index do |mr_article, index| %>
-      <span data-action="click->slider#goToSlide" data-slider-target="dot" data-index="<%= index %>"></span>
-    <% end %>
-  </div>
-</div>
-
+            <div class="slides">
+              <% @most_rated_articles.each_with_index do |mr_article, index| %>
+                <%= render 'articles/most_rated_article', obj: mr_article %>
+              <% end %>
+            </div>
+            <div class="dots">
+              <% @most_rated_articles.each_with_index do |mr_article, index| %>
+                <span data-action="click->slider#goToSlide" data-slider-target="dot" data-index="<%= index %>"></span>
+              <% end %>
+            </div>
+         </div>
       </div>
 
       <div class="weather"
