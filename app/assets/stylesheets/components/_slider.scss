@@ -19,14 +19,15 @@
     position: absolute;
     bottom: 15px;
     width: 100%;
+
   }
 
   .dots button {
     height: 15px;
     width: 15px;
     margin: 0 2px;
-    background-color: $color-primary-rotate;
     border-radius: 50%;
+    border: 2px solid $color-primary-rotate;
     display: inline-block;
     cursor: pointer;
 
