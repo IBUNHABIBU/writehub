@@ -9,9 +9,9 @@
               <% end %>
             </div>
             <div class="dots">
-              <% @most_rated_articles.each_with_index do |mr_article, index| %>
-                <span data-action="click->slider#goToSlide" data-slider-target="dot" data-index="<%= index %>"></span>
-              <% end %>
+            <% @most_rated_articles.each_with_index do |mr_article, index| %>
+               <button data-action="click->slider#goToSlide" data-slider-target="dot" data-index="<%= index %>"></button>
+             <% end %>
             </div>
          </div>
       </div>
