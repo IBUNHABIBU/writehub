@@ -8,6 +8,7 @@ export default class extends Controller {
     this.indexValue = 0;
     this.showSlide();
     this.startAutoSlide();
+    console.log("Slide controller connected", this.indexValue);
   }
 
   disconnect() {

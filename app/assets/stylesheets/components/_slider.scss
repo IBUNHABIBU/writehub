@@ -4,6 +4,37 @@
     position: relative;
     width: 100%;
     overflow: hidden;
+
+    &__bg {
+      height: 100%;
+
+        &__title {
+            a {
+                color:#d15002;
+                font-weight:bold;
+                font-size: 2.1rem;
+                margin-left:2rem;
+                position:relative;
+                top:12rem;
+                z-index:5;
+
+                &:hover {
+                    color:#fe6001;
+                    text-decoration:none;
+                }
+            }
+        }
+
+        &__content {
+            color:white;
+            font-size: 1.8rem;
+            position:relative;
+            top:13rem;
+            margin-left:2rem;
+            z-index:5;
+        }
+    }
+
   }
   .slides {
     display: flex;
@@ -23,11 +54,11 @@
   }
 
   .dots button {
-    height: 15px;
-    width: 15px;
+    height: 2rem;
+    width: 2rem;
     margin: 0 2px;
     border-radius: 50%;
-    border: 2px solid $color-primary-rotate;
+    border: 4px solid $color-primary-rotate;
     background-color: transparent;
     display: inline-block;
     cursor: pointer;
