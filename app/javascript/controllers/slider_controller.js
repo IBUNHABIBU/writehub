@@ -46,7 +46,7 @@ export default class extends Controller {
     this.stopAutoSlide();
     this.showSlide(index);
     this.startAutoSlide();
-    console.log('After click go to slide');
+    console.log('After click go to slide', index);
   }
 }
 
