@@ -18,15 +18,20 @@
     bottom: 15px;
     width: 100%;
   }
-  
+
   .dots button {
     height: 15px;
     width: 15px;
     margin: 0 2px;
-    background-color: #bbb;
+    background-color: $color-primary-rotate;
     border-radius: 50%;
     display: inline-block;
     cursor: pointer;
+
+    &:hover {
+      background-color: $color-primary;
+      cursor: pointer;
+    }
   }
   
   .dots button.active {
