@@ -5,7 +5,7 @@ export default class extends Controller {
     static values = { index: Number }
 
     connect() {
-        this.showSlide(0)
+        this.showSlide()
         this.startAutoSlide()
         console.log("Slider connected")
     }
@@ -24,22 +24,20 @@ export default class extends Controller {
         clearInterval(this.interval)
     }
 
-    showSlide(index) {
-        // this.indexValue = index
-        // this.dotTargets.forEach((el, i) => {
-        //     el.classList.toggle("active", index == i)
-        // })
-        const slides = this.element.querySelectorAll(".slide");
-        slides.forEach((slide, i) => {
-            // slide.classList.toggle("active", index == i)
-            slide.style.transform = `translateX(${100 * (i - index)}%)`
-        });
-
-        this.dotTargets.forEach((dot, i) => {
-            dot.classList.toggle("active", index == i)
-        });
-
-        this.indexValue = index;
+    showSlide() {
+        const sliders = this.element.querySelectorAll('.slider__bg');
+        let i = 0;
+    
+        setInterval(() => {
+          sliders.forEach((slider, index) => {
+            slider.style.display = 'none';
+            if (index === i % sliders.length) {
+              slider.style.display = 'block';
+            }
+          });
+          i++;
+        }, 10000);
+      }
     }
 
     nextSlide() {
