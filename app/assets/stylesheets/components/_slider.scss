@@ -18,7 +18,8 @@
     bottom: 15px;
     width: 100%;
   }
-  .dots span {
+  
+  .dots button {
     height: 15px;
     width: 15px;
     margin: 0 2px;
@@ -27,7 +28,8 @@
     display: inline-block;
     cursor: pointer;
   }
-  .dots span.active {
+  
+  .dots button.active {
     background-color: #717171;
   }
   
