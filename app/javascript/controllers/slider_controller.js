@@ -37,7 +37,6 @@ export default class extends Controller {
           });
           i++;
         }, 10000);
-      }
     }
 
     nextSlide() {
