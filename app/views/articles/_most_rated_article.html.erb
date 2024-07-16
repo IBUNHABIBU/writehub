@@ -1,5 +1,5 @@
 <% if obj.image.attached? %>
-      <div class="slider__bg" style="background: url(<%= rails_blob_url(obj.image) %>); width: 100%; height: 100%; background-size: cover; background-repeat: no-repeat; background-position: 0px 0px; ">
+      <div class="slider__bg" style="background: url(<%= rails_blob_url(obj.image) %>); width: 100%; height: 100%; background-size: contain; background-repeat: no-repeat; background-position: 0px 0px; ">
             <div class="slider__bg__title" id="rated_title">
                   <%=  link_to obj.title, article_path(obj), class:"title-link" %>
             </div>
