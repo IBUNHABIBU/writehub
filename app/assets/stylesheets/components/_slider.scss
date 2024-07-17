@@ -1,0 +1,76 @@
+@import '../config/variables';
+
+.slider {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+
+    &__bg {
+      height: 100%;
+
+        &__title {
+            a {
+                color:#d15002;
+                font-weight:bold;
+                font-size: 2.1rem;
+                margin-left:2rem;
+                position:relative;
+                top:20rem;
+                z-index:5;
+
+                &:hover {
+                    color:#fe6001;
+                    text-decoration:none;
+                }
+            }
+        }
+
+        &__content {
+            color:white;
+            font-size: 1.8rem;
+            position:relative;
+            top:13rem;
+            margin-left:2rem;
+            z-index:5;
+            
+        }
+    }
+
+  }
+  .slides {
+    display: flex;
+    transition: transform 0.5s ease-in-out;
+    height: 30rem;
+  }
+  .slide {
+    min-width: 100%;
+    box-sizing: border-box;
+  }
+  .dots {
+    text-align: right;
+    position: absolute;
+    bottom: 15px;
+    width: 100%;
+
+  }
+
+  .dots button {
+    height: 1.5rem;
+    width: 1.5rem;
+    margin: 0 2px;
+    border-radius: 50%;
+    border: 4px solid $color-primary-rotate;
+    background-color: transparent;
+    display: inline-block;
+    cursor: pointer;
+
+    &:hover {
+      background-color: $color-primary;
+      cursor: pointer;
+    }
+  }
+  
+  .dots button.active {
+    background-color: $color-primary-rotate;
+  }
+  
