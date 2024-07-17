@@ -12,7 +12,7 @@
             a {
                 color:#d15002;
                 font-weight:bold;
-                font-size: 2.1rem;
+                font-size: 1.8rem;
                 margin-left:2rem;
                 position:relative;
                 top:20rem;
@@ -27,9 +27,9 @@
 
         &__content {
             color:white;
-            font-size: 1.8rem;
+            font-size: 1.4rem;
             position:relative;
-            top:13rem;
+            top:23rem;
             margin-left:2rem;
             z-index:5;
         }
@@ -49,14 +49,14 @@
     text-align: right;
     position: absolute;
     bottom: 15px;
+    right: 1.1rem;
     width: 100%;
     z-index: 74;
-    
   }
 
   .dots button {
-    height: 1.5rem;
-    width: 1.5rem;
+    height: 1.2rem;
+    width: 1.2rem;
     margin: 0 2px;
     border-radius: 50%;
     border: 4px solid $color-primary-rotate;
