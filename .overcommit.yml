@@ -1,0 +1,4 @@
+PreCommit:
+  ErbLint:
+    enabled: true
+    command: ['bundle', 'exec', 'erblint', 'app/views']

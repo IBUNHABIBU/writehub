@@ -2,7 +2,9 @@ import { Controller } from "stimulus";
 
 export default class extends Controller {
   connect() {
+    console.log("Stimulus");
     this.updateCoordinates();
+
   }
 
   updateCoordinates() {
@@ -19,7 +21,6 @@ export default class extends Controller {
   handleSuccess(position) {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
-
     // Send the coordinates to the server using Turbo Streams
     this.stimulate("geolocation#updateCoordinates", { latitude, longitude });
   }

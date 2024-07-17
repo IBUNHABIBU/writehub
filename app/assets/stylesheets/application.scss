@@ -1,3 +1,4 @@
+// Sassy
 // Entry point for your Sass build
 // Mixins
 @import "mixins/media";
@@ -11,9 +12,10 @@
 @import "components/button";
 @import "components/error_messages";
 @import "components/form";
-// @import "components/visually_hidden";
-// @import "components/quote";
 @import "components/logo";
+@import "components/slider";
+
+
 
 // Layouts
 // @import "layouts/container";

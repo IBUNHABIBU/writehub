@@ -5,4 +5,8 @@
 import { application } from "./application"
 
 import HelloController from "./hello_controller"
+
+import SliderController from "./slider_controller";
+
+application.register("slider", SliderController)
 application.register("hello", HelloController)

@@ -3,15 +3,25 @@ class ApplicationController < ActionController::Base
   before_action :set_user_location
 
   def set_user_location
-    logger.info '***********************Rendering the applicaton controller********************'
+    logger.info '*********************** Rendering the applicaton controller ********************'
     logger.info 'Set locatio'
+
+    user_ip = request.remote_ip
+
+      Rails.logger.debug "Local IP detected: #{user_ip} ******************* "
+    # Skip local IP addresses
+    if local_ip?(user_ip)
+      Rails.logger.debug "Local IP detected: #{user_ip}"
+      return
+    end
+
     if request.location.present?
       begin
       @user_latitude = request.location.latitude
       @user_longitude = request.location.longitude
 
-      logger.info "loging latitude #{request.location}"
-      logger.info "loging longitude #{request.location.latitude}"
+      logger.info "loging latitude #{request.location.inspect}"
+      logger.info "loging lone #{location.inspect}"
       
       # @user_latitude = -6.75234
       # @user_longitude = 39.2396
@@ -38,6 +48,11 @@ class ApplicationController < ActionController::Base
   end
 
     private
+
+    def local_ip?(ip)
+      # Check if the IP is a local address
+      ['127.0.0.1', '::1'].include?(ip) || ip.start_with?('192.168.', '10.', '172.16.', '172.31.')
+    end
 
     def current_user
         User.find(session[:user_id]) if session[:user_id]

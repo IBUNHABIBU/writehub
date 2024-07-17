@@ -1,26 +1,33 @@
 <div class="home" data-controller="geolocation" data-action="geolocation#updateCoordinates">
    <div class="home__top">
-      <div class="slider">
-      <div class="slider__overlay"></div>
-      <% @most_rated_articles.each do |most_rated_article| %>
-         <%= render most_rated_article, obj:@most_rated_articles %>  
-      <% end %>
+      <div class="left">
+         <div class="left__overlay"></div>
+         <div data-controller="slider" class="slider">
+            <div class="slides">
+              <% @most_rated_articles.each do |mr_article| %>
+                <%= render 'articles/most_rated_article', obj: mr_article %>
+              <% end %>
+            </div>
+            <div class="dots">
+            <% @most_rated_articles.each_with_index do |mr_article, index| %>
+               <button data-action="click->slider#goToSlide" data-slider-target="dot" data-index="<%= index %>"></button>
+             <% end %>
+            </div>
+         </div>
       </div>
-          <div class="weather"
-           style="background-image: linear-gradient(to right bottom,rgba(174, 131, 81, 0.983), rgba(157, 103, 42, 0.906)) ,url(<%= @weather_info[:city_image] %>);background-repeat: no-repeat ;">
-           <div class ="weather__container">  
+
+      <div class="weather"
+         style="background-image: linear-gradient(to right bottom,rgba(174, 131, 81, 0.983), rgba(157, 103, 42, 0.906)) ,url(<%= @weather_info[:city_image] %>);background-repeat: no-repeat ;">
+         
+         <div class ="weather__container">  
                <h4> <%= @weather_info[:city_name] %></h4>
                <h6><%= @weather_info[:weather_data]['main']['description'] %></h6>
                <h2><%= @weather_info[:weather_data]['main']['temp'] %>°</h2>
                <p><%= @weather_info[:weather_data]['main']['humidity'] %>%</p>
-          </div>
+         </div>
       </div>
    </div>
    <div class="home__recent">
       <%= render 'recent_article', obj:@recent_articles %>
    </div>
-</div>
-
-<div data-controller="geolocation">
-  <button data-action="click->geolocation#updateCoordinates">Update Coordinates</button>
 </div>
