@@ -12,4 +12,4 @@ import GeolocationController from "./geolocation_controller";
 
 application.register("slider", SliderController)
 application.register("hello", HelloController)
-application.register("Geolocation", GeolocationController)
+application.register("geolocation", GeolocationController)
