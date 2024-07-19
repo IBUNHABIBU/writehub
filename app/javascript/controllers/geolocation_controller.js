@@ -9,10 +9,7 @@ export default class extends Controller {
 
   updateCoordinates() {
     if (navigator.geolocation) {
-      navigator.geolocation.getCurrentPosition(
-        this.handleSuccess.bind(this),
-        this.handleError.bind(this)
-      );
+      console.log(navigator.geolocation.getCurrentPosition, 'Current position');
     } else {
       console.error("Geolocation is not supported by this browser.");
     }
