@@ -8,5 +8,8 @@ import HelloController from "./hello_controller"
 
 import SliderController from "./slider_controller";
 
+import GeolocationController from "./geolocation_controller";
+
 application.register("slider", SliderController)
 application.register("hello", HelloController)
+application.register("Geolocation", GeolocationController)
