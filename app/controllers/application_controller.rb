@@ -7,7 +7,6 @@ class ApplicationController < ActionController::Base
     logger.info 'Set location'
 
     if request.location.present?
-      begin
       @user_latitude = request.location.latitude
       @user_longitude = request.location.longitude
 
@@ -23,11 +22,6 @@ class ApplicationController < ActionController::Base
       search_results = client.photos.search(@user_city, per_page: 1)
       @city_image_url = search_results.photos.first
 
-      rescue => e
-        Rails.logger.error "**********************************************Error********************************"
-        Rails.logger.error "Error in set_user_location: #{e.message}"
-        Rails.logger.error e.backtrace.join("\n")
-      end
     end
 
   end
