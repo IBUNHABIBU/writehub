@@ -9,6 +9,7 @@ export default class extends Controller {
 
   updateCoordinates() {
     if (navigator.geolocation) {
+      // code goes here
     } else {
       console.error("Geolocation is not supported by this browser.");
     }
