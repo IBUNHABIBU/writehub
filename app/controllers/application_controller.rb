@@ -30,10 +30,6 @@ class ApplicationController < ActionController::Base
       end
     end
 
-    # rescue => e
-    #   Rails.logger.error "Error in set_user_location: #{e.message}"
-    #   Rails.logger.error e.backtrace.join("\n")
-    # end
   end
 
     private
