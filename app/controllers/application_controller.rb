@@ -3,15 +3,10 @@ class ApplicationController < ActionController::Base
   before_action :set_user_location
 
   def set_user_location
-    logger.info '*********************** Rendering the applicaton controller ********************'
-    logger.info 'Set location'
-
+  
     if request.location.present?
       @user_latitude = request.location.latitude
       @user_longitude = request.location.longitude
-
-      logger.info "loging latitude #{request.location.inspect}"
-      logger.info "loging lone #{location.inspect}"
       
       location_info = Geocoder.search([@user_latitude, @user_longitude])
       @user_city = location_info.first&.city
