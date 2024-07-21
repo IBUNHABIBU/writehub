@@ -1,22 +1,24 @@
-import { Controller } from "@hotwired/stimulus"
+import { Controller } from "@hotwired/stimulus";
 
 export default class extends Controller {
-    static targets = [ "latitude", "longitude" ]
+  connect() {
+    this.updateCoordinates();
+  }
 
-    connect() {
-        console.log("*********** Geolocation Controller ***********");
-        if (navigator.geolocation) {
-          console.log("Geo location is supported by this browser");
-        navigator.geolocation.getCurrentPosition(
-            this.handleSuccess.bind(this),
-            this.handleError.bind(this)
-          );
-        } else {
-        console.log("Geolocation is not supported by this browser.");
-        }
+  updateCoordinates() {
+    if (navigator.geolocation) {
+      // find the latitude and longitude from here
+      console.log("Geo location is supported by this browser");
+      navigator.geolocation.getCurrentPosition(
+          this.handleSuccess.bind(this),
+          this.handleError.bind(this)
+        );
+    } else {
+      console.error("Geolocation is not supported by this browser.");
     }
+  }
 
-   handleSuccess(position) {
+  handleSuccess(position) {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
     console.log("*********** Longitude&Latitude ***********");
@@ -31,4 +33,5 @@ export default class extends Controller {
    handleError(error) {
     console.error("Error getting user's location:", error);
    }
+
 }
