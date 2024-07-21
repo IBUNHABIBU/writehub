@@ -4,7 +4,6 @@ export default class extends Controller {
     static targets = [ "latitude", "longitude" ]
 
     connect() {
-      debugger
         console.log("*********** Geolocation Controller ***********");
         if (navigator.geolocation) {
           console.log("Geo location is supported by this browser");
@@ -32,3 +31,4 @@ export default class extends Controller {
    handleError(error) {
     console.error("Error getting user's location:", error);
    }
+}
