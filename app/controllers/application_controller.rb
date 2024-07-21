@@ -7,13 +7,19 @@ class ApplicationController < ActionController::Base
     if request.location.present?
       @user_latitude = request.location.latitude
       @user_longitude = request.location.longitude
-      
+
       location_info = Geocoder.search([@user_latitude, @user_longitude])
       @user_city = location_info.first&.city
 
     #   # Fetch city image from Unsplash
       # search_results = Pexels::Photo.search(@user_city, per_page: 1)
+      
+    logger.info '*********************** Rendering the applicaton controller ********************'
+    logger.info 'Set location'
+
       client = Pexels::Client.new(Rails.application.credentials.pexels[:key])
+      
+      Rails.logger.debug "Local IP detected: #{client} ******************* "
       search_results = client.photos.search(@user_city, per_page: 1)
       @city_image_url = search_results.photos.first
 
