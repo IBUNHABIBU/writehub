@@ -16,11 +16,8 @@ class ApplicationController < ActionController::Base
       
     logger.info '*********************** Rendering the applicaton controller ********************'
     logger.info 'Set location'
-    
-    if local_ip?(user_ip)
-      Rails.logger.debug "Local IP detected: #{user_ip}"
-      return
-    end
+
+   
       client = Pexels::Client.new(Rails.application.credentials.pexels[:key])
       
       Rails.logger.debug "Local IP detected: #{@user_latitude} #{location_info}******************* "
