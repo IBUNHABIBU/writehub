@@ -29,6 +29,7 @@ class ApplicationController < ActionController::Base
         @user_city = location_info.first&.city
   
         
+        logger.info "*********###########################################################****************************"
         logger.info "*********loging latitude #{location_info}"
         logger.info "loging lone #{@user_city}"
         logger.info "coordinates #{@user_latitude} #{@user_longitude}"
