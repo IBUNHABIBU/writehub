@@ -19,7 +19,7 @@ class ApplicationController < ActionController::Base
 
       client = Pexels::Client.new(Rails.application.credentials.pexels[:key])
       
-      Rails.logger.debug "Local IP detected: #{@user_city} #{location_info}******************* "
+      Rails.logger.debug "Local IP detected: #{@user_latitude} #{location_info}******************* "
       search_results = client.photos.search(@user_city, per_page: 1)
       @city_image_url = search_results.photos.first
 

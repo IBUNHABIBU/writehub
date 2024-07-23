@@ -21,6 +21,7 @@ export default class extends Controller {
   handleSuccess(position) {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
+    
     console.log("*********** Longitude&Latitude ***********");
     console.log(latitude, longitude);
     // Send the coordinates to the server using Turbo Streams
