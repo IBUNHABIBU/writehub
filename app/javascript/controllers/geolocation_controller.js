@@ -7,12 +7,11 @@ export default class extends Controller {
 
   updateCoordinates() {
     if (navigator.geolocation) {
-      // find the latitude and longitude from here
       console.log("Geo location is supported by this browser");
       navigator.geolocation.getCurrentPosition(
-          this.handleSuccess.bind(this),
-          this.handleError.bind(this)
-        );
+        this.handleSuccess.bind(this),
+        this.handleError.bind(this)
+      );
     } else {
       console.error("Geolocation is not supported by this browser.");
     }
@@ -21,18 +20,32 @@ export default class extends Controller {
   handleSuccess(position) {
     const latitude = position.coords.latitude;
     const longitude = position.coords.longitude;
-    
+
     console.log("*********** Longitude&Latitude ***********");
     console.log(latitude, longitude);
-    // Send the coordinates to the server using Turbo Streams
-    this.element.outerHTML = `<div data-controller="geolocation" data-geolocation-latitude="${latitude}" data-geolocation-longitude="${longitude}">
-                                </div>`;
 
-    this.stimulate("geolocation#updateCoordinates", { latitude, longitude });
-   }
+    this.sendCoordinates(latitude, longitude);
+  }
 
-   handleError(error) {
+  handleError(error) {
     console.error("Error getting user's location:", error);
-   }
+  }
 
+  sendCoordinates(latitude, longitude) {
+    fetch('/', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+        'X-CSRF-Token': document.querySelector('meta[name="csrf-token"]').getAttribute('content')
+      },
+      body: JSON.stringify({ latitude: latitude, longitude: longitude })
+    })
+    .then(response => response.json())
+    .then(data => {
+      console.log('Success:', data);
+    })
+    .catch((error) => {
+      console.error('Error:', error);
+    });
+  }
 }
