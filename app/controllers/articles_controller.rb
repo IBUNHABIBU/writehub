@@ -7,7 +7,7 @@ class ArticlesController < ApplicationController
     @articles = Article.all
     @recent_articles = Article.recent
     @most_rated_articles = Article.most_rated
-    @weather_info = WeatherService.fetch_weather_and_image(@coordinates[0], @coordinates[1])
+    @weather_info = WeatherService.fetch_weather_and_image(@latitude, @longitude)
   end
 
   def update_coordinates

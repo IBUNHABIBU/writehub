@@ -23,10 +23,15 @@ class ApplicationController < ActionController::Base
   
         logger.info "loging latitude #{request.location.inspect}"
         logger.info "loging lone #{location.inspect}"
+
         
         location_info = Geocoder.search([@user_latitude, @user_longitude])
         @user_city = location_info.first&.city
   
+        
+        logger.info "*********loging latitude #{location_info}"
+        logger.info "loging lone #{@user_city}"
+        logger.info "coordinates #{@user_latitude} #{@user_longitude}"
       #   # Fetch city image from Unsplash
         # search_results = Pexels::Photo.search(@user_city, per_page: 1)
         client = Pexels::Client.new(Rails.application.credentials.pexels[:key])

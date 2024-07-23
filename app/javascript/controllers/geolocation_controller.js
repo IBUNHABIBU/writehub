@@ -32,7 +32,7 @@ export default class extends Controller {
   }
 
   sendCoordinates(latitude, longitude) {
-    fetch('/', {
+    fetch('/articles/update_coordinates', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json',
