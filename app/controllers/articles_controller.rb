@@ -20,6 +20,9 @@ class ArticlesController < ApplicationController
 
   def set_coordinates
     @coordinates = session[:coordinates] || [25.276987, 55.296249] # Default coordinates
+
+     logger.info "*************** #{@coordinates} *********************"
+    logger.info "*************** Seat coordinates *********************"
   end
 
   def set_article
