@@ -13,7 +13,7 @@ Rails.application.routes.draw do
   end
 
   post '/update_coordinates', to: 'locations#update_coordinates'
-  
+
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
