@@ -12,7 +12,7 @@ class ApplicationController < ActionController::Base
       Rails.logger.debug "Local IP detected: #{user_ip} ******************* "
     # Skip local IP addresses
     if local_ip?(user_ip)
-      Rails.logger.debug "Local IP detected: #{user_ip}"
+      Rails.logger.debug "Local IP detected: #{user_ip} #{request.location.latitude}"
 
       #put code here 
       return
