@@ -9,9 +9,6 @@ class ArticlesController < ApplicationController
     @most_rated_articles = Article.most_rated
     @weather_info = WeatherService.fetch_weather_and_image(@coordinates[0], @coordinates[1])
 
-    logger.info "*************** Coordinates *********************"
-    logger.info "*************** #{@coordinates} *********************"
-    logger.info "*************** Weather info #{@weather_info} *********************"
   end
 
  
@@ -21,8 +18,6 @@ class ArticlesController < ApplicationController
   def set_coordinates
     @coordinates = session[:coordinates] || [25.276987, 55.296249] # Default coordinates
 
-     logger.info "*************** #{@coordinates} *********************"
-    logger.info "*************** Seat coordinates *********************"
   end
 
   def set_article
