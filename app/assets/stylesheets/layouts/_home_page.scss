@@ -9,37 +9,11 @@
             
             &__bg {
               height: 100%;
-    
-                // &__title {
-                //     a {
-                //         color:#d15002;
-                //         font-weight:bold;
-                //         font-size: 2.1rem;
-                //         margin-left:2rem;
-                //         position:relative;
-                //         top:12rem;
-                //         z-index:5;
-        
-                //         &:hover {
-                //             color:#fe6001;
-                //             text-decoration:none;
-                //         }
-                //     }
-                // }
-        
-                // &__content {
-                //     color:white;
-                //     font-size: 1.8rem;
-                //     position:relative;
-                //     top:13rem;
-                //     margin-left:2rem;
-                //     z-index:5;
-                // }
             }
 
             &__overlay {
                 width:74.9%;
-                height: 30rem;
+                height: 32rem;
                 position:absolute;
                 background:#000000;
                 opacity:0.7;
@@ -116,8 +90,6 @@
 
 .weather {
     width: 25%;
-    
-    border: 2px solid rgb(79, 9, 243);
     background-position: center;
     background-size: cover;
 

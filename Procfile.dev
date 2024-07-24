@@ -1,6 +1,3 @@
-web: unset PORT && bin/rails server
+web: env RUBY_DEBG_OPEN=true bin/rails server -p 3000
 js: yarn build --watch
 css: yarn build:css --watch
-css: bin/rails dartsass:watch
-webpacker: bin/webpack-dev-server
-esbuild: yarn build --watch

@@ -262,18 +262,37 @@ DATABASE_URL=postgresql://postgres:fancypswd@127.0.0.1/myapp
 By using `screen`, you can keep your session running and access it later if needed, although typically with Nginx and Passenger, you won't need to interact with your Rails server directly once it's configured and running properly.
 
 
-    <div class="slider">
-         
-      <% @most_rated_articles.each do |article| %>
-         <% if article.image.attached? %>
-            <div class="slider__bg" style="background: url(<%= cloudinary_url(article.image.key) %>);background-repeat: no-repeat; background-size: 100% 100%;">
-               <div class="slider__bg__title" id="rated_title">
-                  <%=  link_to "#{article.title}", article_path(article), class:"title-link" %>
-               </div>
-               <div class="slider__bg__content">
-                     <%= truncate(article.content, length:100, separator:' ') %>
-               </div>
-            </div>
-            <% end %>   
-      <% end %
-    </div>
+    import { Controller } from "@hotwired/stimulus"
+
+export default class extends Controller {
+    static targets = [ "latitude", "longitude" ]
+
+    connect() {
+        console.log("*********** Geolocation Controller ***********");
+        if (navigator.geolocation) {
+          console.log("Geo location is supported by this browser");
+        navigator.geolocation.getCurrentPosition(
+            this.handleSuccess.bind(this),
+            this.handleError.bind(this)
+          );
+        } else {
+        console.log("Geolocation is not supported by this browser.");
+        }
+    }
+
+   handleSuccess(position) {
+    const latitude = position.coords.latitude;
+    const longitude = position.coords.longitude;
+    console.log("*********** Longitude&Latitude ***********");
+    console.log(latitude, longitude);
+    // Send the coordinates to the server using Turbo Streams
+    this.element.outerHTML = `<div data-controller="geolocation" data-geolocation-latitude="${latitude}" data-geolocation-longitude="${longitude}">
+                                </div>`;
+
+    this.stimulate("geolocation#updateCoordinates", { latitude, longitude });
+   }
+
+   handleError(error) {
+    console.error("Error getting user's location:", error);
+   }
+}

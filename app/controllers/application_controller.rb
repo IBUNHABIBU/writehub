@@ -3,48 +3,34 @@ class ApplicationController < ActionController::Base
   before_action :set_user_location
 
   def set_user_location
-    logger.info '*********************** Rendering the applicaton controller ********************'
-    logger.info 'Set locatio'
-
     user_ip = request.remote_ip
 
-      Rails.logger.debug "Local IP detected: #{user_ip} ******************* "
     # Skip local IP addresses
     if local_ip?(user_ip)
-      Rails.logger.debug "Local IP detected: #{user_ip}"
+      #put code here 
       return
     end
 
     if request.location.present?
       begin
-      @user_latitude = request.location.latitude
-      @user_longitude = request.location.longitude
-
-      logger.info "loging latitude #{request.location.inspect}"
-      logger.info "loging lone #{location.inspect}"
-      
-      # @user_latitude = -6.75234
-      # @user_longitude = 39.2396
-      location_info = Geocoder.search([@user_latitude, @user_longitude])
-      @user_city = location_info.first&.city
-
-    #   # Fetch city image from Unsplash
-      # search_results = Pexels::Photo.search(@user_city, per_page: 1)
-      client = Pexels::Client.new(Rails.application.credentials.pexels[:key])
-      search_results = client.photos.search(@user_city, per_page: 1)
-      @city_image_url = search_results.photos.first
-
-      rescue => e
-        Rails.logger.error "**********************************************Error********************************"
-        Rails.logger.error "Error in set_user_location: #{e.message}"
-        Rails.logger.error e.backtrace.join("\n")
-      end
+        @user_latitude = request.location.latitude
+        @user_longitude = request.location.longitude
+        location_info = Geocoder.search([@user_latitude, @user_longitude])
+        @user_city = location_info.first&.city
+  
+      #   # Fetch city image from Unsplash
+        # search_results = Pexels::Photo.search(@user_city, per_page: 1)
+        client = Pexels::Client.new(Rails.application.credentials.pexels[:key])
+        search_results = client.photos.search(@user_city, per_page: 1)
+        @city_image_url = search_results.photos.first
+  
+        rescue => e
+          Rails.logger.error "**********************************************Error********************************"
+          Rails.logger.error "Error in set_user_location: #{e.message}"
+          Rails.logger.error e.backtrace.join("\n")
+        end
     end
 
-    # rescue => e
-    #   Rails.logger.error "Error in set_user_location: #{e.message}"
-    #   Rails.logger.error e.backtrace.join("\n")
-    # end
   end
 
     private
