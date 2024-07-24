@@ -9,9 +9,10 @@ Rails.application.routes.draw do
     # member do
     #   put 'like' => 'articles#vote'
     # end
-    post :update_coordinates, on: :collection, defaults: { format: :json }
     resources :likes
   end
+
+  post '/update_coordinates', to: 'locations#update_coordinates'
   
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
