@@ -8,10 +8,15 @@ class ArticlesController < ApplicationController
     @recent_articles = Article.recent
     @most_rated_articles = Article.most_rated
     @weather_info = WeatherService.fetch_weather_and_image(@coordinates[0], @coordinates[1])
+
+    logger.info "*************** Coordinates *********************"
+    logger.info "*************** #{@coordinates} *********************"
+    logger.info "*************** Weather info #{@weather_info} *********************"
   end
 
   def update_coordinates
     session[:coordinates] = [params[:latitude].to_f, params[:longitude].to_f]
+    logger.info "********************Session of coordinates #{session[:coordinates]}"
     respond_to do |format|
       format.json { render json: { message: 'Coordinates updated successfully' } }
     end
