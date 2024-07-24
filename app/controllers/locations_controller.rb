@@ -4,8 +4,5 @@ class LocationsController < ApplicationController
   def update_coordinates
     session[:coordinates] = [params[:latitude].to_f, params[:longitude].to_f]
     render json: { message: "Coordinates updated successfully #{session[:coordinates]}" }
-
-    logger.info "***************************** Update coordinates #{session[:coordinates] } ***********************************************"
-
   end
 end
