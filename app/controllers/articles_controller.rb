@@ -14,13 +14,7 @@ class ArticlesController < ApplicationController
     logger.info "*************** Weather info #{@weather_info} *********************"
   end
 
-  def update_coordinates
-    session[:coordinates] = [params[:latitude].to_f, params[:longitude].to_f]
-    logger.info "********************Session of coordinates #{params[:latitude].to_f} #{params[:longitude].to_f}"
-    respond_to do |format|
-      format.json { render json: { message: 'Coordinates updated successfully' } }
-    end
-  end
+ 
 
   private
 
