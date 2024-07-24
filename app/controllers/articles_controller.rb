@@ -25,7 +25,7 @@ class ArticlesController < ApplicationController
   private
 
   def set_coordinates
-    @coordinates = session[:coordinates] || [25.276987, 55.296249] # Default coordinates
+    # @coordinates = session[:coordinates] || [25.276987, 55.296249] # Default coordinates
   end
 
   def set_article
