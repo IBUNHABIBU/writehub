@@ -1,7 +1,7 @@
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby '3.0.1'
+ruby '3.3.3'
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem 'rails', '~> 7.0.4', '>= 7.0.4.2'
@@ -79,6 +79,12 @@ group :test do
   gem 'webdrivers'
 end
 
+# Required gems for net-ssh ed25519 support
+gem 'ed25519', '~> 1.2'
+gem 'bcrypt_pbkdf', '~> 1.0'
+
+# Ensure you have the required version of net-ssh
+gem 'net-ssh', '~> 7.2.3'
 gem "net-http"
 gem 'capistrano', '~> 3.19.1'
 gem 'capistrano-rails', '~> 1.4'

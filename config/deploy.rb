@@ -6,7 +6,7 @@ set :application, "linodeblog"
 set :repo_url, "git@github.com:IBUNHABIBU/linodeblog.git"
 
 set :rbenv_type, :user
-set :rbenv_ruby, '3.0.1'
+set :rbenv_ruby, '3.3.3'
 
 # Deploy to the user's home directory
 set :deploy_to, "/home/deployer/#{fetch :application}"
