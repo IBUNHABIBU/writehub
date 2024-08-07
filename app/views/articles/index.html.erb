@@ -17,7 +17,8 @@
       </div>
 
       <div class="weather"
-         style="background-image: linear-gradient(to right bottom,rgba(174, 131, 81, 0.983), rgba(157, 103, 42, 0.906)) ,url(<%= @weather_info[:city_image] %>);background-repeat: no-repeat ;">
+         style="background-image: url(<%= @weather_info[:city_image] %>); background-size: cover;
+  background-position: top center;">
          
          <div class ="weather__container">  
                <h4> <%= @weather_info[:city_name] %></h4>
