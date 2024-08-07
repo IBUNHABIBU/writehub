@@ -23,6 +23,7 @@
          <div class ="weather__container">  
                <h4> <%= @weather_info[:city_name] %></h4>
                <h2><%= (@weather_info[:weather_data]['main']['temp'] - 273.15).round(2) %>&#xb0;C</h2>
+               <img class="city-icon" src="<%= @weather_info[:weather_icon] %>" alt="weather icon">
                <p><%= @weather_info[:weather_data]['main']['humidity'] %>%</p>
          </div>
       </div>
