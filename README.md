@@ -296,3 +296,7 @@ export default class extends Controller {
     console.error("Error getting user's location:", error);
    }
 }
+
+sudo /home/deployer/.local/share/letsencrypt/bin/letsencrypt certonly --webroot --webroot-path /home/deployer/linodeblog/current/public --renew-by-default --email ibunhabib@gmail.com --text --agree-tos -d writehub.cyou -d www.writehub.cyou
+
+sudo tail -f /var/log/syslog | grep rails less /home/deployer/linodeblog/current/log/production.log
