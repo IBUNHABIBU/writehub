@@ -5,8 +5,13 @@ lock '3.19.1'
 set :application, "linodeblog"
 set :repo_url, "git@github.com:IBUNHABIBU/linodeblog.git"
 
-set :rbenv_type, :user
-set :rbenv_ruby, '3.3.3'
+# set :rbenv_type, :user
+# set :rbenv_ruby, '3.3.3'
+
+set :default_env, {
+  'PATH' => "/home/deployer/.asdf/shims:/home/deployer/.asdf/bin:$PATH",
+  'RAILS_ENV' => 'production'
+}
 
 # Deploy to the user's home directory
 set :deploy_to, "/home/deployer/#{fetch :application}"

@@ -300,3 +300,15 @@ export default class extends Controller {
 sudo /home/deployer/.local/share/letsencrypt/bin/letsencrypt certonly --webroot --webroot-path /home/deployer/linodeblog/current/public --renew-by-default --email ibunhabib@gmail.com --text --agree-tos -d writehub.cyou -d www.writehub.cyou
 
 sudo tail -f /var/log/syslog | grep rails less /home/deployer/linodeblog/current/log/production.log
+
+Why it says rbenv: version 3.0.1' is not installed (set by /home/deployer/linodeblog/current/.ruby-version) while I want to use version 3.3.3 which I have installed arleady in my server and local development?
+Step 1: Update the .ruby-version File
+Navigate to your application's directory:
+
+sh
+cd /home/deployer/linodeblog/current
+Update the .ruby-version file:
+
+Edit the .ruby-version file to specify 3.3.3:
+
+echo "3.3.3" > .ruby-version
