@@ -24,7 +24,7 @@ module Railstarter
       # lookup: :ipinfo_io, 
       # api_key: Rails.application.credentials.ipinfo[:key],
       lookup: :google, 
-      api_key: Rails.application.credentials.google_api[:key],
+      # api_key: Rails.application.credentials.google_api[:key],
       use_https: true,
       units: :km
     )

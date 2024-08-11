@@ -8,6 +8,12 @@ set :repo_url, "git@github.com:IBUNHABIBU/linodeblog.git"
 # set :rbenv_type, :user
 # set :rbenv_ruby, '3.3.3'
 
+# config/deploy.rb
+
+# Append the credentials files to linked_files to ensure they are symlinked during deployment
+append :linked_files, "config/credentials.yml.enc", "config/master.key"
+
+
 set :default_env, {
   'PATH' => "/home/deployer/.asdf/shims:/home/deployer/.asdf/bin:$PATH",
   'RAILS_ENV' => 'production'
