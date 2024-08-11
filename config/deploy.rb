@@ -13,6 +13,8 @@ set :repo_url, "git@github.com:IBUNHABIBU/linodeblog.git"
 
 
 set :default_env, {
+  'SECRET_KEY_BASE' => '52bb4e00e6fc2e41a6b52e1c842cc2508fc08e40945c56090b4a3f73239d63fc92c74fd66c94f4b976c8dafd4f8a0c4e1d7215932fa7013346c895d5085010fa
+',
   'PATH' => "/home/deployer/.asdf/shims:/home/deployer/.asdf/bin:$PATH",
   'RAILS_ENV' => 'production'
 }

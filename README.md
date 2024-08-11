@@ -312,3 +312,31 @@ Update the .ruby-version file:
 Edit the .ruby-version file to specify 3.3.3:
 
 echo "3.3.3" > .ruby-version
+
+
+
+DATABASE_URL=postgresql://postgres:Voda0763@127.0.0.1/linodeblog
+
+
+database:
+  username: postgres
+  password: Voda0763
+
+openweather:
+  key: d79e7d987356c35ab053eb9c2eb96551
+
+pexels:
+  key: JWhxCrgOg2vDFo7Eftnk9ErD4WEF1deBdyQJUbTwE13jqSei7lJajXMt
+
+google_api:
+  key: AIzaSyDbsdAmbb_DZcNUefgmIIox2OUgTbsDl3Q
+
+ipinfo:
+  key: 283e8513d0c254
+
+RAILS_MASTER_KEY=b9a6bd8e6ac6191af1c6523cca575e14
+
+SECRET_KEY_BASE=52bb4e00e6fc2e41a6b52e1c842cc2508fc08e40945c56090b4a3f73239d63fc92c74fd66c94f4b976c8dafd4f8a0c4e1d72159>
+
+
+
