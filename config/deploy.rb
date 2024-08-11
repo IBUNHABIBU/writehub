@@ -10,8 +10,6 @@ set :repo_url, "git@github.com:IBUNHABIBU/linodeblog.git"
 
 # config/deploy.rb
 
-# Append the credentials files to linked_files to ensure they are symlinked during deployment
-append :linked_files, "config/credentials.yml.enc", "config/master.key"
 
 
 set :default_env, {
