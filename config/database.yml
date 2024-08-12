@@ -85,6 +85,6 @@ test:
 production:
   <<: *default
   database: linodeblog_production
-  # username: postgres
-  # password: <%= ENV["DATABASE_PASSWORD"] %>
+  username: <%= ENV['DATABASE_USERNAME'] %>
+  password: <%= ENV['DATABASE_PASSWORD'] %>
   url: <%= ENV["DATABASE_URL"] %>
