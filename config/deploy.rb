@@ -5,25 +5,8 @@ lock '3.19.1'
 set :application, "linodeblog"
 set :repo_url, "git@github.com:IBUNHABIBU/linodeblog.git"
 
-# set :rbenv_type, :user
-# set :rbenv_ruby, '3.3.3'
-
-# config/deploy.rb
-
-
-
-set :default_env, {
-  'SECRET_KEY_BASE' => '52bb4e00e6fc2e41a6b52e1c842cc2508fc08e40945c56090b4a3f73239d63fc92c74fd66c94f4b976c8dafd4f8a0c4e1d7215932fa7013346c895d5085010fa
-',
-  'DATABASE_USERNAME' => 'postgres',
-  'DATABASE_PASSWORD' => 'Voda0763',
-  'OPENWEATHER_KEY'   => 'd79e7d987356c35ab053eb9c2eb96551',
-  'PEXELS_KEY'        => 'JWhxCrgOg2vDFo7Eftnk9ErD4WEF1deBdyQJUbTwE13jqSei7lJajXMt',
-  'GOOGLE_API_KEY'    => 'AIzaSyDbsdAmbb_DZcNUefgmIIox2OUgTbsDl3Q',
-  'IPINFO_KEY'        => '283e8513d0c254',
-  'PATH' => "/home/deployer/.asdf/shims:/home/deployer/.asdf/bin:$PATH",
-  'RAILS_ENV' => 'production'
-}
+set :rbenv_type, :user
+set :rbenv_ruby, '3.3.3'
 
 # Deploy to the user's home directory
 set :deploy_to, "/home/deployer/#{fetch :application}"
