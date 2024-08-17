@@ -232,6 +232,7 @@ GEM
     multi_xml (0.7.1)
       bigdecimal (~> 3.1)
     multipart-post (2.4.1)
+    mutex_m (0.2.0)
     net-http (0.4.1)
       uri
     net-imap (0.4.14)
@@ -465,6 +466,7 @@ DEPENDENCIES
   jbuilder
   jsbundling-rails
   mini_magick
+  mutex_m
   net-http
   net-pop!
   net-ssh (~> 7.2.3)

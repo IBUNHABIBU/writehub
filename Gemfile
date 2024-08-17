@@ -8,6 +8,9 @@ gem 'rails', '~> 7.0.4', '>= 7.0.4.2'
 
 gem "net-pop", github: "ruby/net-pop"
 
+gem 'mutex_m'
+
+
 # The original asset pipeline for Rails [https://github.com/rails/sprockets-rails]
 gem 'sprockets-rails'
 
