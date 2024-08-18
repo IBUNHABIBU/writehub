@@ -15,7 +15,7 @@ class WeatherService
       weather_data: weather_data,
       city_name: city_name,
       country_name: city_info[:country],
-      city_image: city_image,
+      # city_image: city_image,
       weather_icon: weather_icon,
       
     }
