@@ -90,13 +90,13 @@ gem 'bcrypt_pbkdf', '~> 1.0'
 
 # Ensure you have the required version of net-ssh
 gem 'net-ssh', '~> 7.2.3'
-gem "net-http"
+# gem "net-http"
 gem 'capistrano', '~> 3.19.1'
 gem 'capistrano-rails', '~> 1.4'
 gem 'capistrano-passenger', '~> 0.2.0'
 gem 'capistrano-rbenv', '~> 2.1', '>= 2.1.4'
 gem 'httparty'
-gem 'open-uri'
+# gem 'open-uri'
 gem 'mini_magick'
 gem 'geocoder'
 gem 'pexels'
