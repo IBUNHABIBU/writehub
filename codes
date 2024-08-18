@@ -1,6 +1,17 @@
 DATABASE_URL=postgresql://postgres:Voda0763@127.0.0.1/linodeblog
 
-RAILS_MASTER_KEY=b9a6bd8e6ac6191af1c6523cca575e14
-secret_key_base: 52bb4e00e6fc2e41a6b52e1c842cc2508fc08e40945c56090b4a3f73239d63fc92c74fd66c94f4b976c8dafd4f8a0c4e1d7215932fa7013346c895d5085010fa
+database:
+  username: postgres
+  password: Voda0763
 
-scp config/master.key deployer@45.92.9.7:/home/deployer/linodeblog/shared/config/master.key
+google_api:
+  key: AIzaSyDCbg8550DOyATZ6YjyfjsIy8EgN6MYJVw
+
+pexels:
+  key: JWhxCrgOg2vDFo7Eftnk9ErD4WEF1deBdyQJUbTwE13jqSei7lJajXMt
+
+openweather:
+  key: d79e7d987356c35ab053eb9c2eb96551
+
+RAILS_MASTER_KEY=8f615dc437be99272a6f05a3a60600e3
+secret_key_base= cd6c961a4efb0cd427f1a0159e7c8a9cfdb1d45253a18e6643677a742987c06edf34a472ab88cfb9aabf1dc8caeac0355fb3cdffc44098bba02fbea6b8f47a89

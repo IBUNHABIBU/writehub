@@ -23,7 +23,7 @@ module Railstarter
       timeout: 5,                 # geocoding service timeout (secs)
       # lookup: :ipinfo_io, 
       lookup: :google, 
-      # api_key: Rails.application.credentials.google_api[:key],
+      api_key: Rails.application.credentials.google_api[:key],
       use_https: true,
       units: :km
     )
