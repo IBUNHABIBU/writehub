@@ -11,13 +11,66 @@ class ArticlesController < ApplicationController
 
   end
 
- 
+   # GET /articles/1
+  # GET /articles/1.json
+  def show
+    @likers = @article.likers
+    @current_like = current_user.likes.find_by(article_id: @article.id) if current_user
+  end
+
+  # GET /articles/new
+  def new
+    @article = Article.new
+  end
+
+  # GET /articles/1/edit
+  def edit; end
+
+  # POST /articles
+  # POST /articles.json
+  def create
+    @article = current_user.articles.new(article_params)
+
+    if @article.save
+      flash[:success] = 'Article was successfully created.'
+      redirect_to @article
+    else
+      render :new
+    end
+  end
+
+  # PATCH/PUT /articles/1
+  # PATCH/PUT /articles/1.json
+  def update
+    if @article.update(article_params)
+      flash[:success] = 'Article was successfully updated.'
+      redirect_to @article
+    else
+      render :edit
+    end
+  end
+
+  # DELETE /articles/1
+  # DELETE /articles/1.json
+  def destroy
+    @article.destroy
+    redirect_to articles_url
+    flash[:danger] = 'Article was successfully destroyed.'
+  end
+
+  def vote
+    if !current_user.liked? @article
+      @article.liked_by current_user
+    elsif current_user.liked? @article
+      @article.unliked_by current_user
+    end
+  end
+
 
   private
 
   def set_coordinates
     @coordinates = session[:coordinates] || [25.276987, 55.296249] # Default coordinates
-
   end
 
   def set_article

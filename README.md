@@ -226,11 +226,29 @@ DATABASE_URL=postgresql://postgres:fancypswd@127.0.0.1/myapp
         exit the database and type the below command
           `psql -U postgres -W -h 127.0.0.1 -d linodeblog_production` 
 
-4. Logs 
+4. Installing ssl certificate
+    follow this [link] (https://gorails.com/guides/free-ssl-with-rails-and-nginx-using-let-s-encrypt)
+
+    and then 
+ `sudo certbot --nginx -d car.darlive.cyou -d www.car.darlive.cyou`
+
+5. Logs 
     # To view the Rails logs
-    less /home/deployer/linodeblog/current/log/production.log
+    `less /home/deployer/linodeblog/current/log/production.log`
+    `sudo tail -f /home/deployer/linodeblog/current/log/production.log`
+
     # To view the NGINX and Passenger logs
     `sudo less /var/log/nginx/error.log` then type shift + G to go down to the very bottom of the error logs
+
+    # To view logs of the app
+    `sudo tail -f /var/log/syslog`
+
+    # to see production logs in Linux
+     `sudo tail -f /var/log/nginx/access.log`
+
+    #to view rails log
+    `sudo tail -f /var/log/syslog | grep rails less /home/deployer/carlinode/current/log/production.log`
+
 
 
 
@@ -260,56 +278,4 @@ DATABASE_URL=postgresql://postgres:fancypswd@127.0.0.1/myapp
 
 
 By using `screen`, you can keep your session running and access it later if needed, although typically with Nginx and Passenger, you won't need to interact with your Rails server directly once it's configured and running properly.
-
-
-    import { Controller } from "@hotwired/stimulus"
-
-export default class extends Controller {
-    static targets = [ "latitude", "longitude" ]
-
-    connect() {
-        console.log("*********** Geolocation Controller ***********");
-        if (navigator.geolocation) {
-          console.log("Geo location is supported by this browser");
-        navigator.geolocation.getCurrentPosition(
-            this.handleSuccess.bind(this),
-            this.handleError.bind(this)
-          );
-        } else {
-        console.log("Geolocation is not supported by this browser.");
-        }
-    }
-
-   handleSuccess(position) {
-    const latitude = position.coords.latitude;
-    const longitude = position.coords.longitude;
-    console.log("*********** Longitude&Latitude ***********");
-    console.log(latitude, longitude);
-    // Send the coordinates to the server using Turbo Streams
-    this.element.outerHTML = `<div data-controller="geolocation" data-geolocation-latitude="${latitude}" data-geolocation-longitude="${longitude}">
-                                </div>`;
-
-    this.stimulate("geolocation#updateCoordinates", { latitude, longitude });
-   }
-
-   handleError(error) {
-    console.error("Error getting user's location:", error);
-   }
-}
-
-sudo /home/deployer/.local/share/letsencrypt/bin/letsencrypt certonly --webroot --webroot-path /home/deployer/linodeblog/current/public --renew-by-default --email ibunhabib@gmail.com --text --agree-tos -d writehub.cyou -d www.writehub.cyou
-
-sudo tail -f /var/log/syslog | grep rails less /home/deployer/linodeblog/current/log/production.log
-
-Why it says rbenv: version 3.0.1' is not installed (set by /home/deployer/linodeblog/current/.ruby-version) while I want to use version 3.3.3 which I have installed arleady in my server and local development?
-Step 1: Update the .ruby-version File
-Navigate to your application's directory:
-
-sh
-cd /home/deployer/linodeblog/current
-Update the .ruby-version file:
-
-Edit the .ruby-version file to specify 3.3.3:
-
-echo "3.3.3" > .ruby-version
 

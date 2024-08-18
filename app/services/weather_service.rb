@@ -8,14 +8,14 @@ class WeatherService
     weather_data = fetch_weather_data(latitude, longitude)
     city_name = fetch_city_name(latitude, longitude)
     city_info = fetch_city_name(latitude, longitude)
-    # city_image = fetch_city_image(city_name)
+    city_image = fetch_city_image(city_name)
     weather_icon = fetch_weather_icon(weather_data)
 
     {
       weather_data: weather_data,
       city_name: city_name,
       country_name: city_info[:country],
-      # city_image: city_image,
+      city_image: city_image,
       weather_icon: weather_icon,
       
     }

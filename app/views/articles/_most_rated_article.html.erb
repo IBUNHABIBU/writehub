@@ -1,11 +1,17 @@
 <% if obj.image.attached? %>
-      <div class="slider__bg" style="background: url(<%= rails_blob_url(obj.image) %>); width: 100%; height: 100%; background-size: contain; background-repeat: no-repeat; background-position: 0px 0px; ">
-            <div class="slider__bg__title" id="rated_title">
+      <div class="slider__bg">
+            
+            <img class="slider__img" src="<%= obj.image %>" alt="slider image">
+            <div class="slider__overlay">
+            
+                  <div class="slider__bg__title" id="rated_title">
                   <%=  link_to obj.title, article_path(obj), class:"title-link" %>
-            </div>
-            <div class="slider__bg__content">
+                  </div>
+                  <div class="slider__bg__content">
                   <%= truncate(obj.content, length:100, separator:' ') %>
+                  </div>
             </div>
+
       </div>
 <% end %>   
 
