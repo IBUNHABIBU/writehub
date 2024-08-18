@@ -1,8 +1,8 @@
 # app/services/weather_service.rb
 
 class WeatherService
-  OPENWEATHERMAP_API_KEY = Rails.application.credentials.openweather[:key]
-  PEXELS_API_KEY = Rails.application.credentials.pexels[:key]
+  OPENWEATHERMAP_API_KEY = Rails.application.credentials.openweather
+  PEXELS_API_KEY = Rails.application.credentials.pexels
 
   def self.fetch_weather_and_image(latitude, longitude)
     weather_data = fetch_weather_data(latitude, longitude)
