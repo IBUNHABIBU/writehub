@@ -25,7 +25,7 @@ export default class extends Controller {
   }
 
   showSlide(index = this.indexValue) {
-    const sliders = this.element.querySelectorAll('.slider__bg');
+    const sliders = this.element.querySelectorAll('.slides__bg');
     sliders.forEach((slider, i) => {
       slider.style.display = i === index ? 'block' : 'none';
     });

@@ -1,13 +1,12 @@
 <% if obj.image.attached? %>
-      <div class="slider__bg">
+      <div class="slides__bg">
             
-            <img class="slider__img" src="<%= obj.image %>" alt="slider image">
-            <div class="slider__overlay">
-            
-                  <div class="slider__bg__title" id="rated_title">
+             <%= image_tag obj.image, class: "slides__img" %>
+            <div class="slides__overlay">
+                  <div class="slides__title" id="rated_title">
                   <%=  link_to obj.title, article_path(obj), class:"title-link" %>
                   </div>
-                  <div class="slider__bg__content">
+                  <div class="slides__content">
                   <%= truncate(obj.content, length:100, separator:' ') %>
                   </div>
             </div>
