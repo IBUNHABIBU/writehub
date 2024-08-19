@@ -25,9 +25,11 @@
         <span class="humidity"><%= @weather_info[:weather_data]["main"]["humidity"] %>%</span>
       </div>
     </div>
-    <p>Photo by <%= @weather_info[:city_image][:photographer].name %>
-      from <%= link_to 'Pexels', @weather_info[:city_image][:photographer].url, target: '_blank' %>
-    </p>
+    <p>
+    Photo by 
+    <%= link_to @weather_info[:city_image][:photographer], @weather_info[:city_image][:photographer_url], target: "_blank" %>
+    on <%= link_to 'Pexels', 'https://www.pexels.com', target: "_blank" %>
+  </p>
      </div>
 </div>
 

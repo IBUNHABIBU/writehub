@@ -46,8 +46,8 @@ class WeatherService
     
     {
       image_url: photo.src["original"],
-      photographer: photo.user,
-      # photographer_url: photo.photographer_url
+      photographer: photo.user.name,
+      photographer_url: photo.user.url
     }
   end
 
