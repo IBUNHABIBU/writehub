@@ -46,10 +46,15 @@ class WeatherService
     Rails.logger.info "weather: #{OPENWEATHERMAP_API_KEY}"
     client = Pexels::Client.new(PEXELS_API_KEY)
     
-    Rails.logger.info "client: #{client}"
+    Rails.logger.info "*************************************************************************************************************
+    client: #{client.inspect}*S***************************************************************************"
+   
     city_response = client.photos.search(city_name, page: 1, per_page: 1)
+    
+    Rails.logger.info "**************************************client after: #{client.inspect}**************************************************"
+    
+    Rails.logger.info "********************************client: #{city_response .inspect}**************************"
     photo = city_response.photos[0]
-
     Rails.logger.info("Pexels API Response: #{photo.inspect}")
     Rails.logger.info "Response PEXELS_API_KEY: #{PEXELS_API_KEY}"
 
