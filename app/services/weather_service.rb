@@ -38,8 +38,17 @@ class WeatherService
 
   def self.fetch_city_image(city_name)
     client = Pexels::Client.new(PEXELS_API_KEY)
-    city_response = client.photos.search(city_name,page: 1, per_page: 1)
-    city_response.photos[0].src["original"]
+    city_response = client.photos.search(city_name, page: 1, per_page: 1)
+    photo = city_response.photos[0]
+
+    Rails.logger.info("Pexels API Response: #{photo.inspect}")
+
+    
+    {
+      image_url: photo.src["original"],
+      photographer: photo.user,
+      # photographer_url: photo.photographer_url
+    }
   end
 
   def self.fetch_weather_icon(weather_data)
