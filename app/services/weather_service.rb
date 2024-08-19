@@ -42,6 +42,7 @@ class WeatherService
     photo = city_response.photos[0]
 
     Rails.logger.info("Pexels API Response: #{photo.inspect}")
+    Rails.logger.info "PEXELS_API_KEY: #{PEXELS_API_KEY}"
 
     
     {
