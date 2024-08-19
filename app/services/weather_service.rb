@@ -4,9 +4,6 @@ class WeatherService
   OPENWEATHERMAP_API_KEY = Rails.application.credentials.openweather
   PEXELS_API_KEY = Rails.application.credentials.pexels
 
-    Rails.logger.info "After service pexel: #{PEXELS_API_KEY}"
-    
-    Rails.logger.info "Openweather after service: #{OPENWEATHERMAP_API_KEY}"
   def self.fetch_weather_and_image(latitude, longitude)
     weather_data = fetch_weather_data(latitude, longitude)
     city_name = fetch_city_name(latitude, longitude)
@@ -41,24 +38,14 @@ class WeatherService
 
   def self.fetch_city_image(city_name)
     
-    Rails.logger.info "PEXELS_API_KEY: #{PEXELS_API_KEY}"
-    
-    Rails.logger.info "weather: #{OPENWEATHERMAP_API_KEY}"
     client = Pexels::Client.new(PEXELS_API_KEY)
     
     Rails.logger.info "*************************************************************************************************************
     client: #{client.inspect}*S***************************************************************************"
    
     city_response = client.photos.search(city_name, page: 1, per_page: 1)
-    
-    Rails.logger.info "**************************************client after: #{client.inspect}**************************************************"
-    
     Rails.logger.info "********************************client: #{city_response .inspect}**************************"
     photo = city_response.photos[0]
-    Rails.logger.info("Pexels API Response: #{photo.inspect}")
-    Rails.logger.info "Response PEXELS_API_KEY: #{PEXELS_API_KEY}"
-
-    
     {
       image_url: photo.src["original"],
       photographer: photo.user.name,
