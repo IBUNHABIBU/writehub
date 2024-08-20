@@ -1,0 +1,18 @@
+<div class="weather-card">
+<img class="city-image" src="<%= @weather_info[:city_image][:image_url] %>" alt="<%= @weather_info[:city_name] %>">
+<div class="weather-overlay">
+  <h2><%= @weather_info[:city_name][:city] %>, <%= @weather_info[:country_name] %></h2>
+  <div class="weather-info">
+    <img class="weather-icon" src="<%= @weather_info[:weather_icon] %>" alt="weather icon">
+    <div class="temp-info">
+      <span class="temperature"><%= @weather_info[:weather_data]["main"]["temp"]- 273.15).round(1 %>&#xb0;C</span>
+      <span class="humidity"><%= @weather_info[:weather_data]["main"]["humidity"] %>%</span>
+    </div>
+  </div>
+  <p>
+  Photo by 
+  <%= link_to @weather_info[:city_image][:photographer], @weather_info[:city_image][:photographer_url], target: "_blank" %>
+  on <%= link_to 'Pixabay', 'https://pixabay.com/', target: "_blank" %>
+</p>
+  </div>
+</div>
