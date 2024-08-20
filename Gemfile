@@ -105,3 +105,4 @@ gem "dartsass-rails", "~> 0.5.0"
 
 gem 'erb_lint'
 
+gem "pixabay_api", "~> 0.0.5"

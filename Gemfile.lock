@@ -119,7 +119,7 @@ GEM
       rack-test (>= 0.6.3)
       regexp_parser (>= 1.5, < 3.0)
       xpath (~> 3.2)
-    cloudinary (2.1.1)
+    cloudinary (2.1.2)
       faraday (>= 2.0.1, < 3.0.0)
       faraday-follow_redirects (~> 0.3.0)
       faraday-multipart (~> 1.0, >= 1.0.4)
@@ -136,6 +136,7 @@ GEM
       irb (~> 1.10)
       reline (>= 0.3.8)
     diff-lcs (1.5.1)
+    domain_name (0.6.20240107)
     ed25519 (1.3.0)
     erb_lint (0.6.0)
       activesupport
@@ -194,6 +195,15 @@ GEM
     google-protobuf (4.27.3-x86_64-linux)
       bigdecimal
       rake (>= 13)
+    http (2.2.2)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 1.0.1)
+      http_parser.rb (~> 0.6.0)
+    http-cookie (1.0.7)
+      domain_name (~> 0.5)
+    http-form_data (1.0.3)
+    http_parser.rb (0.6.0)
     httparty (0.22.0)
       csv
       mini_mime (>= 1.0.0)
@@ -268,6 +278,8 @@ GEM
     pexels (0.5.0)
       requests (~> 1.0.2)
     pg (1.5.7)
+    pixabay_api (0.0.5)
+      http (~> 2.2)
     psych (5.1.2)
       stringio
     public_suffix (6.0.1)
@@ -466,6 +478,7 @@ DEPENDENCIES
   net-ssh (~> 7.2.3)
   pexels
   pg (~> 1.1)
+  pixabay_api (~> 0.0.5)
   puma (~> 5.0)
   rails (~> 7.0.4, >= 7.0.4.2)
   redis (~> 4.0)

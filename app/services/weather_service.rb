@@ -1,8 +1,9 @@
 # app/services/weather_service.rb
+require 'pixabay_api'
 
 class WeatherService
   OPENWEATHERMAP_API_KEY = Rails.application.credentials.openweather
-  PEXELS_API_KEY = Rails.application.credentials.pexels
+  PIXABAY_API_KEY = Rails.application.credentials.pixabay
 
   def self.fetch_weather_and_image(latitude, longitude)
     weather_data = fetch_weather_data(latitude, longitude)
@@ -37,22 +38,19 @@ class WeatherService
   end
 
   def self.fetch_city_image(city_name)
+    client = PixabayApi::ImagesApi.new
     
-    client = Pexels::Client.new(PEXELS_API_KEY)
-    
-    Rails.logger.info "*************************************************************************************************************
-    client: #{client.inspect}*S***************************************************************************"
+    response = client.find(keyword: city_name[:city] || city_name[:country] )
    
-    city_response = client.photos.search(city_name, page: 1, per_page: 1)
-    Rails.logger.info "********************************client: #{city_response .inspect}**************************"
-    photo = city_response.photos[0]
+    image_info = response.body['hits'].first
+
     {
-      image_url: photo.src["original"],
-      photographer: photo.user.name,
-      photographer_url: photo.user.url
+      image_url: image_info['largeImageURL'],
+      photographer: image_info['user'],
+      photographer_url: image_info['userImageURL']
     }
   end
-
+  
   def self.fetch_weather_icon(weather_data)
     icon = weather_data.dig("weather", 0, "icon")
     "https://openweathermap.org/img/wn/#{icon}@2x.png"

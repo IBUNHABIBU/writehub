@@ -1,37 +1,10 @@
 <div class="home" data-controller="geolocation" data-action="geolocation#updateCoordinates">
    <div class="home__top">
       <div class="left">
-         <div data-controller="slider" class="slider">
-            <div class="slides">
-              <% @most_rated_articles.each do |mr_article| %>
-                <%= render 'articles/most_rated_article', obj: mr_article %>
-              <% end %>
-            </div>
-            <div class="dots">
-            <% @most_rated_articles.each_with_index do |mr_article, index| %>
-               <button data-action="click->slider#goToSlide" data-slider-target="dot" data-index="<%= index %>"></button>
-             <% end %>
-            </div>
-         </div>
+         <%= render 'slider', obj: @most_rated_articles %>
       </div>
-<div class="weather-card">
-  <img class="city-image" src="<%= @weather_info[:city_image][:image_url] %>" alt="<%= @weather_info[:city_name] %>">
-  <div class="weather-overlay">
-    <h2><%= @weather_info[:city_name][:city] %>, <%= @weather_info[:country_name] %></h2>
-    <div class="weather-info">
-      <img class="weather-icon" src="<%= @weather_info[:weather_icon] %>" alt="weather icon">
-      <div class="temp-info">
-        <span class="temperature"><%= @weather_info[:weather_data]["main"]["temp"]- 273.15).round(1 %>&#xb0;C</span>
-        <span class="humidity"><%= @weather_info[:weather_data]["main"]["humidity"] %>%</span>
-      </div>
-    </div>
-    <p>
-    Photo by 
-    <%= link_to @weather_info[:city_image][:photographer], @weather_info[:city_image][:photographer_url], target: "_blank" %>
-    on <%= link_to 'Pexels', 'https://www.pexels.com', target: "_blank" %>
-  </p>
-     </div>
-</div>
+   
+      <%= render 'articles/weather', obj: @weather_info %>
 
    </div>
    <div class="home__recent">
