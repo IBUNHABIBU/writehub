@@ -1,13 +1,22 @@
-<header class="header">
- <h2 class="logo">WriTEhUb<span class="logo__dot"></span></h2>
-    <nav>
-        <ul class="header__menu">
+<header class="header" data-controller="humburger">
+   
+    <div class="logo-menu">
+      <div class="humburger"  data-action="click->humburger#toggleNav">
+        <span class="line1"></span>
+        <span class="line2"></span>
+        <span class="line3"></span>
+      </div>
+      <h2 class="logo">WriTEhUb<span class="logo__dot"></span></h2>
+    </div>
+    <nav data-humburger-target="nav">
+        <ul class="menu" data-action="click->humburger#closeNav">
         <li>
-          <%= link_to "Home", root_path, class: "header__menu__item" %>
+          <%= link_to "Home", root_path, class: "menu__item" %>
         </li>
+        
         <% Category.priority_cat.each do |category| %>
                 <li>
-                  <%= link_to category.name, category_path(category), class: "header__menu__item " %>
+                  <%= link_to category.name, category_path(category), class: "menu__item " %>
                 </li>
         <% end %>  
         </ul>

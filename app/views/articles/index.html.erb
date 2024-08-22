@@ -1,13 +1,26 @@
 <div class="home" data-controller="geolocation" data-action="geolocation#updateCoordinates">
-   <div class="home__top">
-      <div class="left">
-         <%= render 'slider', obj: @most_rated_articles %>
-      </div>
    
-      <%= render 'articles/weather', obj: @weather_info %>
-
+   <div class="row">
+      <div class="desk-12 tab-port-12 tab-land-12 phone-12">
+         <div class="home__top">
+            <div class="row">
+               <div class="desk-9 tab-land-9 tab-port-12 phone-12">
+                  <div class="left">
+                     <%= render 'slider', obj: @most_rated_articles %>
+                  </div>
+               </div>
+               <div class="desk-3 tab-land-3 tab-port-12 phone-12">
+                 <%= render 'articles/weather', obj: @weather_info %>
+               </div>
+            </div>
+         </div>
+      </div>
    </div>
-   <div class="home__recent">
-      <%= render 'recent_article', obj:@recent_articles %>
-   </div>
+   <div class="row">
+      <div class="desk-12 tab-port-12 tab-land-12 phone-12">
+      <div class="recent">
+         <%= render 'recent_article', obj:@recent_articles %>
+      </div>
+      </div>
+   </div>    
 </div>

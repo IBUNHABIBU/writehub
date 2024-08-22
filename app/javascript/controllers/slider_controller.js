@@ -41,12 +41,10 @@ export default class extends Controller {
   }
 
   goToSlide(event) {
-    console.log('Clicked')
     const index = parseInt(event.currentTarget.dataset.index);
     this.stopAutoSlide();
     this.showSlide(index);
     this.startAutoSlide();
-    console.log('After click go to slide', index);
   }
 }
 

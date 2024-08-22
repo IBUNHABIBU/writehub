@@ -3,25 +3,25 @@
     align-items: center;
     justify-content: space-between;
     z-index: 24;
-    background-image: linear-gradient(
-        to bottom, 
-        #fff 0%,
-        #fff 80%,
-        #fff 90%,
-        #fff 90%,
-        #836a6a 20%
-    );
+    // background-image: linear-gradient(
+    //     to bottom, 
+    //     #fff 0%,
+    //     #fff 80%,
+    //     #fff 90%,
+    //     #fff 90%,
+    //     #836a6a 20%
+    // );
 
-    &::before {
-        content: "";
-        width: 18rem;
-        height: 0.4rem;
-        background-color: red;
-        position: absolute;
-        top: 4.3rem;
-    }
+    // &::before {
+    //     content: "";
+    //     width: 18rem;
+    //     height: 0.4rem;
+    //     background-color: red;
+    //     position: absolute;
+    //     top: 4.3rem;
+    // }
     
-    &__menu {
+    .menu {
         display: flex;
         li {
             padding-left: 1rem;
@@ -39,6 +39,21 @@
             font-size:1.2rem;
             text-transform:uppercase;
             color:#787980;
+
+            @include respond(phone) {
+                z-index: 731;
+                color: white;
+            }
+
+            @include respond(tab-land) {
+                z-index: 731;
+                color: white;
+            }
+
+            @include respond(tab-port) {
+                z-index: 731;
+                color: white;
+            }
 
             &:hover {
                 color: $color-text-header;

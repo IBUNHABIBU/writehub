@@ -1,3 +1,4 @@
+$columns: 12;
 
 @mixin respond($breakpoint) {
   @if $breakpoint == phone { // 0 - 600px
@@ -20,3 +21,33 @@
   //     @media(min-width: 1800px) { @content };
   // }
 }
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+   @for $i from 1 through $columns {
+  
+      .desk-#{$i} {
+        flex: 0 0 calc(100% /$columns * $i);
+      }
+    
+      .tab-land-#{$i} {
+        @include respond(tab-land) {
+          flex: 0 0 calc(100% /$columns * $i);
+        }
+      }
+  
+      .tab-port-#{$i} {
+        @include respond(tab-port) {
+          flex: 0 0 calc(100% /$columns * $i);
+        }
+      }
+  
+      .phone-#{$i} {
+        @include respond(phone) {
+          flex: 0 0 calc(100% /$columns * $i);
+        }
+      }
+  }

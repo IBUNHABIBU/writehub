@@ -1,13 +1,15 @@
 
 .weather-card {
     position: relative;
-    width: 25%; /* Adjust as needed */
+    width: 100%; /* Adjust as needed */
     // height: 450px; /* Adjust as needed */
     height: 80vh;
-    overflow: hidden;
+    // overflow: hidden;
     font-family: Arial, sans-serif;
     color: white;
     text-align: center;
+    
+    border: 12px solid rgb(128, 0, 79);
   }
   
   .city-image {

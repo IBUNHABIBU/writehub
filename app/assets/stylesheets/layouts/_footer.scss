@@ -1,16 +1,24 @@
 footer {
     background-color: #4e443f;
     height:70px;
-    margin-top:auto;
-    padding-bottom:1rem;
     display: flex;
-    align-items: center;
+    flex-wrap: wrap;
     justify-content: space-between;
-    padding-top: 1rem;
+    padding-bottom: 2rem;
+
 
     .footer {
         display: flex;
         align-items: center;
+
+        .terms {
+            width: 30rem;
+        }
+
+        .social {
+            width: 32rem;
+        }
+
         &__icons {
             display: flex;
             flex-wrap: wrap;

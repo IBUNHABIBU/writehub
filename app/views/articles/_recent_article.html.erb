@@ -1,15 +1,19 @@
-<div class="home__recent__overlay"></div>
-<% obj.each do |article| %>
-    <div class="home__recent__container">
-        <div class="home__recent__container__bg" <% if article.image.attached? %>style="background: url(<%=  rails_blob_url(article.image) %>);background-repeat: no-repeat; background-size: cover;"<% end %>>
-            <div class="home__recent__container__bg__content">
-                <% if article.categories.any? %>
-                    <%= render article.categories %>
+<div class="row">
+    <% obj.each do |article| %>
+        <div class="desk-3 tab-land-4 tab-port-6 phone-12">
+            <div class="recent__container">
+                <% if article.image.attached? %>
+                    <%= image_tag article.image, class: "recent__img" %>
                 <% end %>
-                <div class="home__recent__container__bg__content__title">
-                    <%= link_to article.title , article_path(article) %>
-                </div>
+                    <div class="recent__content">
+                        <% if article.categories.any? %>
+                            <%= render article.categories %>
+                        <% end %>
+                        <div class="recent__title">
+                            <%= link_to article.title , article_path(article) %>
+                        </div>
+                    </div>
             </div>
         </div>
-    </div>
-<%end%>
+    <%end%>
+</div>
