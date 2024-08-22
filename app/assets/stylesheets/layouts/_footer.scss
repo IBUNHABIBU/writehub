@@ -28,6 +28,10 @@ footer {
             margin-right: 11rem;
             position: relative;
 
+            @include respond(phone) {
+                margin-right: 1rem;
+            }
+
             h3 {
                 color:white;
                 margin-left:2rem;

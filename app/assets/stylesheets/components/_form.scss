@@ -1,4 +1,5 @@
 @import '../config/variables';
+@import '../mixins/media';
 
 .form {
     position: relative;
@@ -12,6 +13,10 @@
 
     &--mid {
         @include width_and_height($height:74vh);
+
+        @include respond(phone) {
+           @include width_and_height(90%, $height:74vh);
+        }
     }
 
     &--large {
@@ -28,6 +33,8 @@
         background: linear-gradient(0deg, transparent, transparent, $form-color, $form-color);
         transform-origin: bottom right;
         animation: animate 6s linear infinite;
+
+
     }
 
     &::after {
@@ -64,6 +71,10 @@
             position: relative;
             width: 300px;
             margin-top: 25px;
+
+            @include respond(phone) {
+                width: 15rem;
+            }
 
             input {
                 position: relative;

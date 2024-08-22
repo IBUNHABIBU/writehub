@@ -12,6 +12,9 @@
         
         .left {
             width: 100%;
+            @include respond(phone) {
+                height: 40vh;
+            }
         }
     }
 }
