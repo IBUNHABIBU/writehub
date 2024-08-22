@@ -5,11 +5,13 @@
         display: flex;
         height: 80vh;
         width: 100%;
-        border: 21px solid green;
+
+        @include respond(phone) {
+            height: 100vh;
+        }
         
         .left {
             width: 100%;
-           border: 8px solid rgb(49, 0, 128);
         }
     }
 }
