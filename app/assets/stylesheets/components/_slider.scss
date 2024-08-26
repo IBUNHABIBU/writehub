@@ -37,6 +37,17 @@
           top:22rem;
           z-index:5;
 
+          @include respond(tab-port) {
+            top: 10rem;
+          }
+
+          @include respond(tab-land) {
+            top: 10rem;
+          }
+          @include respond(phone) {
+            top: 10rem;
+          }
+
           &:hover {
               color:#fe6001;
               text-decoration:none;
@@ -51,6 +62,18 @@
         top: 23rem;
         margin-left:2rem;
         z-index:5;
+
+        @include respond(tab-port) {
+          top: 12rem;
+        }
+
+        @include respond(tab-land) {
+          top: 12rem;
+        }
+        @include respond(phone) {
+          top: 12rem;
+        }
+
     }
   }
 
