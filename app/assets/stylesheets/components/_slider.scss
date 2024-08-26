@@ -4,7 +4,7 @@
     position: relative;
     width: 100%;
     overflow: hidden;
-  }
+}
 
   .slides {
     display: flex;
@@ -12,7 +12,7 @@
     height: 32rem;
 
     &__img {
-      width: 100%;
+      width: 92rem;
       height: 100%;
       object-fit: cover;
       filter: brightness(50%);
@@ -37,6 +37,16 @@
           top:22rem;
           z-index:5;
 
+          @include respond(tab-port) {
+            font-size: 1.2rem;
+            top: 8rem;
+           }
+
+          @include respond(phone) {
+            font-size: 1rem;
+            top: 8rem;
+          }
+
           &:hover {
               color:#fe6001;
               text-decoration:none;
@@ -48,15 +58,27 @@
         color:white;
         font-size: 1.4rem;
         position:relative;
-        top:23rem;
+        top: 23rem;
         margin-left:2rem;
         z-index:5;
+
+        @include respond(tab-port) {
+            font-size: 1.2rem;
+            top:8rem;
+        }
+
+        @include respond(phone) {
+            font-size: 1rem;
+            top: 8rem;
+        }
     }
   }
+
   .slide {
     min-width: 100%;
     box-sizing: border-box;
   }
+
   .dots {
     text-align: right;
     position: absolute;
@@ -81,7 +103,7 @@
       cursor: pointer;
     }
   }
-  
+
   .dots button.active {
     background-color: $color-primary-rotate;
   }

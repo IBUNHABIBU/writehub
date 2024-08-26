@@ -1,6 +1,5 @@
 @import '../config/variables';
 .home {
- 
     &__top {
         display: flex;
         height: 80vh;
@@ -11,7 +10,7 @@
         }
         
         .left {
-            width: 100%;
+            width: 75%;
             @include respond(phone) {
                 height: 40vh;
             }
