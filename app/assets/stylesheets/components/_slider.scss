@@ -37,16 +37,6 @@
           top:22rem;
           z-index:5;
 
-          @include respond(tab-port) {
-            font-size: 1.2rem;
-            top: 8rem;
-           }
-
-          @include respond(phone) {
-            font-size: 1rem;
-            top: 8rem;
-          }
-
           &:hover {
               color:#fe6001;
               text-decoration:none;
@@ -61,16 +51,6 @@
         top: 23rem;
         margin-left:2rem;
         z-index:5;
-
-        @include respond(tab-port) {
-            font-size: 1.2rem;
-            top:8rem;
-        }
-
-        @include respond(phone) {
-            font-size: 1rem;
-            top: 8rem;
-        }
     }
   }
 
