@@ -44,8 +44,10 @@
                     padding-left:1rem;
 
                     @include respond(phone) {
-                        padding-left: 0.2rem;
+                        padding: 0.2rem;
+                        margin: 0.1rem;
                     }
+
                     &__category {
                         
                         .category--name {
