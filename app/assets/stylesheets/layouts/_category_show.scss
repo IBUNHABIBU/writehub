@@ -43,6 +43,9 @@
                     height:300px;
                     padding-left:1rem;
 
+                    @include respond(phone) {
+                        padding-left: 0.2rem;
+                    }
                     &__category {
                         
                         .category--name {
