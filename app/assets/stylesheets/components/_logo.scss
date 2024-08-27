@@ -1,3 +1,14 @@
+@import '../mixins/media';
+
+.logo-menu {
+    display: flex;
+    justify-content: space-between;
+    width: 20%;
+    @include respond(phone) {
+        width: 40%;
+    }
+}
+
 .logo {
     padding:3px;
     float:left;
@@ -7,15 +18,15 @@
     font-size:2.5rem;
 
     @include respond(phone) {
-        font-size: 0.8rem;
+        font-size: 1rem;
     }
 
     @include respond(tab-port) {
-        font-size: 2rem;
+        font-size: 1.4rem;
     }
 
     @include respond(tab-land) {
-        font-size: 2rem;
+        font-size: 1.2rem;
     }
 
 
@@ -29,7 +40,6 @@
     }
 
     &--medium {
-        // font-size: 1.5rem;
         color: white;
     }
 }

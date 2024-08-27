@@ -19,10 +19,6 @@
                   <%= link_to category.name, category_path(category), class: "menu__item " %>
                 </li>
         <% end %>  
-        </ul>
-    </nav>
-    <div class="header__user">
-      <ul>
         <% if current_user %>
           <li class="create">
             <%= link_to 'create category', new_category_path, class: "header__menu__item" %>
@@ -41,6 +37,11 @@
             <%= link_to 'Register', new_user_path, class: "header__menu__item" %>
           </li>
         <% end %>
+        </ul>
+    </nav>
+    <div class="header__user">
+      <ul>
+        
         <li><i class="fas fa-search "></i></li>
       </ul>
     </div>

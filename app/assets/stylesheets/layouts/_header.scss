@@ -1,25 +1,11 @@
+@import '../mixins/media';
+
 .header {
     display: flex;
     align-items: center;
     justify-content: space-between;
     z-index: 24;
-    // background-image: linear-gradient(
-    //     to bottom, 
-    //     #fff 0%,
-    //     #fff 80%,
-    //     #fff 90%,
-    //     #fff 90%,
-    //     #836a6a 20%
-    // );
-
-    // &::before {
-    //     content: "";
-    //     width: 18rem;
-    //     height: 0.4rem;
-    //     background-color: red;
-    //     position: absolute;
-    //     top: 4.3rem;
-    // }
+   
     
     .menu {
         display: flex;
