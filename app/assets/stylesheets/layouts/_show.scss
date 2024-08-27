@@ -2,6 +2,15 @@
     &__container {
         display:flex;
         justify-content:center;
+        flex-wrap: wrap;
+
+        @include respond(phone) {
+            flex-direction: column;
+        }
+
+        @include respond(tab-port) {
+            flex-direction: column;
+        }
 
         .bg-image {
             width: 100vw;
