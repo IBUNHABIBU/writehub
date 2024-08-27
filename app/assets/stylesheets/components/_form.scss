@@ -20,7 +20,12 @@
     }
 
     &--large {
-        @include width_and_height($height:78vh);
+        @include width_and_height(90%, $height:78vh);
+
+        
+        @include respond(phone) {
+            @include width_and_height(90%, $height:54vh);
+         }
     }
 
     &::before {
