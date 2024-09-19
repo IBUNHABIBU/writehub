@@ -6,7 +6,7 @@ image: user/my-app
 
 # Deploy to these servers.
 servers:
-  - 192.168.0.1
+  - 45.92.9.7
 
 # Credentials for your image host.
 registry:
