@@ -1,7 +1,7 @@
 class ArticlesController < ApplicationController
   before_action :set_article, only: %i[show edit update destroy vote]
   before_action :require_signin, except: %i[index show]
-  before_action :set_coordinates, only: [:index, :update_coordinates]
+  before_action :set_coordinates, only: [:index]
 
   def index
     @articles = Article.all
