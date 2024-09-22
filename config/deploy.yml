@@ -1,12 +1,17 @@
-app: linodeblog
-repo: git@github.com:IBUNHABIBU/linodeblog.git
-service_name: www.writehub.cyou
+service: linodeblog
 image: ibunhabibu/writehub:latest
 servers:
   web:
-    - 45.92.9.7
-
-
+     hosts:
+      - 45.92.9.7
+    labels:
+      traefik.http.routers.mynewapp.rule: Host(`mynewapp.com`)
+      traefik.http.routers.mynewapp.entrypoints: websecure
+      traefik.http.routers.mynewapp_secure.rule: Host(`mynewapp.com`)
+      traefik.http.routers.mynewapp_secure.tls: true
+      traefik.http.routers.mynewapp_secure.tls.certresolver: letsencrypt
+    options:
+      network: "private"
 env:
   - RAILS_ENV=production
   - DATABASE_URL=postgresql://postgres:Voda0763@db_host/linodeblog
