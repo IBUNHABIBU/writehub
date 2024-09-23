@@ -46,3 +46,4 @@
 !/.env*.erb
 /code
 code
+.env
