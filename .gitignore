@@ -39,5 +39,8 @@
 
 /config/credentials/development.key
 
-code
-.env
+
+# Ignore all environment files (except templates).
+/.env*
+!/.env*.erb
+/code
