@@ -1,0 +1,14 @@
+# aws:
+#   access_key_id: 123
+#   secret_access_key: 345
+
+
+db_name: postgres
+db_pswd: Voda0763
+
+google_api: AIzaSyDCbg8550DOyATZ6YjyfjsIy8EgN6MYJVw
+
+# pexels: JWhxCrgOg2vDFo7Eftnk9ErD4WEF1deBdyQJUbTwE13jqSei7lJajXMt
+pixabay: 45518518-560ec26f7311c2c34858e7b84
+
+openweather:  d79e7d987356c35ab053eb9c2eb96551
