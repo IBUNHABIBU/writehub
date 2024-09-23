@@ -13,6 +13,7 @@
 !/log/.keep
 !/tmp/.keep
 
+
 # Ignore pidfiles, but keep the directory.
 /tmp/pids/*
 !/tmp/pids/
@@ -44,3 +45,4 @@
 /.env*
 !/.env*.erb
 /code
+code
