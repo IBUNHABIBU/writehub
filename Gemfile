@@ -89,7 +89,8 @@ gem 'ed25519', '~> 1.2'
 gem 'bcrypt_pbkdf', '~> 1.0'
 
 # Ensure you have the required version of net-ssh
-gem 'net-ssh', '~> 7.2.3'
+gem 'net-ssh', '~> 7.3'
+
 # gem "net-http"
 gem 'capistrano', '~> 3.19.1'
 gem 'capistrano-rails', '~> 1.4'
@@ -109,4 +110,4 @@ gem "pixabay_api", "~> 0.0.5"
 
 gem 'resolv-replace'
 
-gem "kamal", "~> 2.2"
+gem "kamal", "~> 2.3.0"
