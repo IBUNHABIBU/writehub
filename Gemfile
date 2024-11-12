@@ -108,3 +108,5 @@ gem 'erb_lint'
 gem "pixabay_api", "~> 0.0.5"
 
 gem 'resolv-replace'
+
+gem "kamal", "~> 2.2"
