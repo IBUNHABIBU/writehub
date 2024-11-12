@@ -27,7 +27,7 @@ RUN apt-get update -qq && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Copy Gemfile and Gemfile.lock for gem installation
-COPY Gemfile Gemfile.lock ./
+COPY Gemfile Gemfile.lock ./ 
 
 # Install gems
 RUN bundle install && \
