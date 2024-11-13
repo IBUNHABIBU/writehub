@@ -7,6 +7,15 @@ FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
 # Set the working directory for the app
 WORKDIR /rails
 
+
+# Use HTTPS for apt sources
+RUN sed -i 's|http://deb.debian.org|https://deb.debian.org|' /etc/apt/sources.list
+
+# Install base packages
+RUN apt-get update -qq || (sleep 30 && apt-get update -qq) && \
+    apt-get install --no-install-recommends -y curl libjemalloc2 libvips postgresql-client && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
 # Install base packages for runtime
 RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y curl libjemalloc2 libvips postgresql-client && \
