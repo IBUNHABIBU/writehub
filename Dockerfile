@@ -7,6 +7,8 @@ FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
 # Set the working directory for the app
 WORKDIR /rails
 
+# Add the missing sources.list
+RUN echo "deb https://deb.debian.org/debian stable main" > /etc/apt/sources.list
 
 # Use HTTPS for apt sources
 RUN sed -i 's|http://deb.debian.org|https://deb.debian.org|' /etc/apt/sources.list
