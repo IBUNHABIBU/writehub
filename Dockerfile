@@ -1,25 +1,18 @@
 # syntax = docker/dockerfile:1
 
-# Production Dockerfile, optimized for smaller size with multi-stage builds
+# Production Dockerfile with multi-stage build
 ARG RUBY_VERSION=3.3.3
 FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
 
 # Set the working directory for the app
 WORKDIR /rails
 
-# Add the missing sources.list
-RUN echo "deb https://deb.debian.org/debian stable main" > /etc/apt/sources.list
+# Add sources and configure apt for HTTPS
+RUN echo "deb https://deb.debian.org/debian stable main" > /etc/apt/sources.list && \
+    sed -i 's|http://deb.debian.org|https://deb.debian.org|' /etc/apt/sources.list
 
-# Use HTTPS for apt sources
-RUN sed -i 's|http://deb.debian.org|https://deb.debian.org|' /etc/apt/sources.list
-
-# Install base packages
+# Install runtime packages
 RUN apt-get update -qq || (sleep 30 && apt-get update -qq) && \
-    apt-get install --no-install-recommends -y curl libjemalloc2 libvips postgresql-client && \
-    rm -rf /var/lib/apt/lists /var/cache/apt/archives
-
-# Install base packages for runtime
-RUN apt-get update -qq && \
     apt-get install --no-install-recommends -y curl libjemalloc2 libvips postgresql-client && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
@@ -32,15 +25,16 @@ ENV RAILS_ENV="production" \
 # Build stage to install dependencies
 FROM base AS build
 
-# Install packages needed to build gems and JavaScript dependencies
-RUN apt-get update -qq && \
+# Install packages needed for building gems and JS dependencies
+RUN curl -sL https://deb.nodesource.com/setup_16.x | bash - && \
+    apt-get update -qq && \
     apt-get install --no-install-recommends -y build-essential git libpq-dev pkg-config nodejs yarn && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
-# Copy Gemfile and Gemfile.lock for gem installation
-COPY Gemfile Gemfile.lock ./ 
+# Copy Gemfile and Gemfile.lock first for dependency installation
+COPY Gemfile Gemfile.lock ./
 
-# Install gems
+# Install gems and precompile bootsnap
 RUN bundle install && \
     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
     bundle exec bootsnap precompile --gemfile
@@ -51,10 +45,10 @@ COPY . .
 # Ensure executable permissions on necessary files
 RUN chmod +x ./bin/rails && chmod +x /rails/bin/docker-entrypoint
 
-# Install JavaScript dependencies
-RUN yarn install
+# Install JavaScript dependencies and skip optional packages
+RUN yarn install --no-cache
 
-# Precompile Rails assets
+# Precompile Rails assets with a dummy key
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 
 # Final production image
