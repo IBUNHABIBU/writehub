@@ -38,7 +38,7 @@ env:
     - RAILS_MASTER_KEY
     - POSTGRES_USER
     - POSTGRES_PASSWORD
-#
+
 ssh:
   user: deployer
 
