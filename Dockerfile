@@ -50,6 +50,8 @@ RUN chmod +x ./bin/rails && chmod +x /rails/bin/docker-entrypoint
 # Copy package.json and yarn.lock first for dependency installation
 COPY package.json yarn.lock ./
 
+FROM node:20.17
+
 # Check Yarn version for debugging purposes
 # Install JavaScript dependencies and ensure the yarn binary is correct
 RUN yarn install || (which yarn && yarn install)
