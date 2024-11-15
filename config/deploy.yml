@@ -82,7 +82,7 @@ accessories:
   db:
     image: postgres:15
     host: 45.92.9.7
-    port: "127.0.0.1:5433:5433"  # Ensure this is the correct port or change it to 5432 if needed
+    port: "127.0.0.1:5434:5434"  # Ensure this is the correct port or change it to 5432 if needed
     env:
       clear:
         POSTGRES_USER: 'postgres'
