@@ -12,6 +12,8 @@ Rails.application.routes.draw do
     resources :likes
   end
 
+  get "up" => "rails/health#show", as: :rails_health_check
+
   post '/update_coordinates', to: 'locations#update_coordinates'
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
