@@ -46,7 +46,7 @@ COPY . .
 RUN chmod +x ./bin/rails && chmod +x /rails/bin/docker-entrypoint
 
 # Install JavaScript dependencies and skip optional packages
-RUN yarn cache clean && yarn install
+RUN yarn install
 
 # Precompile Rails assets with a dummy key
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
