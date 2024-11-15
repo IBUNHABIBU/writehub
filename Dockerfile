@@ -51,10 +51,9 @@ RUN chmod +x ./bin/rails && chmod +x /rails/bin/docker-entrypoint
 COPY package.json yarn.lock ./
 
 # Check Yarn version for debugging purposes
-RUN yarn --version
+# Install JavaScript dependencies and ensure the yarn binary is correct
+RUN yarn install || (which yarn && yarn install)
 
-# Install JavaScript dependencies using the updated flag
-RUN yarn install --immutable
 
 # Precompile Rails assets with a dummy key
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
