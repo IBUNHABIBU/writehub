@@ -47,10 +47,14 @@ RUN chmod +x ./bin/rails && chmod +x /rails/bin/docker-entrypoint
 
 # Install JavaScript dependencies and skip optional packages
 # Copy package.json and yarn.lock first for dependency installation
+# Copy package.json and yarn.lock first for dependency installation
 COPY package.json yarn.lock ./
 
-# Install JavaScript dependencies
-RUN yarn install --frozen-lockfile
+# Check Yarn version for debugging purposes
+RUN yarn --version
+
+# Install JavaScript dependencies using the updated flag
+RUN yarn install --immutable
 
 # Precompile Rails assets with a dummy key
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
