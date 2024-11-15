@@ -77,6 +77,5 @@ USER 1000:1000
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 EXPOSE 3000
 
-
 # Default command to start the Rails server
 CMD ["./bin/rails", "server", "-b", "0.0.0.0"]
