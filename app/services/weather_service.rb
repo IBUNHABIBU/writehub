@@ -12,6 +12,10 @@ class WeatherService
     city_image = fetch_city_image(city_name)
     weather_icon = fetch_weather_icon(weather_data)
 
+    Rails.logger.debug("OPEN API Key: ***************** #{OPENWEATHERMAP_API_KEY} *************")
+    Rails.logger.debug("Pixabay API Key: ***************** #{PIXABAY_API_KEY} *************")
+    Rails.logger.debug("GOOGLE API Key:***************** #{ENV['GOOGLE_API']}")
+
     {
       weather_data: weather_data,
       city_name: city_name,
@@ -31,6 +35,8 @@ class WeatherService
 
   def self.fetch_city_name(latitude, longitude)
     result = Geocoder.search([latitude, longitude]).first
+
+    Rails.logger.debug("fETCH CITY:  gEOCODER ***************** #{Geocoder} , #{result} *************")
     # logger.info "Service: #{result}"
     city = result&.city || "Unknown City"
     country = result&.country || "Unknown Country"
