@@ -20,9 +20,9 @@ class ApplicationController < ActionController::Base
   
       #   # Fetch city image from Unsplash
         # search_results = Pexels::Photo.search(@user_city, per_page: 1)
-        client = Pexels::Client.new(Rails.application.credentials.pexels)
-        search_results = client.photos.search(@user_city, per_page: 1)
-        @city_image_url = search_results.photos.first
+        # client = Pexels::Client.new(Rails.application.credentials.pexels)
+        # search_results = client.photos.search(@user_city, per_page: 1)
+        # @city_image_url = search_results.photos.first
   
         rescue => e
           Rails.logger.error "**********************************************Error********************************"
