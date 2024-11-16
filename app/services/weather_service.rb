@@ -40,6 +40,12 @@ class WeatherService
     # logger.info "Service: #{result}"
     city = result&.city || "Unknown City"
     country = result&.country || "Unknown Country"
+    
+
+    Rails.logger.debug("fETCH CITY:  gEOCODER ***************** #{Geocoder} , #{city} *************")
+    
+
+    Rails.logger.debug("fETCH country:  gEOCODER ***************** #{Geocoder} , #{country} *************")
     { city: city, country: country }
   end
 
