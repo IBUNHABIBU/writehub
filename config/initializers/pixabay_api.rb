@@ -1,3 +1,3 @@
 PixabayApi.configure do |config|
-    config.api_key = Rails.application.credentials.pixabay
+    config.api_key = ENV['PIXABAY']
 end

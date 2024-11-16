@@ -2,8 +2,8 @@
 require 'pixabay_api'
 
 class WeatherService
-  OPENWEATHERMAP_API_KEY = Rails.application.credentials.openweather
-  PIXABAY_API_KEY = Rails.application.credentials.pixabay
+  OPENWEATHERMAP_API_KEY = ENV["OPEN_WEATHER"]
+  PIXABAY_API_KEY = ENV["PIXABAY"]
 
   def self.fetch_weather_and_image(latitude, longitude)
     weather_data = fetch_weather_data(latitude, longitude)
