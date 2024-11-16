@@ -6,6 +6,8 @@ class WeatherService
   PIXABAY_API_KEY = ENV["PIXABAY"]
 
   def self.fetch_weather_and_image(latitude, longitude)
+    
+    Rails.logger.debug("GOOGLE API Key:***************** #{ENV['GOOGLE_API']}")
     weather_data = fetch_weather_data(latitude, longitude)
     city_name = fetch_city_name(latitude, longitude)
     city_info = fetch_city_name(latitude, longitude)

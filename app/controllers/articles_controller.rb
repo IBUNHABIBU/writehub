@@ -4,11 +4,12 @@ class ArticlesController < ApplicationController
   before_action :set_coordinates, only: [:index]
 
   def index
+    
+    Rails.logger.debug("GOOGLE API Key:***************** #{ENV['GOOGLE_API']}")
     @articles = Article.all
     @recent_articles = Article.recent
     @most_rated_articles = Article.most_rated
     @weather_info = WeatherService.fetch_weather_and_image(@coordinates[0], @coordinates[1])
-
   end
 
    # GET /articles/1
