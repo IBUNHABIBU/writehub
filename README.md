@@ -278,3 +278,19 @@ DATABASE_URL=postgresql://postgres:fancypswd@127.0.0.1/myapp
 By using `screen`, you can keep your session running and access it later if needed, although typically with Nginx and Passenger, you won't need to interact with your Rails server directly once it's configured and running properly.
 
 
+
+
+App Host: 45.92.9.7
+2024-11-18T21:50:35.930116360Z I, [2024-11-18T21:50:35.925161 #1]  INFO -- : [d87d3dff-eec5-4659-bfe7-70f741e8dde8] Started GET "/" for 185.12.150.110 at 2024-11-18 21:50:35 +0000
+2024-11-18T21:50:35.932998468Z I, [2024-11-18T21:50:35.928024 #1]  INFO -- : [d87d3dff-eec5-4659-bfe7-70f741e8dde8] Processing by ArticlesController#index as HTML
+2024-11-18T21:50:36.258111434Z Google API error: request denied (You must use an API key to authenticate each request to Google Maps Platform APIs. For additional information, please refer to http://g.co/dev/maps-no-account).
+2024-11-18T21:50:36.258195060Z D, [2024-11-18T21:50:36.237874 #1] DEBUG -- : [d87d3dff-eec5-4659-bfe7-70f741e8dde8] GOOGLE API Key:*****************
+2024-11-18T21:50:36.384630638Z D, [2024-11-18T21:50:36.382311 #1] DEBUG -- : [d87d3dff-eec5-4659-bfe7-70f741e8dde8] fETCH CITY:  gEOCODER ********* Geocoder , Unknown Country *************
+2024-11-18T21:50:36.543534440Z Google API error: request denied (You must use an API key to authenticate each request to Google Maps Platform APIs. For additional information, please refer to http://g.co/dev/maps-no-account).
+2024-11-18T21:50:36.931833570Z I, [2024-11-18T21:50:36.928799 #1]  INFO -- : [d87d3dff-eec5-4659-bfe7-70f741e8dde8] Completed 500 Internal Server Error in 1001ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+2024-11-18T21:50:36.931867351Z F, [2024-11-18T21:50:36.929683 #1] FATAL -- : [d87d3dff-eec5-4659-bfe7-70f741e8dde8]
+2024-11-18T21:50:36.931871096Z [d87d3dff-eec5-4659-bfe7-70f741e8dde8] JSON::ParserError (unexpected token at 'ERROR 400] Invalid or missing AP'):
+2024-11-18T21:50:36.931874601Z [d87d3dff-eec5-4659-bfe7-70f741e8dde8]
+2024-11-18T21:50:36.931877586Z [d87d3dff-eec5-4659-bfe7-70f741e8dde8] app/services/weather_service.rb:57:in `fetch_city_image'
+2024-11-18T21:50:36.931888102Z [d87d3dff-eec5-4659-bfe7-70f741e8dde8] app/services/weather_service.rb:14:in `fetch_weather_and_image'
+2024-11-18T21:50:36.931891006Z [d87d3dff-eec5-4659-bfe7-70f741e8dde8] app/controllers/articles_controller.rb:12:in `index'

@@ -1,15 +1,11 @@
-# Name of your application. Used to uniquely configure containers.
+
 service: writehub
 
-# Name of the container image.
 image: ibunhabibu/writehub
 
-# Deploy to these servers.
 servers:
   web:
     - 45.92.9.7
-
-# Note: If using Cloudflare, set encryption mode in SSL/TLS setting to "Full" to enable CF-to-app encryption. 
 proxy: 
   ssl: true
   host: writehub.cyou
@@ -17,11 +13,7 @@ proxy:
 
 # Credentials for your image host.
 registry:
-  # Specify the registry server, if you're not using Docker Hub
-  # server: registry.digitalocean.com / ghcr.io / ...
   username: ibunhabibu
-
-  # Always use an access token rather than real password (pulled from .kamal/secrets).
   password:
     - KAMAL_REGISTRY_PASSWORD
 
@@ -29,8 +21,6 @@ registry:
 builder:
   arch: amd64
 
-# Inject ENV variables into containers (secrets come from .kamal/secrets).
-#
 env:
   clear:
     DB_HOST: writehub-db
@@ -38,6 +28,9 @@ env:
     - RAILS_MASTER_KEY
     - POSTGRES_USER
     - POSTGRES_PASSWORD
+    - GOOGLE_API
+    - PIXABAY
+    - OPEN_WEATHER
 
 ssh:
   user: deployer
