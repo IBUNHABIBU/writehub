@@ -60,6 +60,8 @@ RUN yarn install || (which yarn && yarn install)
 # Precompile Rails assets with a dummy key
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 
+RUN RAILS_ENV=production bundle exec rake assets:precompile
+
 # Final production image
 FROM base
 
