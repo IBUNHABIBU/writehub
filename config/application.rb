@@ -24,7 +24,7 @@ module Railstarter
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
         Geocoder.configure(
-        timeout: 5,
+        timeout: 25,
         lookup: :google,
         api_key: ENV['GOOGLE_API'],
         ip_lookup: :ipinfo_io,    

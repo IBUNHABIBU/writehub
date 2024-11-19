@@ -276,3 +276,5 @@ DATABASE_URL=postgresql://postgres:fancypswd@127.0.0.1/myapp
 
 
 By using `screen`, you can keep your session running and access it later if needed, although typically with Nginx and Passenger, you won't need to interact with your Rails server directly once it's configured and running properly.
+
+

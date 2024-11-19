@@ -54,6 +54,8 @@ class WeatherService
   def self.fetch_city_image(city_name)
     client = PixabayApi::ImagesApi.new
     
+    Rails.logger.debug("Pixabay:  ***************** #{client} , #{country} *************")
+
     response = client.find(keyword: city_name[:city] || city_name[:country] )
    
     image_info = response.body['hits'].first
