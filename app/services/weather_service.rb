@@ -6,17 +6,11 @@ class WeatherService
   PIXABAY_API_KEY = ENV["PIXABAY"]
 
   def self.fetch_weather_and_image(latitude, longitude)
-    
-    Rails.logger.debug("GOOGLE API Key:***************** #{ENV['GOOGLE_API']}")
     weather_data = fetch_weather_data(latitude, longitude)
     city_name = fetch_city_name(latitude, longitude)
     city_info = fetch_city_name(latitude, longitude)
     city_image = fetch_city_image(city_name)
     weather_icon = fetch_weather_icon(weather_data)
-
-    Rails.logger.debug("OPEN API Key: ***************** #{OPENWEATHERMAP_API_KEY} *************")
-    Rails.logger.debug("Pixabay API Key: ***************** #{PIXABAY_API_KEY} *************")
-    Rails.logger.debug("GOOGLE API Key:***************** #{ENV['GOOGLE_API']}")
 
     {
       weather_data: weather_data,
@@ -37,25 +31,16 @@ class WeatherService
 
   def self.fetch_city_name(latitude, longitude)
     result = Geocoder.search([latitude, longitude]).first
-
-    Rails.logger.debug("fETCH CITY:  gEOCODER ***************** #{Geocoder} , #{result} *************")
     # logger.info "Service: #{result}"
     city = result&.city || "Unknown City"
     country = result&.country || "Unknown Country"
     
-
-    Rails.logger.debug("fETCH CITY:  gEOCODER ***************** #{Geocoder} , #{city} *************")
-    
-
-    Rails.logger.debug("fETCH country:  gEOCODER ***************** #{Geocoder} , #{country} *************")
     { city: city, country: country }
   end
 
   def self.fetch_city_image(city_name)
     client = PixabayApi::ImagesApi.new
     
-    Rails.logger.debug("Pixabay:  ***************** #{client} , #{country} *************")
-
     response = client.find(keyword: city_name[:city] || city_name[:country] )
    
     image_info = response.body['hits'].first
