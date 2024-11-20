@@ -1,30 +1,30 @@
 // Sassy
 // Entry point for your Sass build
 // Mixins
-@use "mixins/media";
-@use "mixins/width_and_height";
+@use "./mixins/media";
+@use "./mixins/width_and_height";
 
 // Configuration
-@use "config/variables";
-@use "config/reset";
+@use './config/variables';
+@use "./config/reset";
 
 // Components
-@use "components/button";
-@use "components/error_messages";
-@use "components/form";
-@use "components/logo";
-@use "components/slider";
-@use "components/menu_btn";
+@use "./components/button";
+@use "./components/error_messages";
+@use "./components/form";
+@use "./components/logo";
+@use "./components/slider";
+@use "./components/menu_btn";
 
 
 
 // Layouts
 // @use "layouts/container";
-@use "layouts/header";
+@use "./layouts/header";
 // @use "layouts/section";
-@use "layouts/home_page";
-@use "layouts/footer";
-@use "layouts/show";
-@use "layouts/category_show";
-@use "layouts/weather";
+@use "./layouts/home_page";
+@use "./layouts/footer";
+@use "./layouts/show";
+@use "./layouts/category_show";
+@use "./layouts/weather";
 // add font-awesome
