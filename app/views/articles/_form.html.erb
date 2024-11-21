@@ -1,0 +1,31 @@
+<div class="form form--mid">
+  <div class="form__container">
+  <h2>Create article</h2>
+    <%= form_for(@article, data: { turbo: false }) do |f| %>
+     <%= render 'shared/errors', object: @article %>
+          <div class="input-box">
+            <%= f.text_field :title %>
+            <span>Title</span>
+            <i></i>
+          </div>
+          <div class="input-box">
+            <%= f.text_area :content %>
+            <span>content</span>
+            <i></i>
+          </div>
+          <div class="input-box">
+            <%= f.file_field :image %>
+            <span>Image</span>
+            <i></i>
+          </div>
+
+          <div class="check-box">
+            <%= f.collection_check_boxes :category_ids, Category.all, :id, :name do |cb| %>
+            <%= cb.label(class: "checkbox-inline") {cb.check_box(class: "checkbox") + cb.text} %>
+            <% end %>
+          
+          </div>
+          <%= f.submit "Create Article", class: "btn btn--mid" %>
+    <% end %>
+  </div>
+</div>

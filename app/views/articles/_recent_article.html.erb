@@ -1,0 +1,19 @@
+<div class="row">
+    <% obj.each do |article| %>
+        <div class="desk-3 tab-land-4 tab-port-6 phone-12">
+            <div class="recent__container">
+                <% if article.image.attached? %>
+                    <%= image_tag article.image, class: "recent__img" %>
+                <% end %>
+                    <div class="recent__content">
+                        <% if article.categories.any? %>
+                            <%= render article.categories %>
+                        <% end %>
+                        <div class="recent__title">
+                            <%= link_to article.title , article_path(article) %>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    <%end%>
+</div>

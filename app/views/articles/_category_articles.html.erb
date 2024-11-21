@@ -1,0 +1,22 @@
+<div class="category-show__container__flex">
+  <% if obj.empty? %>
+      <div class="empty-message">
+          <h6>No article in this category you can <%= link_to 'create a new one', new_article_path %></h6>
+      </div>
+  <% end %>
+    <% obj.each do |article| %>
+        <div class="item">
+            <div class="image">
+                <%= image_tag article.image %>
+            </div>
+            <div class="content">
+                <% if article.categories.any? %>
+                <h4 class="content__category"><%= render article.categories %></h3>
+                <% end %>
+                <h4 class="content__title"><%= link_to article.title , article_path(article) %></h3>
+                <p class="content__body"><%= truncate(article.content, length:200, separator:' ') %></p>
+                <%= link_to 'read more', article_path(article) %>
+            </div>
+        </div>
+   <% end %>
+</div>

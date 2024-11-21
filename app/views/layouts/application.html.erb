@@ -22,7 +22,14 @@
     <%= javascript_importmap_tags %>
   </head>
 
-  <body>
-    <%= yield %>
+  <body data-controller="geolocation" id="location">
+    <div class="wrapper">
+      <%= render 'layouts/header/nav' %>
+      <%= render 'layouts/flashes' %>
+        <div class="main-content">
+          <%= yield %>
+        </div>
+      <%= render 'layouts/footer' %>
+    </div>
   </body>
 </html>
