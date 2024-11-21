@@ -1,0 +1,51 @@
+section {
+    border: 1px solid rgb(222, 222, 222);
+    background-color:   #f8d7da;
+
+    header {
+
+        h2 {
+            color: orange;
+        }
+
+        h3 {
+            color: orangered;
+        }
+
+        ul {
+            list-style: none;
+
+            li {
+                border-bottom: 1px solid rgb(222, 222, 222);
+                color: rgb(0, 0, 0);
+                font-size: 0.9rem;
+            }
+        }
+    }
+}
+
+.flash-message {
+    display: flex;
+    justify-content: center;
+
+    .flash{   
+        border: 1px solid rgb(222, 222, 222);
+        border-radius: 5px;
+        padding: 1rem;
+    }
+
+    .notice {
+        background-color: #d4edda;
+        color: black;
+    }
+
+    .alert {
+        background-color: red;
+        color: black;
+    }
+
+    .success {
+        background-color: #d4edda;
+        color: black;
+    }
+}

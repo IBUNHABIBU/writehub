@@ -1,0 +1,202 @@
+@import '../config/variables';
+@import '../mixins/media';
+
+.form {
+    position: relative;
+    @include width_and_height(30%, 60vh);
+    background-color: $form-color;
+    overflow: hidden;
+
+    &--sm {
+        @include width_and_height($height:56vh);
+    }
+
+    &--mid {
+        @include width_and_height($height:74vh);
+
+        @include respond(phone) {
+           @include width_and_height(90%, $height:74vh);
+        }
+    }
+
+    &--large {
+        @include width_and_height($height:78vh);
+
+        @include respond(phone) {
+            @include width_and_height(90%, $height:54vh);
+         }
+
+         @include respond(tab-port) {
+            @include width_and_height(90%, $height:54vh);
+         }
+         @include respond(tab-land) {
+            @include width_and_height(90%, $height:54vh);
+         }
+    }
+
+    &::before {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: $form-width;
+        height: $form-height;
+        background: linear-gradient(0deg, transparent, transparent, $form-color, $form-color);
+        transform-origin: bottom right;
+        animation: animate 6s linear infinite;
+
+
+    }
+
+    &::after {
+        content: "";
+        position: absolute;
+        top: -50%;
+        left: -50%;
+        width: $form-width;
+        height: $form-height;
+        background: linear-gradient(0deg, transparent, transparent, $form-color, $form-color);
+        transform-origin: bottom right;
+        animation: animate 6s linear infinite;
+        animation-delay: -3s;
+    }
+
+    &__container {
+        position: absolute;
+        inset: 2px;
+        background-color: $color-text-header;
+        border-radius: 8px;
+        z-index: 10;
+        padding: 40px 50px;
+        display: flex;
+        flex-direction: column;
+
+        h2 {
+            color: $color-primary-bg;
+            font-weight: 500;
+            text-align: center;
+            letter-spacing: 0.1rem;
+        }
+
+        .input-box {
+            position: relative;
+            width: 300px;
+            margin-top: 25px;
+
+            @include respond(phone) {
+                width: 15rem;
+            }
+
+            input {
+                position: relative;
+                width: 100%;
+                padding: 20px 10px 10px;
+                background: transparent;
+                border: none;
+                outline: none;
+                color: $color-input;
+                font-size: 1.2rem;
+                letter-spacing: 0.05rem;
+                z-index: 10;
+
+                &:focus {
+                    ~{
+                        span {
+                            transform: translateX(-10px) translateY(-34px);
+                            font-size: 0.8rem;
+                            color: $color-primary-bg;
+                        }
+                        i {
+                            height: 90%;
+                        }
+                       
+                    }
+
+                }
+
+                &:valid {
+                    ~{
+                        span {
+                            transform: translateX(-10px) translateY(-34px);
+                            font-size: 0.8rem;
+                            color: $color-primary-bg;
+                        }
+                        i {
+                            height: 90%;
+                        }
+                       
+                    }
+
+                }
+
+              
+            }
+            span {
+                position: absolute;
+                left: 0;
+                padding: 20px 10px 10px;
+                font-size: 1em;
+                pointer-events: none;
+                color: $color-primary-bg;
+                letter-spacing: 0.05rem;
+                transition: 0.5s;
+            }
+            label {
+                position: absolute;
+                left: 0;
+                padding: 20px 10px 10px;
+                font-size: 1em;
+                pointer-events: none;
+                color: $color-text-muted;
+                letter-spacing: 0.05rem;
+                transition: 0.5s;
+            }
+            
+
+            i {
+                position: absolute;
+                left: 0;
+                bottom: 0;
+                width: 100%;
+                height: 2px;
+                background-color: $color-primary-bg;
+                border-radius: 4px;
+                transition: 0.5s;
+                pointer-events: none;
+                z-index: 9;
+            }
+           
+        }
+
+        .links {
+            display: flex;
+            justify-content: space-between;
+
+            a {
+                margin: 10px 0;
+                font-size: 1rem;
+                color: $color-text-muted;
+
+                &:hover, &:nth-child(2) {
+                    color: $color-text-section;
+                }
+            }
+        }
+    }
+}
+
+@keyframes animate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.flash.alert {
+    color: white;
+    z-index: 100;
+    font-weight: bolder;
+    font-size: 1.6rem;
+}

@@ -1,0 +1,52 @@
+.show {
+    &__container {
+        display:flex;
+        justify-content:center;
+        flex-wrap: wrap;
+
+        @include respond(phone) {
+            flex-direction: column;
+        }
+
+        @include respond(tab-port) {
+            flex-direction: column;
+        }
+
+        .bg-image {
+            width: 100vw;
+           img {
+                width:300px;
+                height:300px;
+                object-fit:cover;
+           }
+        }
+
+        .content {
+            background:#f8f8f8;
+            font-size:2rem;
+            padding:2rem;
+
+            @include respond(phone) {
+                font-size:1.2rem;
+            }
+
+            p {
+                color:#333;
+            }
+        }
+
+        .likes {
+            padding:3rem;
+            background:#f8f8f8;
+            color:#333;
+
+            &__count {
+                font-size:2rem;
+            }
+
+            .category {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+}

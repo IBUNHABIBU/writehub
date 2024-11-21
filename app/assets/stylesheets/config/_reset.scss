@@ -1,0 +1,90 @@
+@import './variables';
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  overflow-y: scroll;
+  height: 100%;
+}
+
+body {
+  line-height: $line-height-body;
+  font-family: $font-family-montserrat;
+}
+
+img,
+picture,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  // color: var(--color-text-header);
+  // line-height: var(--line-height-headers);
+}
+
+h1 {
+  // font-size: var(--font-size-xxxl);
+}
+
+h2 {
+  font-size: $font-size-xxl;
+}
+
+h3 {
+  // font-size: var(--font-size-xl);
+}
+
+h4 {
+  // font-size: var(--font-size-l);
+}
+
+a {
+  color: $color-primary;
+  text-decoration: none;
+  transition: color 200ms;
+
+  &:hover,
+  &:focus,
+  &:active {
+    color: $color-primary-rotate;
+  }
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.main-content {
+  flex: 1;
+}

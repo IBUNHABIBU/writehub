@@ -1,0 +1,53 @@
+$columns: 12;
+
+@mixin respond($breakpoint) {
+  @if $breakpoint == phone { // 0 - 600px
+      @media only screen and (max-width: 37.5em) { @content };
+  }
+
+  @if $breakpoint == tab-port { // 600px - 900px
+      @media only screen and (max-width: 56.25em) { @content };
+  }
+
+  @if $breakpoint == tab-land { // 900px - 1200px
+      @media only screen and (max-width: 75em) { @content };
+  }
+
+  @if $breakpoint == desktop { // 1200px - 1800px
+      @media only screen and (min-width: 112.5em) { @content };
+  }
+
+  // @if $breakpoint == big-desktop {
+  //     @media(min-width: 1800px) { @content };
+  // }
+}
+
+.row {
+    display: flex;
+    flex-wrap: wrap;
+  }
+  
+   @for $i from 1 through $columns {
+  
+      .desk-#{$i} {
+        flex: 0 0 calc(100% /$columns * $i);
+      }
+    
+      .tab-land-#{$i} {
+        @include respond(tab-land) {
+          flex: 0 0 calc(100% /$columns * $i);
+        }
+      }
+  
+      .tab-port-#{$i} {
+        @include respond(tab-port) {
+          flex: 0 0 calc(100% /$columns * $i);
+        }
+      }
+  
+      .phone-#{$i} {
+        @include respond(phone) {
+          flex: 0 0 calc(100% /$columns * $i);
+        }
+      }
+  }
