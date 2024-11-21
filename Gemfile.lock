@@ -76,6 +76,7 @@ GEM
       public_suffix (>= 2.0.2, < 7.0)
     ast (2.4.2)
     base64 (0.2.0)
+    bcrypt (3.1.20)
     bcrypt_pbkdf (1.1.1)
     bcrypt_pbkdf (1.1.1-arm64-darwin)
     bcrypt_pbkdf (1.1.1-x86_64-darwin)
@@ -107,6 +108,7 @@ GEM
     debug (1.9.2)
       irb (~> 1.10)
       reline (>= 0.3.8)
+    domain_name (0.6.20240107)
     dotenv (3.1.4)
     drb (2.2.1)
     ed25519 (1.3.0)
@@ -139,6 +141,19 @@ GEM
     google-protobuf (4.28.3-x86_64-linux)
       bigdecimal
       rake (>= 13)
+    http (2.2.2)
+      addressable (~> 2.3)
+      http-cookie (~> 1.0)
+      http-form_data (~> 1.0.1)
+      http_parser.rb (~> 0.6.0)
+    http-cookie (1.0.7)
+      domain_name (~> 0.5)
+    http-form_data (1.0.3)
+    http_parser.rb (0.6.0)
+    httparty (0.22.0)
+      csv
+      mini_mime (>= 1.0.0)
+      multi_xml (>= 0.5.2)
     i18n (1.14.6)
       concurrent-ruby (~> 1.0)
     importmap-rails (2.0.3)
@@ -179,6 +194,8 @@ GEM
     mini_mime (1.1.5)
     minitest (5.25.1)
     msgpack (1.7.5)
+    multi_xml (0.7.1)
+      bigdecimal (~> 3.1)
     net-imap (0.5.1)
       date
       net-protocol
@@ -214,6 +231,8 @@ GEM
     pexels (0.5.0)
       requests (~> 1.0.2)
     pg (1.5.9)
+    pixabay_api (0.0.5)
+      http (~> 2.2)
     propshaft (1.1.0)
       actionpack (>= 7.0.0)
       activesupport (>= 7.0.0)
@@ -270,6 +289,9 @@ GEM
     reline (0.5.11)
       io-console (~> 0.5)
     requests (1.0.2)
+    resolv (0.5.0)
+    resolv-replace (0.1.1)
+      resolv
     rexml (3.3.9)
     rubocop (1.68.0)
       json (~> 2.3)
@@ -382,20 +404,24 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
+  bcrypt (~> 3.1.7)
   bootsnap
   brakeman
   capybara
   dartsass-rails (~> 0.5.1)
   debug
   geocoder
+  httparty
   importmap-rails
   jbuilder
   kamal
   pexels
   pg (~> 1.1)
+  pixabay_api (~> 0.0.5)
   propshaft
   puma (>= 5.0)
   rails (~> 8.0.0)
+  resolv-replace
   rubocop-rails-omakase
   selenium-webdriver
   solid_cable

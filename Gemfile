@@ -65,4 +65,6 @@ end
 gem "dartsass-rails", "~> 0.5.1"
 gem 'geocoder'
 gem 'pexels'
-
+gem "pixabay_api", "~> 0.0.5"
+gem 'httparty'
+gem 'resolv-replace'
