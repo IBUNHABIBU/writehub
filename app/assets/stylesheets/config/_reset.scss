@@ -1,4 +1,4 @@
-@use './variables';
+@use './variables' as var;
 
 *,
 *::before,
@@ -17,8 +17,8 @@ html {
 }
 
 body {
-  line-height: $line-height-body;
-  font-family: $font-family-montserrat;
+  line-height: var.$line-height-body;
+  font-family: var.$font-family-montserrat;
 }
 
 img,
@@ -50,7 +50,7 @@ h1 {
 }
 
 h2 {
-  font-size: $font-size-xxl;
+  font-size: var.$font-size-xxl;
 }
 
 h3 {
@@ -62,14 +62,14 @@ h4 {
 }
 
 a {
-  color: $color-primary;
+  color: var.$color-primary;
   text-decoration: none;
   transition: color 200ms;
 
   &:hover,
   &:focus,
   &:active {
-    color: $color-primary-rotate;
+    color: var.$color-primary-rotate;
   }
 }
 
