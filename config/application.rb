@@ -23,5 +23,15 @@ module Writehub
     #
     # config.time_zone = "Central Time (US & Canada)"
     # config.eager_load_paths << Rails.root.join("extras")
+
+      Geocoder.configure(
+        timeout: 25,
+        lookup: :google,
+        api_key: ENV['GOOGLE_API'],
+        ip_lookup: :ipinfo_io,    
+        units: :km,           
+        use_https: true,   
+        http_headers: { 'Referer' => 'https://writehub.cyou' }
+       )
   end
 end
