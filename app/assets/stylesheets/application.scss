@@ -28,3 +28,11 @@
 @use "./layouts/category_show";
 @use "./layouts/weather";
 // add font-awesome
+
+body {
+    border: 2.8px solid red;
+}
+
+.wrapper {
+    border: 2px solid green;
+}
