@@ -1,4 +1,6 @@
 @use '../mixins/media';
+@use '../config/variables' as var;
+
 
 .header {
     display: flex;
@@ -26,23 +28,23 @@
             text-transform:uppercase;
             color:#787980;
 
-            @include respond(phone) {
+            @include media.respond(phone) {
                 z-index: 731;
                 color: white;
             }
 
-            @include respond(tab-land) {
+            @include media.respond(tab-land) {
                 z-index: 731;
                 color: white;
             }
 
-            @include respond(tab-port) {
+            @include media.respond(tab-port) {
                 z-index: 731;
                 color: white;
             }
 
             &:hover {
-                color: $color-text-header;
+                color: var.$color-text-header;
             }
         }
 
@@ -69,7 +71,7 @@
                 text-transform: capitalize;
                 text-decoration: wavy;
                 
-                color: $color-nav-items;
+                color: var.$color-nav-items;
 
                 &:hover {
                     text-decoration: wavy;
@@ -109,7 +111,7 @@
                 position: relative;
                 top: 0.2rem;
                 font-size: 1.6rem;
-                color: $color-nav-items;
+                color: var.$color-nav-items;
             }
 
             .dropdown-menu {

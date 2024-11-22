@@ -1,14 +1,16 @@
+@use '../mixins/media';
+
 .show {
     &__container {
         display:flex;
         justify-content:center;
         flex-wrap: wrap;
 
-        @include respond(phone) {
+        @include media.respond(phone) {
             flex-direction: column;
         }
 
-        @include respond(tab-port) {
+        @include media.respond(tab-port) {
             flex-direction: column;
         }
 
@@ -26,7 +28,7 @@
             font-size:2rem;
             padding:2rem;
 
-            @include respond(phone) {
+            @include media.respond(phone) {
                 font-size:1.2rem;
             }
 

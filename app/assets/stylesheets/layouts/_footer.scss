@@ -1,4 +1,6 @@
-footer {
+@use '../mixins/media';
+
+ooter {
     background-color: #4e443f;
     height: 8rem;
     display: flex;
