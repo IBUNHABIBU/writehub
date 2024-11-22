@@ -5,7 +5,6 @@ class ArticlesController < ApplicationController
 
   def index
     
-    Rails.logger.debug("GOOGLE API Key:***************** #{ENV['GOOGLE_API']}")
     @articles = Article.all
     @recent_articles = Article.recent
     @most_rated_articles = Article.most_rated

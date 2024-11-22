@@ -13,7 +13,7 @@
     }
 
     &--mid {
-        @include size.width_and_height(74vh);
+        @include size.width_and_height(30%, 74vh);
 
         @include media.respond(phone) {
            @include size.width_and_height(90%, 74vh);
@@ -21,7 +21,7 @@
     }
 
     &--large {
-        @include size.width_and_height(78vh);
+        @include size.width_and_height(30%, 78vh);
 
         @include media.respond(phone) {
             @include size.width_and_height(90%, 54vh);

@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get 'signup', to: 'users#new'
   resources :users
   resources :categories
+  resources :articles
   resources :articles do
     # member do
     #   put 'like' => 'articles#vote'

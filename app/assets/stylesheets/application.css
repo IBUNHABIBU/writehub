@@ -9,6 +9,8 @@
  * Consider organizing styles into separate files for maintainability.
  */
 
- body {
-    background-color: aqua;
+ .wrapper {
+    background-color: 4px solid yellow;
+
+    background-color: pink;
  }
