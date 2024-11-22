@@ -5,13 +5,13 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    @include respond(phone) {
+    @include media.respond(phone) {
         margin-left: 1rem;
     }
-    @include respond(tab-land) {
+    @include media.respond(tab-land) {
         margin-left: 1rem;
     }
-    @include respond(tab-port) {
+    @include media.respond(tab-port) {
         margin-left: 1rem;
     }
 }
@@ -25,15 +25,15 @@
     cursor: pointer;
     opacity: 0;
 
-    @include respond(phone) {
+    @include media.respond(phone) {
         opacity: 1;
     }
 
-    @include respond(tab-port) {
+    @include media.respond(tab-port) {
         opacity: 1;
     }
 
-    @include respond(tab-land) {
+    @include media.respond(tab-land) {
         opacity: 1;
     }
 
@@ -89,15 +89,15 @@
 
 nav {
 
-    @include respond(phone) {
+    @include media.respond(phone) {
         display: none;
     }
 
-    @include respond(tab-land) {
+    @include media.respond(tab-land) {
         display: none;
     }
 
-    @include respond(tab-port) {
+    @include media.respond(tab-port) {
         display: none;
     }
 

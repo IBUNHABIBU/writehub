@@ -1,6 +1,7 @@
 @use '../config/variables' as var;
 @use '../mixins/media';
 @use '../mixins/width_and_height' as size;
+
 .form {
     position: relative;
     @include size.width_and_height(30%, 60vh);
@@ -8,13 +9,13 @@
     overflow: hidden;
 
     &--sm {
-        @include size.width_and_height(56vh);
+        @include size.width_and_height(30%,56vh);
     }
 
     &--mid {
-        @include size.width_and_height(v74vh);
+        @include size.width_and_height(74vh);
 
-        @include respond(phone) {
+        @include media.respond(phone) {
            @include size.width_and_height(90%, 74vh);
         }
     }
@@ -22,14 +23,14 @@
     &--large {
         @include size.width_and_height(78vh);
 
-        @include respond(phone) {
+        @include media.respond(phone) {
             @include size.width_and_height(90%, 54vh);
          }
 
-         @include respond(tab-port) {
+         @include media.respond(tab-port) {
             @include size.width_and_height(90%, 54vh);
          }
-         @include respond(tab-land) {
+         @include media.respond(tab-land) {
             @include size.width_and_height(90%, 54vh);
          }
     }
@@ -81,7 +82,7 @@
             width: 300px;
             margin-top: 25px;
 
-            @include respond(phone) {
+            @include media.respond(phone) {
                 width: 15rem;
             }
 

@@ -7,7 +7,7 @@ footer {
     align-items: center;
     padding-bottom: 2rem;
 
-    @include respond(phone) {
+    @include media.respond(phone) {
         height: 18rem;
     }
 
@@ -32,7 +32,7 @@ footer {
             margin-right: 11rem;
             position: relative;
 
-            @include respond(phone) {
+            @include media.respond(phone) {
                 margin-right: 1rem;
             }
 
