@@ -1,4 +1,5 @@
-@use '../config/variables';
+@use '../config/variables' as var;
+
 .home {
     display: flex;
     flex-direction: column;

@@ -1,4 +1,4 @@
-@use "../config/variables";
+@use "../config/variables" as var;
 @use '../mixins/media';
 
 .category-show {
@@ -22,7 +22,7 @@
                 display:flex;
                 width:667px;
                 height:268px;
-                border: 0.1px dotted $color-nav-items;
+                border: 0.1px dotted var.$color-nav-items;
 
                 @include respond(phone) {
                     width: 30rem;

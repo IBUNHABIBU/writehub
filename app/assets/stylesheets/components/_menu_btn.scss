@@ -1,4 +1,4 @@
-@use '../config/variables';
+@use '../config/variables' as var;
 @use '../mixins/media';
 
 .logo-menu {
@@ -40,7 +40,7 @@
     span {
         width: 100%;
         height: 3px;
-        background-color: $color-nav-items;
+        background-color: var.$color-nav-items;
         transform-origin: left;
         transition: all 2s ease;
     }
@@ -48,14 +48,14 @@
     &.active {
         span {
             &.line1 {
-                background-color: $color-nav-items;
+                background-color: var.$color-nav-items;
                 transform: rotate(45deg);
             }
             &.line2 {
                 opacity: 0;
             }
             &.line3 {
-                background-color: $color-nav-items;
+                background-color: var.$color-nav-items;
                 transform: rotate(-45deg);
             }
         }
@@ -67,7 +67,7 @@
     display: flex;
     flex-direction: column;
     position: fixed;
-    background-color: $color-main;
+    background-color: var.$color-main;
     z-index: 83;
 
     .menu {
@@ -82,7 +82,7 @@
         align-items: center;
         justify-content: space-around;
         transition: all 1s ease;
-        background-color: $color-main;
+        background-color: var.$color-main;
      
     }
 }
