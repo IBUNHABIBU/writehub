@@ -67,7 +67,7 @@ RUN groupadd --system --gid 1000 rails && \
 USER rails:rails
 
 # Expose port
-EXPOSE 80
+EXPOSE 3000
 
 # Add a health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
