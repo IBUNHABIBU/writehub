@@ -9,9 +9,10 @@ FROM ruby:$RUBY_VERSION-slim AS base
 # Set working directory
 WORKDIR /rails
 
-# Install essential base packages
-RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y \
+# Switch to a reliable APT mirror and install essential packages
+RUN sed -i 's|http://deb.debian.org|http://ftp.de.debian.org|g' /etc/apt/sources.list && \
+    apt-get update -qq && \
+    apt-get install --no-install-recommends --fix-missing -y \
     curl \
     libjemalloc2 \
     libvips \
@@ -29,7 +30,7 @@ FROM base AS build
 
 # Install build tools for native gems
 RUN apt-get update -qq && \
-    apt-get install --no-install-recommends -y \
+    apt-get install --no-install-recommends --fix-missing -y \
     build-essential \
     git \
     libpq-dev \
@@ -61,7 +62,8 @@ COPY --from=build /rails /rails
 # Create non-root user for security
 RUN groupadd --system --gid 1000 rails && \
     useradd --system --uid 1000 --gid 1000 --create-home --shell /bin/bash rails && \
-    chown -R rails:rails /rails/db /rails/log /rails/storage /rails/tmp
+    mkdir -p /rails/db /rails/log /rails/storage /rails/tmp && \
+    chown -R rails:rails /rails
 
 # Switch to the non-root user
 USER rails:rails
@@ -71,10 +73,10 @@ EXPOSE 3000
 
 # Add a health check
 HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
-    CMD curl -f http://localhost:80/ || exit 1
+    CMD curl -f http://localhost:3000/ || exit 1
 
 # Entrypoint script for database setup
 ENTRYPOINT ["./bin/docker-entrypoint"]
 
-# Start the Rails server using Thrust
-CMD ["./bin/thrust", "./bin/rails", "server"]
+# Start the Rails server
+CMD ["./bin/rails", "server", "-b", "0.0.0.0"]
