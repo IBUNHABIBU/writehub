@@ -1,23 +1,30 @@
 # syntax=docker/dockerfile:1
 
-# Define Ruby version (ensure it matches .ruby-version)
+# Production Dockerfile with multi-stage build
 ARG RUBY_VERSION=3.3.3
+FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
 
-# Base image
-FROM ruby:$RUBY_VERSION-slim AS base
-
-# Set working directory
+# Set the working directory for the app
 WORKDIR /rails
 
 # Switch to a reliable APT mirror and install essential packages
-RUN sed -i 's|http://deb.debian.org|http://ftp.de.debian.org|g' /etc/apt/sources.list && \
-    apt-get update -qq && \
-    apt-get install --no-install-recommends --fix-missing -y \
-    curl \
-    libjemalloc2 \
-    libvips \
-    postgresql-client && \
-    rm -rf /var/lib/apt/lists /var/cache/apt/archives
+# RUN sed -i 's|http://deb.debian.org|http://ftp.de.debian.org|g' /etc/apt/sources.list && \
+#     apt-get update -qq && \
+#     apt-get install --no-install-recommends --fix-missing -y \
+#     curl \
+#     libjemalloc2 \
+#     libvips \
+#     postgresql-client && \
+#     rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
+# Add sources and configure apt for HTTPS
+RUN echo "deb https://deb.debian.org/debian stable main" > /etc/apt/sources.list && \
+    sed -i 's|http://deb.debian.org|https://deb.debian.org|' /etc/apt/sources.list
+
+    # Install runtime packages
+RUN apt-get update -qq || (sleep 30 && apt-get update -qq) && \
+apt-get install --no-install-recommends -y curl libjemalloc2 libvips postgresql-client && \
+rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Set production environment variables
 ENV RAILS_ENV="production" \
@@ -39,6 +46,7 @@ RUN apt-get update -qq && \
 
 # Cache dependencies to speed up builds
 COPY Gemfile Gemfile.lock ./
+
 RUN --mount=type=cache,target=/usr/local/bundle \
     bundle install --no-document && \
     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
@@ -47,13 +55,16 @@ RUN --mount=type=cache,target=/usr/local/bundle \
 # Copy application source code
 COPY . .
 
-# Precompile assets
-ARG RAILS_MASTER_KEY
-RUN RAILS_MASTER_KEY=$RAILS_MASTER_KEY SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile && \
-    rm -rf tmp/cache
+RUN chmod +x ./bin/rails && chmod +x /rails/bin/docker-entrypoint
 
-# Final runtime stage
-FROM base AS final
+# Precompile assets
+RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
+
+RUN RAILS_ENV=production bundle exec rake assets:precompile
+
+
+# Final production image
+FROM base
 
 # Copy dependencies and application files
 COPY --from=build "${BUNDLE_PATH}" "${BUNDLE_PATH}"
@@ -63,20 +74,14 @@ COPY --from=build /rails /rails
 RUN groupadd --system --gid 1000 rails && \
     useradd --system --uid 1000 --gid 1000 --create-home --shell /bin/bash rails && \
     mkdir -p /rails/db /rails/log /rails/storage /rails/tmp && \
-    chown -R rails:rails /rails
+    chown -R rails:rails /rails db log storage tmp
 
-# Switch to the non-root user
-USER rails:rails
+    USER 1000:1000
 
-# Expose port
+# Set entrypoint and expose port
+ENTRYPOINT ["/rails/bin/docker-entrypoint"]
+
 EXPOSE 3000
-
-# Add a health check
-HEALTHCHECK --interval=30s --timeout=10s --start-period=30s --retries=3 \
-    CMD curl -f http://localhost:3000/ || exit 1
-
-# Entrypoint script for database setup
-ENTRYPOINT ["./bin/docker-entrypoint"]
 
 # Start the Rails server
 CMD ["./bin/rails", "server", "-b", "0.0.0.0"]
