@@ -2,12 +2,12 @@
 
 footer {
     background-color: #4e443f;
-    height: 8rem;
+    height: 6rem;
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
     align-items: center;
-    padding-bottom: 2rem;
+    padding-bottom: 0.4rem;
 
     @include media.respond(phone) {
         height: 18rem;
