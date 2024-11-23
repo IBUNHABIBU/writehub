@@ -97,6 +97,7 @@
                 font-size: 1.2rem;
                 letter-spacing: 0.05rem;
                 z-index: 10;
+                
                 &:focus + span,
                 &:valid + span {
                     transform: translateX(-10px) translateY(-34px);
