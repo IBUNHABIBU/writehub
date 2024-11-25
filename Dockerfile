@@ -59,6 +59,11 @@ RUN --mount=type=cache,target=/usr/local/bundle \
 # Copy application source code
 COPY . .
 
+RUN bundle exec bootsnap precompile app/ lib/
+
+# Ensure entrypoint script is executable
+COPY bin/docker-entrypoint /rails/bin/docker-entrypoint
+
 RUN chmod +x ./bin/rails && chmod +x /rails/bin/docker-entrypoint
 
 # Precompile assets
