@@ -67,6 +67,7 @@ COPY bin/docker-entrypoint /rails/bin/docker-entrypoint
 RUN chmod +x ./bin/rails && chmod +x /rails/bin/docker-entrypoint
 
 # Precompile assets
+# ENV SECRET_KEY_BASE=dummy_secret_key_for_precompilation
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 
 RUN RAILS_ENV=production bundle exec rake assets:precompile
