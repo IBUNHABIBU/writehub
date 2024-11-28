@@ -28,7 +28,6 @@ registry:
   # server: registry.digitalocean.com / ghcr.io / ...
   username: ibunhabibu
   
-  password_stdin: true
   # Always use an access token rather than real password when possible.
   password:
     - KAMAL_REGISTRY_PASSWORD
