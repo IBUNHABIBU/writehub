@@ -8,18 +8,18 @@ FROM docker.io/library/ruby:$RUBY_VERSION-slim AS base
 WORKDIR /rails
 
 # Switch to a reliable APT mirror and install essential packages
-# RUN sed -i 's|http://deb.debian.org|http://ftp.de.debian.org|g' /etc/apt/sources.list && \
-#     apt-get update -qq && \
-#     apt-get install --no-install-recommends --fix-missing -y \
-#     curl \
-#     libjemalloc2 \
-#     libvips \
-#     postgresql-client && \
-#     rm -rf /var/lib/apt/lists /var/cache/apt/archives
+RUN sed -i 's|http://deb.debian.org|http://ftp.de.debian.org|g' /etc/apt/sources.list && \
+    apt-get update -qq && \
+    apt-get install --no-install-recommends --fix-missing -y \
+    curl \
+    libjemalloc2 \
+    libvips \
+    postgresql-client && \
+    rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Add sources and configure apt for HTTPS
-# RUN echo "deb https://deb.debian.org/debian stable main" > /etc/apt/sources.list && \
-#     sed -i 's|http://deb.debian.org|https://deb.debian.org|' /etc/apt/sources.list
+RUN echo "deb https://deb.debian.org/debian stable main" > /etc/apt/sources.list && \
+    sed -i 's|http://deb.debian.org|https://deb.debian.org|' /etc/apt/sources.list
 
     # Install runtime packages
 RUN apt-get update -qq || (sleep 30 && apt-get update -qq) && \
