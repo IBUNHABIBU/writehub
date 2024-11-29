@@ -1,4 +1,4 @@
-# syntax = docker/dockerfile:1
+#syntax = docker/dockerfile:1
 
 # Production Dockerfile with multi-stage build
 ARG RUBY_VERSION=3.3.3
