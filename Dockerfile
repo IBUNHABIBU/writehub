@@ -18,8 +18,8 @@ WORKDIR /rails
 #     rm -rf /var/lib/apt/lists /var/cache/apt/archives
 
 # Add sources and configure apt for HTTPS
-RUN echo "deb https://deb.debian.org/debian stable main" > /etc/apt/sources.list && \
-    sed -i 's|http://deb.debian.org|https://deb.debian.org|' /etc/apt/sources.list
+# RUN echo "deb https://deb.debian.org/debian stable main" > /etc/apt/sources.list && \
+#     sed -i 's|http://deb.debian.org|https://deb.debian.org|' /etc/apt/sources.list
 
     # Install runtime packages
 RUN apt-get update -qq || (sleep 30 && apt-get update -qq) && \
@@ -47,30 +47,37 @@ RUN apt-get update -qq && \
 # Cache dependencies to speed up builds
 COPY Gemfile Gemfile.lock ./
 
-RUN bundle install
-
-RUN --mount=type=cache,target=/usr/local/bundle \
-    bundle install  && \
+RUN bundle install && \
     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
     bundle exec bootsnap precompile --gemfile
+
+# RUN bundle install
+
+# RUN --mount=type=cache,target=/usr/local/bundle \
+#     bundle install  && \
+#     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
+#     bundle exec bootsnap precompile --gemfile
 
     # RUN gem install bundler -v '~> 3.0'
 
 # Copy application source code
 COPY . .
 
+
+RUN chmod +x ./bin/rails && chmod +x /rails/bin/docker-entrypoint
+
 RUN bundle exec bootsnap precompile app/ lib/
 
 # Ensure entrypoint script is executable
-COPY bin/docker-entrypoint /rails/bin/docker-entrypoint
+# COPY bin/docker-entrypoint /rails/bin/docker-entrypoint
 
-RUN chmod +x ./bin/rails && chmod +x /rails/bin/docker-entrypoint
+# RUN chmod +x ./bin/rails && chmod +x /rails/bin/docker-entrypoint
 
 # Precompile assets
 # ENV SECRET_KEY_BASE=dummy_secret_key_for_precompilation
 RUN SECRET_KEY_BASE_DUMMY=1 ./bin/rails assets:precompile
 
-RUN RAILS_ENV=production bundle exec rake assets:precompile
+# RUN RAILS_ENV=production bundle exec rake assets:precompile
 
 
 # Final production image
