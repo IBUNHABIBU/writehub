@@ -10,8 +10,13 @@ FROM ruby:$RUBY_VERSION-slim AS base
 WORKDIR /rails
 
 # Add sources and configure APT for HTTPS
-RUN sed -i 's|http://deb.debian.org|https://deb.debian.org|' /etc/apt/sources.list && \
-    apt-get update -qq || (sleep 30 && apt-get update -qq) && \
+# Recreate /etc/apt/sources.list if missing
+RUN echo "deb https://deb.debian.org/debian bookworm main" > /etc/apt/sources.list && \
+    echo "deb https://deb.debian.org/debian bookworm-updates main" >> /etc/apt/sources.list && \
+    echo "deb https://security.debian.org/debian-security bookworm-security main" >> /etc/apt/sources.list
+
+# Update package sources and install dependencies
+RUN apt-get update -qq || (sleep 30 && apt-get update -qq) && \
     apt-get install --no-install-recommends -y \
     libjemalloc2 \
     libvips \
