@@ -53,12 +53,12 @@ RUN bundle install && \
 
 # RUN bundle install
 
-# RUN --mount=type=cache,target=/usr/local/bundle \
-#     bundle install  && \
-#     rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
-#     bundle exec bootsnap precompile --gemfile
+RUN --mount=type=cache,target=/usr/local/bundle \
+    bundle install  && \
+    rm -rf ~/.bundle/ "${BUNDLE_PATH}"/ruby/*/cache "${BUNDLE_PATH}"/ruby/*/bundler/gems/*/.git && \
+    bundle exec bootsnap precompile --gemfile
 
-    # RUN gem install bundler -v '~> 3.0'
+    RUN gem install bundler -v '~> 3.0'
 
 # Copy application source code
 COPY . .
