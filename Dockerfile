@@ -9,15 +9,15 @@ FROM ruby:$RUBY_VERSION-slim AS base
 # Set working directory
 WORKDIR /rails
 
-# Configure APT and install essential packages
-RUN echo "deb http://deb.debian.org/debian stable main" > /etc/apt/sources.list && \
-    apt-get update -qq && \
-    apt-get install --no-install-recommends --fix-missing -y \
-    curl \
+# Add sources and configure APT for HTTPS
+RUN sed -i 's|http://deb.debian.org|https://deb.debian.org|' /etc/apt/sources.list && \
+    apt-get update -qq || (sleep 30 && apt-get update -qq) && \
+    apt-get install --no-install-recommends -y \
     libjemalloc2 \
     libvips \
     postgresql-client && \
     rm -rf /var/lib/apt/lists /var/cache/apt/archives
+
 
 # Set production environment variables
 ENV RAILS_ENV="production" \
