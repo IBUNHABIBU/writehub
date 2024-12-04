@@ -106,7 +106,7 @@ ssh:
 
 accessories:
   db:
-    image: postgres:15
+    image: postgres:16
     host: 45.92.9.7
     port: "127.0.0.1:5433:5433"  # Ensure this is the correct port or change it to 5432 if needed
     env:
@@ -120,5 +120,5 @@ accessories:
     files:
       - config/init.sql:/docker-entrypoint-initdb.d/setup.sql
       
-    directories: # This is missing for you
+    directories: 
       - data:/var/lib/postgresql/data
