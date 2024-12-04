@@ -105,7 +105,7 @@ ssh:
   user: deployer
 
 accessories:
-  db:
+  postgres:
     image: postgres:16
     host: 45.92.9.7
     port: "127.0.0.1:5433:5433"  # Ensure this is the correct port or change it to 5432 if needed
