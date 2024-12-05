@@ -115,8 +115,12 @@ accessories:
         POSTGRES_DB: "writehub_production"
 
       secret:
-        - POSTGRES_USER
+        - RAILS_MASTER_KEY
         - POSTGRES_PASSWORD
+        - POSTGRES_USER
+        - GOOGLE_API
+        - PIXABAY
+        - OPEN_WEATHER
     files:
       - config/init.sql:/docker-entrypoint-initdb.d/setup.sql
       
