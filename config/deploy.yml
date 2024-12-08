@@ -61,7 +61,7 @@ env:
 
     # Match this to any external database server to configure Active Record correctly
     # Use writehub-db for a db accessory server on same machine via local kamal docker network.
-    DB_HOST: writehub-db
+    DB_HOST: 45.92.9.7
 
     # Log everything from Rails
     # RAILS_LOG_LEVEL: debug
@@ -126,3 +126,5 @@ accessories:
       
     directories: 
       - data:/var/lib/postgresql/data
+
+  
