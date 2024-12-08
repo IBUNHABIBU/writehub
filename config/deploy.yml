@@ -38,7 +38,7 @@ registry:
 # Inject ENV variables into containers (secrets come from .kamal/secrets).
 env:
   clear:
-    DB_HOST: writehub-postgres
+    DB_HOST: writehub-db
 
   secret:
     - RAILS_MASTER_KEY
