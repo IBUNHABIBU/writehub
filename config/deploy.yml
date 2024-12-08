@@ -39,6 +39,7 @@ registry:
 env:
   clear:
     DB_HOST: writehub-db
+    DB_PORT: 5433
 
   secret:
     - RAILS_MASTER_KEY
