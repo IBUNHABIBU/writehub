@@ -286,4 +286,10 @@ Global filtering for all containers
 `docker ps -q | xargs -n 1 docker logs --since 1h 2>&1 | grep "ERROR"`
 
 
+Monitoring logs in real time
+`docker logs -f <CONTAINER_ID> 2>&1 | grep "ERROR"`
+
+Advanced Error filtering 
+
+`docker logs --since 1h <CONTAINER_ID> 2>&1 | grep -E "ERROR|WARN|FATAL|CRITICAL"`
 
