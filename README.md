@@ -280,3 +280,10 @@ By using `screen`, you can keep your session running and access it later if need
 To filter docker errors 
 
 `docker logs --since 1h <CONTAINER_ID> 2>&1 | grep "ERROR"`
+
+Global filtering for all containers 
+
+`docker ps -q | xargs -n 1 docker logs --since 1h 2>&1 | grep "ERROR"`
+
+
+
