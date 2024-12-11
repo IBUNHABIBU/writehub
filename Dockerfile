@@ -54,8 +54,6 @@ RUN bundle install --jobs 4 --retry 3 && \
 
 # Copy application code
 COPY . .
-# Copy application code
-COPY . .
 
 # Set executable permissions for bin/rails and other bin/* scripts
 RUN chmod +x bin/*
