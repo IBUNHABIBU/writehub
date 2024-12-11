@@ -97,20 +97,39 @@
                 font-size: 1.2rem;
                 letter-spacing: 0.05rem;
                 z-index: 10;
+
+                &:focus {
+                    ~{
+                        span {
+                            transform: translateX(-10px) translateY(-34px);
+                            font-size: 0.8rem;
+                            color: var.$color-primary-bg;
+                        }
+                        i {
+                            height: 90%;
+                        }
+                       
+                    }
+
+                }
+
                 
-                &:focus + span,
-                &:valid + span {
-                    transform: translateX(-10px) translateY(-34px);
-                    font-size: 0.8rem;
-                    color: var.$color-primary-bg;
-                }
+                &:valid {
+                    ~{
+                        span {
+                            transform: translateX(-10px) translateY(-34px);
+                            font-size: 0.8rem;
+                            color: var.$color-primary-bg;
+                        }
+                        i {
+                            height: 90%;
+                        }
+                       
+                    }
 
-                &:focus + i,
-                &:valid + i {
-                    height: 90%;
                 }
-
             }
+
 
             span,
             label {
