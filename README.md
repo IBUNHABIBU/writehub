@@ -293,3 +293,9 @@ Advanced Error filtering
 
 `docker logs --since 1h <CONTAINER_ID> 2>&1 | grep -E "ERROR|WARN|FATAL|CRITICAL"`
 
+I have successfully deployed the Rails 8 app using Kamal 2.3.0 on a Contabo VPS. However, I am encountering a permission issue when uploading a file to the live app running in a Docker container in production. The error I am receiving is:- 
+
+    `[e89790a9-23c2-4327-9d9e-d772c0d78310] Errno::EACCES (Permission denied @ dir_s_mkdir - /rails/storage/xf)`
+
+
+deployer@vmi1909189:~$ docker exec -it -u 0 86417933f9c9 chmod -R 777 /rails/storage

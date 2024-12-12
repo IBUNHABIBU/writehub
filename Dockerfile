@@ -82,9 +82,6 @@ RUN groupadd --system --gid 999 rails && \
 
 USER rails
 
-RUN mkdir -p /rails/storage && chown -R rails:rails /rails/storage
-
-
 # Entrypoint and Rails server command
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
 EXPOSE 3000
