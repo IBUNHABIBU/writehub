@@ -80,10 +80,10 @@ RUN groupadd --system --gid 999 rails && \
     mkdir -p /rails/db /rails/log /rails/storage /rails/tmp && \
     chown -R rails:rails /rails db log storage tmp
 
-RUN mkdir -p /rails/storage && chown -R appuser:appgroup /rails/storage
-
-
 USER rails
+
+RUN mkdir -p /rails/storage && chown -R rails:rails /rails/storage
+
 
 # Entrypoint and Rails server command
 ENTRYPOINT ["/rails/bin/docker-entrypoint"]
