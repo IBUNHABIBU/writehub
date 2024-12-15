@@ -7,6 +7,7 @@ export default class extends Controller {
   connect() {
     this.toggleNav();
     this.closeNav();
+    console.log("Humberger")
   }
 
   toggleNav() {
