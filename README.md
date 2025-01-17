@@ -299,3 +299,9 @@ I have successfully deployed the Rails 8 app using Kamal 2.3.0 on a Contabo VPS.
 
 
 deployer@vmi1909189:~$ docker exec -it -u 0 86417933f9c9 chmod -R 777 /rails/storage
+
+
+
+
+
+#### wanga
