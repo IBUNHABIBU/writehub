@@ -4,12 +4,20 @@ class ArticlesController < ApplicationController
   before_action :set_coordinates, only: [:index]
 
   def index
-    
     @articles = Article.all
     @recent_articles = Article.recent
     @most_rated_articles = Article.most_rated
     @weather_info = WeatherService.fetch_weather_and_image(@coordinates[0], @coordinates[1])
-    save_location_to_db(@coordinates);
+
+    if @weather_info.present?
+    latitude = @coordinates[0]
+    longitude = @coordinates[1]
+    city = @weather_info[:city_name][:city] rescue nil
+
+      if city.present? && latitude.present? && longitude.present?
+        UserLocation.create(latitude: latitude, longitude: longitude, city: city)
+      end
+    end
   end
 
    # GET /articles/1
@@ -72,7 +80,7 @@ class ArticlesController < ApplicationController
 
   def save_location_to_db(location_data)
     return unless location_data[:latitude].present? && location_data[:longitude].present?
-    
+    puts "****************Hello**************************"
     Rails.logger.info "**********************************************Error********************************"
     UserLocation.create(
       latitude: location_data[:latitude],
