@@ -33,14 +33,6 @@ class ApplicationController < ActionController::Base
 
   end
 
-    unless UserLocation.exists?(latitude: @user_latitude, longitude: @user_longitude, city: @user_city)
-      UserLocation.create!(
-        latitude: @user_latitude,
-        longitude: @user_longitude,
-        city: @user_city
-      )
-    end
-
 
     private
 

@@ -9,7 +9,7 @@ class ArticlesController < ApplicationController
     @recent_articles = Article.recent
     @most_rated_articles = Article.most_rated
     @weather_info = WeatherService.fetch_weather_and_image(@coordinates[0], @coordinates[1])
-
+    save_location_to_db(@coordinates);
   end
 
    # GET /articles/1
@@ -69,6 +69,19 @@ class ArticlesController < ApplicationController
 
 
   private
+
+  def save_location_to_db(location_data)
+    return unless location_data[:latitude].present? && location_data[:longitude].present?
+    
+    Rails.logger.info "**********************************************Error********************************"
+    UserLocation.create(
+      latitude: location_data[:latitude],
+      longitude: location_data[:longitude],
+      city: location_data[:city_name],
+    )
+  rescue => e
+      Rails.logger.error "Failed to save location: #{e.message}"
+  end
 
   def set_coordinates
     @coordinates = session[:coordinates] || [25.276987, 55.296249] # Default coordinates
