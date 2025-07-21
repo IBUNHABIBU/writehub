@@ -1,0 +1,16 @@
+<div class="matuzo">
+<% content_for :title, "New tuzo" %>
+
+<h1>Hongera kwa kushinda tuzo za wasapa</h1>
+
+<h3>Weka namba yako ya simu hapo uweze kutumiwa pesa yako</h3>
+
+<%= render "form", tuzo: @tuzo %>
+
+<br>
+
+<div>
+  <%= link_to "Back to tuzos", tuzos_path %>
+</div>
+
+</div>

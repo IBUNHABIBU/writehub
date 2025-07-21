@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @tuzo %>
+
+<div>
+  <%= link_to "Edit this tuzo", edit_tuzo_path(@tuzo) %> |
+  <%= link_to "Back to tuzos", tuzos_path %>
+
+  <%= button_to "Destroy this tuzo", @tuzo, method: :delete %>
+</div>

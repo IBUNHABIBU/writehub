@@ -1,0 +1,2 @@
+class Tuzo < ApplicationRecord
+end

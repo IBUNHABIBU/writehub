@@ -1,0 +1,16 @@
+<p style="color: green"><%= notice %></p>
+
+<% content_for :title, "Tuzos" %>
+
+<h1>Tuzos</h1>
+
+<div id="tuzos">
+  <% @tuzos.each do |tuzo| %>
+    <%= render tuzo %>
+    <p>
+      <%= link_to "Show this tuzo", tuzo %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New tuzo", new_tuzo_path %>

@@ -1,0 +1,12 @@
+<% content_for :title, "Editing tuzo" %>
+
+<h1>Editing tuzo</h1>
+
+<%= render "form", tuzo: @tuzo %>
+
+<br>
+
+<div>
+  <%= link_to "Show this tuzo", @tuzo %> |
+  <%= link_to "Back to tuzos", tuzos_path %>
+</div>
